@@ -174,10 +174,12 @@
 
 
 <!-- Step 1: immediately beneath the header -->
-<section class="container text-start my-4">
+<!-- Step 1: What are you shopping for -->
+<div class="container text-start mb-4">
   <h2 class="mb-2">✅ Step 1: What are you shopping for?</h2>
   <p class="text-muted mb-3">Type a product name, keyword, category, ASIN, ISBN, or UPC to start your search.</p>
-  <div style="border:1px solid #000; border-radius:6px; background:#fff; padding:1rem;">
+
+  <div class="card p-3">
     <input
       type="text"
       class="form-control"
@@ -186,12 +188,11 @@
       autocomplete="off"
     >
     <small class="form-text text-muted mt-2">
-      Supports Boolean operators: <code>AND</code>, <code>OR</code>, <code>NOT</code> 
+      Supports Boolean operators: <code>AND</code>, <code>OR</code>, <code>NOT</code>
       (e.g. <em>wireless AND headphones NOT bluetooth</em>).
     </small>
   </div>
-</section>
-
+</div>
 
 
       <!-- Step 2 heading ABOVE the card box -->
