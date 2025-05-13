@@ -194,6 +194,38 @@
   </div>
 </section>
 
+       <!-- Price Range: Directly under Step 1 -->
+<div class="container mb-4">
+  <div class="card p-3">
+    <h4>Price Range ($)</h4>
+    <div class="row g-3 align-items-end">
+      <!-- Min Price -->
+      <div class="col-12 col-lg-4">
+        <label class="form-label">Min</label>
+        <input type="number" step="0.01" class="form-control" name="min-price" placeholder="Min">
+      </div>
+
+      <!-- Max Price -->
+      <div class="col-12 col-lg-4">
+        <label class="form-label">Max</label>
+        <input type="number" step="0.01" class="form-control" name="max-price" placeholder="Max">
+      </div>
+
+      <!-- Type Dropdown -->
+      <div class="col-12 col-lg-4">
+        <label class="form-label">Type</label>
+        <select class="form-select" name="price-type">
+          <option value="">Any</option>
+          <option value="usd">USD</option>
+          <option value="sale">Sale Price</option>
+          <option value="list">List Price</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+
      <!-- Core Filters & Sorters -->
       <section>
         <h2 class="mb-3">Core Filters &amp; Sorters</h2>
@@ -208,45 +240,6 @@
             <div id="collapseCore" class="accordion-collapse collapse show" data-bs-parent="#accordionCore">
               <div class="accordion-body">
                 <div class="row g-4 equal-columns">
-
-                  <!-- Price Range -->
-                  <div class="col-12 col-md-6">
-                    <h4>Price Range ($)</h4>
-                    <div class="card p-3">
-                      <div class="row g-3 align-items-end">
-
-
-  <div class="container-fluid bg-white p-3 p-md-4 rounded shadow-sm">
-
-    <form id="amazon-search-form" autocomplete="off">
-      <input type="hidden" name="tag" value="echolover25-20">
-      <!-- department & node (change to suit your category) -->
-     <!-- department & node (FMC Everyday Essentials) -->
-
-  <!-- Min Price -->
-  <div class="col-12 col-lg-4">
-    <label class="form-label">Min</label>
-    <input type="number" step="0.01" class="form-control" name="min-price" placeholder="Min">
-  </div>
-
-  <!-- Max Price -->
-  <div class="col-12 col-lg-4">
-    <label class="form-label">Max</label>
-    <input type="number" step="0.01" class="form-control" name="max-price" placeholder="Max">
-  </div>
-
-  <!-- Type Dropdown (optional) -->
-  <div class="col-12 col-lg-4">
-    <label class="form-label">Type</label>
-    <select class="form-select" name="price-type">
-      <option value="">Any</option>
-      <option value="usd">USD</option>
-      <option value="sale">Sale Price</option>
-      <option value="list">List Price</option>
-    </select>
-  </div>
-</div>
-
                     </div>
                   </div>
 
