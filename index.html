@@ -176,11 +176,19 @@
  <header class="container text-center mt-4">
   <h1 class="text-pulse mb-3">Amazon Super Search</h1>
 </header>
-
-<!-- Start Step 1 immediately -->
-<section class="container mt-0">
-  <h2 class="mb-3">Step 1: Enter a Product name, Product type, Keyword, ASIN, ISBN, or UPC number</h2>
-</section>
+<h2 class="mb-3">Step 1: Enter a Product name, Product type, Keyword, ASIN, ISBN, or UPC number (Do not press "Enter"!)</h2>
+<div class="card p-3 mb-4">
+  <input
+    type="text"
+    class="form-control"
+    name="q"
+    placeholder="e.g. wireless headphones"
+    autocomplete="off"
+  >
+  <small class="form-text text-muted mt-2">
+    Supports Boolean operators: <code>AND</code>, <code>OR</code>, <code>NOT</code> (e.g. <em>wireless AND headphones NOT bluetooth</em>).
+  </small>
+</div>
 
 <!-- Help panel -->
 <div id="helpPanel" class="card" style="width: 280px; z-index: 1050;">
