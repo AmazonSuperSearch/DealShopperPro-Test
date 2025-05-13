@@ -172,24 +172,24 @@
 
 </script>
 
-<section class="container text-center my-4">
-  <h2 class="mb-2">Step 1: Enter a Product name, Product type, Keyword, ASIN, ISBN, or UPC number, and proceed to step 2.</h2>
-  <p class="text-muted mb-4" style="font-size: 1rem;">Do not press "Enter"</p>
-  <div class="card p-3 mx-auto" style="max-width: 1000px; border: 1px solid #000; border-radius: 6px;">
-    <input
-      type="text"
-      class="form-control"
-      name="q"
-      placeholder="e.g. wireless headphones"
-      autocomplete="off"
-    >
-    <small class="form-text text-muted mt-2">
-      Supports Boolean operators: <code>AND</code>, <code>OR</code>, <code>NOT</code> 
-      (e.g. <em>wireless AND headphones NOT bluetooth</em>).
-    </small>
-  </div>
-</section>
-  
+
+ <header class="container text-center mt-4">
+  <h1 class="text-pulse mb-3">Amazon Super Search</h1>
+</header>
+<h2 class="mb-3">Step 1: Enter a Product name, Product type, Keyword, ASIN, ISBN, or UPC number (Do not press "Enter"!)</h2>
+<div class="card p-3 mb-4">
+  <input
+    type="text"
+    class="form-control"
+    name="q"
+    placeholder="e.g. wireless headphones"
+    autocomplete="off"
+  >
+  <small class="form-text text-muted mt-2">
+    Supports Boolean operators: <code>AND</code>, <code>OR</code>, <code>NOT</code> (e.g. <em>wireless AND headphones NOT bluetooth</em>).
+  </small>
+</div>
+
 <!-- Help panel -->
 <div id="helpPanel" class="card" style="width: 280px; z-index: 1050;">
   <div class="card-header d-flex justify-content-between align-items-center">
