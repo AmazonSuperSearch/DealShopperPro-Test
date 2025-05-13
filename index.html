@@ -729,7 +729,7 @@ if (data.get('percent-off')) rh.push(`p_n_pct-off-with-discount:${data.get('perc
 
         // Combine & open
         if (rh.length) params.set('rh', rh.join(','));
-        params.set('tag', encodeURIComponent(data.get('tag')));
+        params.set('tag', 'echolover25-20');
         window.open(`https://www.amazon.com/s?${params.toString()}`, '_blank');
       });
     });
