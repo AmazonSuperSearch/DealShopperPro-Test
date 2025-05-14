@@ -140,31 +140,36 @@
   </p>
 </section>
 
-
 <form id="amazon-search-form">
-<!-- Step 1: What are you shopping for -->
 <div class="container text-start mb-4">
   <h2 class="mb-2">✅ Step 1: What are you shopping for?</h2>
-  <p class="text-muted mb-3">Type a product name, keyword, category, ASIN, ISBN, or UPC to start your search.</p>
+  <p class="text-muted mb-3">
+    Type a product name, keyword, category, ASIN, ISBN, or UPC to start your search.
+  </p>
 
   <div class="card p-3">
-  <div class="input-group">
-    <input
-      type="text"
-      class="form-control"
-      id="mainSearchInput"
-      name="q"
-      placeholder="e.g. wireless headphones"
-      autocomplete="off">
-    <button class="btn btn-outline-secondary" type="button" id="voiceSearchBtn">
-      🎤
-    </button>
+    <div class="input-group">
+      <!-- Mic on left -->
+      <button class="btn btn-outline-secondary" type="button" id="voiceSearchBtn">
+        🎤
+      </button>
+      <!-- Then the text input -->
+      <input
+        type="text"
+        class="form-control"
+        id="mainSearchInput"
+        name="q"
+        placeholder="e.g. wireless headphones"
+        autocomplete="off"
+      >
+    </div>
+    <small class="form-text text-muted mt-2">
+      Supports Boolean operators: <code>AND</code>, <code>OR</code>, <code>NOT</code>
+      (e.g. <em>wireless AND headphones NOT bluetooth</em>).
+    </small>
   </div>
-  <small class="form-text text-muted mt-2">
-    Supports Boolean operators: <code>AND</code>, <code>OR</code>, <code>NOT</code>
-    (e.g. <em>wireless AND headphones NOT bluetooth</em>).
-  </small>
 </div>
+
 
 
 
@@ -796,10 +801,9 @@ if (discounts.length > 0) {
 <section id="visitor-question" class="mb-4 text-center">
   <h3>✨ Join the Conversation: How Can We Make Amazon Super Search Even Better? ✨</h3>
   <p class="lead mb-4">
-    <p class="lead mb-4">
     If you like our page, share, share, share the love! ❤️
   </p>
-  </p>
+</section>
 
 <!-- Comments -->
 <div id="disqus_thread"></div>
