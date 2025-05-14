@@ -395,69 +395,77 @@
       <input class="form-check-input" type="checkbox" name="gift-wrap" id="giftWrap">
       <label class="form-check-label" for="giftWrap">Gift Wrap Available</label>
     </div>
-     <!-- ✅ Extra Smart Filters (New Suggestions) -->
-<div class="form-check mb-2">
-  <input class="form-check-input" type="checkbox" name="todays-deals" id="todaysDeals">
-  <label class="form-check-label" for="todaysDeals">Today's Deals Only</label>
-</div>
-<div class="form-check mb-2">
-  <input class="form-check-input" type="checkbox" name="ships-fast" id="shipsFast">
-  <label class="form-check-label" for="shipsFast">Ships in 24 Hours <small class="text-muted">(Coming Soon)</small></label>
-</div>
-<div class="form-check mb-2">
-  <input class="form-check-input" type="checkbox" name="back-in-stock" id="backInStock">
-  <label class="form-check-label" for="backInStock">Back in Stock Today <small class="text-muted">(Coming Soon)</small></label>
-</div>
-<div class="form-check mb-2">
-  <input class="form-check-input" type="checkbox" name="made-in-usa" id="madeInUsa">
-  <label class="form-check-label" for="madeInUsa">Made in USA <small class="text-muted">(Coming Soon)</small></label>
-</div>
-<div class="form-check mb-2">
-  <input class="form-check-input" type="checkbox" name="small-business" id="smallBusiness">
-  <label class="form-check-label" for="smallBusiness">Small Business Products</label>
-</div>
-<div class="form-check mb-2">
-  <input class="form-check-input" type="checkbox" name="amazon-brands" id="amazonBrands">
-  <label class="form-check-label" for="amazonBrands">Amazon Brands Only</label>
-</div>
-<div class="form-check mb-2">
-  <input class="form-check-input" type="checkbox" name="eco-friendly" id="ecoFriendly">
-  <label class="form-check-label" for="ecoFriendly">Eco-Friendly Products <small class="text-muted">(Coming Soon)</small></label>
-</div>
-<div class="form-check mb-2">
-  <input class="form-check-input" type="checkbox" name="trending-now" id="trendingNow">
-  <label class="form-check-label" for="trendingNow">Trending Right Now <small class="text-muted">(Coming Soon)</small></label>
-</div>
-<div class="form-check mb-2">
-  <input class="form-check-input" type="checkbox" name="new-last-week" id="newLastWeek">
-  <label class="form-check-label" for="newLastWeek">New Arrivals (Last 7 Days) <small class="text-muted">(Coming Soon)</small></label>
-</div>
-<div class="form-check mb-2">
-  <input class="form-check-input" type="checkbox" name="top-category" id="topCategory">
-  <label class="form-check-label" for="topCategory">Top 1% of Category <small class="text-muted">(Coming Soon)</small></label>
-</div>
-<div class="form-check mb-2">
-  <input class="form-check-input" type="checkbox" name="low-rating" id="lowRating">
-  <label class="form-check-label" for="lowRating">Low Rating Products (⚠️)</label>
-</div>
-<div class="form-check mb-2">
-  <input class="form-check-input" type="checkbox" name="hidden-coupon" id="hiddenCoupon">
-  <label class="form-check-label" for="hiddenCoupon">Hidden Coupons Only <small class="text-muted">(Coming Soon)</small></label>
-</div>
-<div class="form-check mb-2">
-  <input class="form-check-input" type="checkbox" name="giftable" id="giftable">
-  <label class="form-check-label" for="giftable">Highly Giftable Items <small class="text-muted">(Coming Soon)</small></label>
-</div>
-<div class="form-check mb-2">
-  <input class="form-check-input" type="checkbox" name="bundle-match" id="bundleMatch">
-  <label class="form-check-label" for="bundleMatch">Frequently Bought Together <small class="text-muted">(Coming Soon)</small></label>
-</div>
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" name="low-stock" id="lowStock">
-  <label class="form-check-label" for="lowStock">Low Inventory Left (Urgent) <small class="text-muted">(Coming Soon)</small></label>
+    <!-- ✅ Extra Smart Filters (Organized Grid Layout) -->
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+
+    <!-- Available Filters -->
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="todays-deals" id="todaysDeals">
+      <label class="form-check-label" for="todaysDeals">Today's Deals Only</label>
     </div>
-  </div>
-</section>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="small-business" id="smallBusiness">
+      <label class="form-check-label" for="smallBusiness">Small Business Products</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="amazon-brands" id="amazonBrands">
+      <label class="form-check-label" for="amazonBrands">Amazon Brands Only</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="low-rating" id="lowRating">
+      <label class="form-check-label" for="lowRating">Low Rating Products (⚠️)</label>
+    </div>
+
+    <!-- Coming Soon Filters -->
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="ships-fast" id="shipsFast">
+      <label class="form-check-label" for="shipsFast">Ships in 24 Hours <small class="text-muted">(Coming Soon)</small></label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="back-in-stock" id="backInStock">
+      <label class="form-check-label" for="backInStock">Back in Stock Today <small class="text-muted">(Coming Soon)</small></label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="made-in-usa" id="madeInUsa">
+      <label class="form-check-label" for="madeInUsa">Made in USA <small class="text-muted">(Coming Soon)</small></label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="eco-friendly" id="ecoFriendly">
+      <label class="form-check-label" for="ecoFriendly">Eco-Friendly Products <small class="text-muted">(Coming Soon)</small></label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="trending-now" id="trendingNow">
+      <label class="form-check-label" for="trendingNow">Trending Right Now <small class="text-muted">(Coming Soon)</small></label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="new-last-week" id="newLastWeek">
+      <label class="form-check-label" for="newLastWeek">New Arrivals (Last 7 Days) <small class="text-muted">(Coming Soon)</small></label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="top-category" id="topCategory">
+      <label class="form-check-label" for="topCategory">Top 1% of Category <small class="text-muted">(Coming Soon)</small></label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="hidden-coupon" id="hiddenCoupon">
+      <label class="form-check-label" for="hiddenCoupon">Hidden Coupons Only <small class="text-muted">(Coming Soon)</small></label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="giftable" id="giftable">
+      <label class="form-check-label" for="giftable">Highly Giftable Items <small class="text-muted">(Coming Soon)</small></label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="bundle-match" id="bundleMatch">
+      <label class="form-check-label" for="bundleMatch">Frequently Bought Together <small class="text-muted">(Coming Soon)</small></label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="low-stock" id="lowStock">
+      <label class="form-check-label" for="lowStock">Low Inventory Left (Urgent) <small class="text-muted">(Coming Soon)</small></label>
+     </div> <!-- close last .form-check -->
+  </div>   <!-- close .row -->
+</div>     <!-- close .container -->
+</div>     <!-- close .card -->
+</section> <!-- close Step 5 section -->
 
   <!-- Step 6: Search Amazon -->
 <section class="container text-start mb-5">
