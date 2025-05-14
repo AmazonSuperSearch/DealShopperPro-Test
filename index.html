@@ -610,18 +610,14 @@
         Share via SMS
       </a>
     </div>
-    <label class="form-label" for="shareLink">Copy Link</label>
-    <div class="input-group mb-3">
-      <input type="text"
-             class="form-control"
-             id="shareLink"
-             readonly>
-      <button class="btn btn-outline-secondary pulse-orange"
-              type="button"
-              onclick="navigator.clipboard.writeText(document.getElementById('shareLink').value)">
-        Copy URL
-      </button>
-    </div>
+   <div class="input-group mb-3 mx-auto" style="max-width: 400px;">
+  <input type="text" class="form-control" id="shareLink" readonly>
+  <button class="btn btn-outline-secondary pulse-orange" type="button"
+          onclick="navigator.clipboard.writeText(document.getElementById('shareLink').value)">
+    Copy URL
+  </button>
+</div>
+
     <script>
       // Populate the shareLink field on load
       document.addEventListener('DOMContentLoaded', function() {
