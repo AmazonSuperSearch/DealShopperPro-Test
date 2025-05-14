@@ -686,12 +686,20 @@ if (data.get('percent-off')) rh.push(`p_n_pct-off-with-discount:${data.get('perc
         try { incArr = JSON.parse(data.get('brand-include')||'[]').map(o=>encodeURIComponent(o.value)); } catch{}
         try { excArr = JSON.parse(data.get('brand-exclude')||'[]').map(o=>`-${encodeURIComponent(o.value)}`); } catch{}
         if (incArr.length) {
-          rh.push( incOnly
-            ? incArr.map(v=>`p_89:${v}`).join(',')
-            : `p_89:${incArr.join('|')}`
-          );
-        }
-        if (excArr.length) rh.push(`p_89:${excArr.join('|')}`);
+  if (incOnly) {
+    // Add multiple AND match-only filters (split into multiple keys)
+    incArr.forEach(v => rh.push(`p_89:${v}`));
+  } else {
+    // OR search
+    rh.push(`p_89:${incArr.join('|')}`);
+  }
+}
+
+if (excArr.length) {
+  // Negation with minus prefix
+  rh.push(`p_89:${excArr.join('|')}`);
+}
+
 
         // 5) Deal-Hunter Goodies
         if (data.get('price-drop')?.trim())     rh.push(`p_n_pct-off-with-discount:${data.get('price-drop')}`);
