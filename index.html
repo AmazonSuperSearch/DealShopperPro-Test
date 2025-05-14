@@ -702,11 +702,22 @@ if (excArr.length) {
 
 
         // 5) Deal-Hunter Goodies
-        if (data.get('price-drop')?.trim())     rh.push(`p_n_pct-off-with-discount:${data.get('price-drop')}`);
-        if (data.get('below-avg-30')?.trim())   rh.push(`p_n_pct-off-with-discount:${data.get('below-avg-30')}`);
-        if (data.get('below-avg-60')?.trim())   rh.push(`p_n_pct-off-with-discount:${data.get('below-avg-60')}`);
-        if (data.get('below-avg-90')?.trim())   rh.push(`p_n_pct-off-with-discount:${data.get('below-avg-90')}`);
-        if (data.get('max-volatility-7')?.trim()) rh.push(`p_n_pct-off-with-discount:${data.get('max-volatility-7')}`);
+       // 5) Deal-Hunter Goodies
+const discounts = [
+  data.get('price-drop'),
+  data.get('below-avg-30'),
+  data.get('below-avg-60'),
+  data.get('below-avg-90'),
+  data.get('max-volatility-7')
+]
+  .map(v => parseFloat(v))
+  .filter(v => !isNaN(v));
+
+if (discounts.length > 0) {
+  const maxDiscount = Math.max(...discounts);
+  rh.push(`p_n_pct-off-with-discount:${maxDiscount}`);
+}
+
         if (data.get('coupon-only')==='on')     rh.push('p_n_coupons_available:1');
         if (data.get('warehouse-refurb')==='on') rh.push('p_n_warehouse_refurbished:1');
 
@@ -769,6 +780,19 @@ if (excArr.length) {
         }
       });
     }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    new Tagify(document.getElementById('brandInclude'), {
+      whitelist: ["Sony","Samsung","LG","Acer","Apple","Dell"],
+      dropdown: { enabled: 0, maxItems: 10 }
+    });
+
+    new Tagify(document.getElementById('brandExclude'), {
+      whitelist: ["Sony","Samsung","LG","Acer","Apple","Dell"],
+      dropdown: { enabled: 0, maxItems: 10 }
+    });
   });
 </script>
 
