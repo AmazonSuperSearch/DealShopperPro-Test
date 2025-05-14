@@ -442,23 +442,31 @@
                 Deal-Hunter Goodies
               </button>
             </h2>
-            <div id="collapseDeal" class="accordion-collapse collapse" data-bs-parent="#accordionDeal">
-              <div class="accordion-body">
-                <div class="mb-3"><label class="form-label">Discount (%) from 90-Day Average Price</label>
-<input type="number" class="form-control" name="price-drop" placeholder="e.g. 20"></div>
-                <div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="coupon-only" id="couponOnly"><label class="form-check-label" for="couponOnly">Coupon-Clippable Only</label></div>
-                <div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="warehouse-refurb" id="warehouseRefurb"><label class="form-check-label" for="warehouseRefurb">Warehouse / Open-Box</label></div>
-                <div class="row g-3 mt-3">
-                  <div class="col-6 col-md-3"><label class="form-label">Discount (%) from 30-Day Average</label><input type="number" min="0" class="form-control" name="below-avg-30" placeholder="e.g. 20"></div>
-                  <div class="col-6 col-md-3"><label class="form-label">Discount (%) from 60-Day Average</label><input type="number" min="0" class="form-control" name="below-avg-60" placeholder="e.g. 15"></div>
-                  <div class="col-6 col-md-3"><label class="form-label">Discount (%) from 90-Day Average</label><input type="number" min="0" class="form-control" name="below-avg-90" placeholder="e.g. 10"></div>
-                  <div class="col-6 col-md-3"><label class="form-label">Maximum Daily Price Fluctuation (%)</label><input type="number" min="0" class="form-control" name="max-volatility-7" placeholder="e.g. 5"></div>
+             <div id="collapseDeal" class="accordion-collapse collapse" data-bs-parent="#accordionDeal">
+          <div class="accordion-body">
+            <!-- your existing inputs here -->
+
+           <!-- NEW: How to use Deal-Hunter Goodies dropdown -->
+            <div class="mt-3">
+              <button class="btn btn-sm btn-outline-primary w-100 text-start"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#howToDealHunter"
+                      aria-expanded="false"
+                      aria-controls="howToDealHunter">
+                ▶ How to use Deal-Hunter Goodies
+              </button>
+              <div class="collapse mt-2" id="howToDealHunter">
+                <div class="card card-body p-3">+                  <!-- …all of your “Here’s how to…” content… -->
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+            <!-- end How to use Deal-Hunter Goodies -->
+
+           </div>  <!-- /.accordion-body -->
+         </div>    <!-- /.accordion-collapse -->
+       </div>      <!-- /.accordion-item -->
+     </div>
+   </section>
 
       <!-- Comparison & Research Aids -->
       <section>
