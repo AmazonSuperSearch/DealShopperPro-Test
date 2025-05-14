@@ -897,7 +897,20 @@ if (discounts.length > 0) {
     });
   });
 </script>
-
+<!-- click sound -->
+<audio id="btnSound" src="/sounds/click.mp3" preload="auto"></audio>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const clickSound = document.getElementById('btnSound');
+    document.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        // rewind to start if the sound is already playing
+        clickSound.currentTime = 0;
+        clickSound.play().catch(_=>{/* silence play-interrupt errors */});
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
