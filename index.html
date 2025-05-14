@@ -141,29 +141,32 @@
   <h2 class="mb-2">✅ Step 1: What are you shopping for?</h2>
   <p class="text-muted mb-3">Type a product name, keyword, category, ASIN, ISBN, or UPC to start your search.</p>
 
-  <div class="card p-3">
-   <input
-  type="text"
-  class="form-control"
-  id="mainSearchInput"
-  name="q"
-  placeholder="e.g. wireless headphones"
-  autocomplete="off"
-     <button
-  type="button"
-  id="voiceSearchBtn"
-  class="btn btn-outline-secondary ms-2"
-  aria-label="Voice Search"
->
-  🎤
-</button>
-/>
-
-    <small class="form-text text-muted mt-2">
-      Supports Boolean operators: <code>AND</code>, <code>OR</code>, <code>NOT</code>
-      (e.g. <em>wireless AND headphones NOT bluetooth</em>).
-    </small>
+ <div class="card p-3">
+  <div class="d-flex align-items-center">
+    <input
+      type="text"
+      class="form-control"
+      id="mainSearchInput"
+      name="q"
+      placeholder="e.g. wireless headphones"
+      autocomplete="off"
+    />
+    <button
+      type="button"
+      id="voiceSearchBtn"
+      class="btn btn-outline-secondary ms-2"
+      aria-label="Voice Search"
+    >
+      🎤
+    </button>
   </div>
+
+  <small class="form-text text-muted mt-2">
+    Supports Boolean operators: <code>AND</code>, <code>OR</code>, <code>NOT</code>
+    (e.g. <em>wireless AND headphones NOT bluetooth</em>).
+  </small>
+</div>
+
 </div>
 
 
@@ -833,6 +836,44 @@ if (discounts.length > 0) {
       if (rh.length) params.set('rh', rh.join(','));
       params.set('tag','echolover25-20');
       window.open(`https://www.amazon.com/s?${params.toString()}`,'_blank');
+    });
+  });
+</script>
+<!-- Voice-search Web Speech API -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('voiceSearchBtn');
+    const input = document.getElementById('mainSearchInput');
+
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      btn.disabled = true;
+      return;
+    }
+
+    const recog = new SpeechRecognition();
+    recog.lang = 'en-US';
+    recog.interimResults = false;
+    recog.maxAlternatives = 1;
+
+    btn.addEventListener('click', () => {
+      recog.start();
+      btn.classList.add('pulse-glow');
+    });
+
+    recog.addEventListener('result', (e) => {
+      const transcript = e.results[0][0].transcript;
+      input.value = transcript;
+    });
+
+    recog.addEventListener('end', () => {
+      btn.classList.remove('pulse-glow');
+      input.focus();
+    });
+
+    recog.addEventListener('error', (e) => {
+      console.error('Speech recognition error:', e.error);
+      btn.classList.remove('pulse-glow');
     });
   });
 </script>
