@@ -395,6 +395,67 @@
       <input class="form-check-input" type="checkbox" name="gift-wrap" id="giftWrap">
       <label class="form-check-label" for="giftWrap">Gift Wrap Available</label>
     </div>
+     <!-- ✅ Extra Smart Filters (New Suggestions) -->
+<div class="form-check mb-2">
+  <input class="form-check-input" type="checkbox" name="todays-deals" id="todaysDeals">
+  <label class="form-check-label" for="todaysDeals">Today's Deals Only</label>
+</div>
+<div class="form-check mb-2">
+  <input class="form-check-input" type="checkbox" name="ships-fast" id="shipsFast">
+  <label class="form-check-label" for="shipsFast">Ships in 24 Hours <small class="text-muted">(Coming Soon)</small></label>
+</div>
+<div class="form-check mb-2">
+  <input class="form-check-input" type="checkbox" name="back-in-stock" id="backInStock">
+  <label class="form-check-label" for="backInStock">Back in Stock Today <small class="text-muted">(Coming Soon)</small></label>
+</div>
+<div class="form-check mb-2">
+  <input class="form-check-input" type="checkbox" name="made-in-usa" id="madeInUsa">
+  <label class="form-check-label" for="madeInUsa">Made in USA <small class="text-muted">(Coming Soon)</small></label>
+</div>
+<div class="form-check mb-2">
+  <input class="form-check-input" type="checkbox" name="small-business" id="smallBusiness">
+  <label class="form-check-label" for="smallBusiness">Small Business Products</label>
+</div>
+<div class="form-check mb-2">
+  <input class="form-check-input" type="checkbox" name="amazon-brands" id="amazonBrands">
+  <label class="form-check-label" for="amazonBrands">Amazon Brands Only</label>
+</div>
+<div class="form-check mb-2">
+  <input class="form-check-input" type="checkbox" name="eco-friendly" id="ecoFriendly">
+  <label class="form-check-label" for="ecoFriendly">Eco-Friendly Products <small class="text-muted">(Coming Soon)</small></label>
+</div>
+<div class="form-check mb-2">
+  <input class="form-check-input" type="checkbox" name="trending-now" id="trendingNow">
+  <label class="form-check-label" for="trendingNow">Trending Right Now <small class="text-muted">(Coming Soon)</small></label>
+</div>
+<div class="form-check mb-2">
+  <input class="form-check-input" type="checkbox" name="new-last-week" id="newLastWeek">
+  <label class="form-check-label" for="newLastWeek">New Arrivals (Last 7 Days) <small class="text-muted">(Coming Soon)</small></label>
+</div>
+<div class="form-check mb-2">
+  <input class="form-check-input" type="checkbox" name="top-category" id="topCategory">
+  <label class="form-check-label" for="topCategory">Top 1% of Category <small class="text-muted">(Coming Soon)</small></label>
+</div>
+<div class="form-check mb-2">
+  <input class="form-check-input" type="checkbox" name="low-rating" id="lowRating">
+  <label class="form-check-label" for="lowRating">Low Rating Products (⚠️)</label>
+</div>
+<div class="form-check mb-2">
+  <input class="form-check-input" type="checkbox" name="hidden-coupon" id="hiddenCoupon">
+  <label class="form-check-label" for="hiddenCoupon">Hidden Coupons Only <small class="text-muted">(Coming Soon)</small></label>
+</div>
+<div class="form-check mb-2">
+  <input class="form-check-input" type="checkbox" name="giftable" id="giftable">
+  <label class="form-check-label" for="giftable">Highly Giftable Items <small class="text-muted">(Coming Soon)</small></label>
+</div>
+<div class="form-check mb-2">
+  <input class="form-check-input" type="checkbox" name="bundle-match" id="bundleMatch">
+  <label class="form-check-label" for="bundleMatch">Frequently Bought Together <small class="text-muted">(Coming Soon)</small></label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" name="low-stock" id="lowStock">
+  <label class="form-check-label" for="lowStock">Low Inventory Left (Urgent) <small class="text-muted">(Coming Soon)</small></label>
+    </div>
   </div>
 </section>
 
@@ -768,6 +829,26 @@ if (data.get('percent-off')) rh.push(`p_n_pct-off-with-discount:${data.get('perc
         if (data.get('best-seller')==='on')   rh.push('p_n_feature_browse-bin:15527981011');
         if (data.get('free-returns')==='on')  rh.push('p_n_free_returns_option:1');
         if (data.get('gift-wrap')==='on')     rh.push('p_n_gift_wrap_available:1');
+       // ✅ Extra Smart Filters (Supported)
+if (data.get('todays-deals') === 'on')      rh.push('p_n_deals_ii:2499179011');
+if (data.get('small-business') === 'on')    rh.push('p_n_c_is_small_business:1');
+if (data.get('amazon-brands') === 'on')     rh.push('p_n_is_amazon_brand:1');
+if (data.get('low-rating') === 'on')        rh.push('p_72:1100');
+
+// 🚧 Coming Soon Filters (not yet supported in URL)
+if (data.get('ships-fast') === 'on')        console.log('Ships in 24 Hours — Coming Soon');
+if (data.get('back-in-stock') === 'on')     console.log('Back in Stock Today — Coming Soon');
+if (data.get('made-in-usa') === 'on')       console.log('Made in USA — Coming Soon');
+if (data.get('eco-friendly') === 'on')      console.log('Eco-Friendly Products — Coming Soon');
+if (data.get('trending-now') === 'on')      console.log('Trending Right Now — Coming Soon');
+if (data.get('new-last-week') === 'on')     console.log('New Arrivals (Last 7 Days) — Coming Soon');
+if (data.get('top-category') === 'on')      console.log('Top 1% of Category — Coming Soon');
+if (data.get('hidden-coupon') === 'on')     console.log('Hidden Coupons Only — Coming Soon');
+if (data.get('giftable') === 'on')          console.log('Highly Giftable Items — Coming Soon');
+if (data.get('bundle-match') === 'on')      console.log('Frequently Bought Together — Coming Soon');
+if (data.get('low-stock') === 'on')         console.log('Low Inventory Left — Coming Soon');
+
+
        
 
         // 4) Brand Include/Exclude
