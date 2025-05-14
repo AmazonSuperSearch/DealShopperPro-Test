@@ -151,9 +151,10 @@
   autocomplete="off"
 />
 
- <small class="form-text text-muted mt-2">
-  Boolean operators (AND, OR, NOT) are available when you enable them under Power-User Tools. (e.g. wireless AND headphones NOT bluetooth).
-</small>
+    <small class="form-text text-muted mt-2">
+      Supports Boolean operators: <code>AND</code>, <code>OR</code>, <code>NOT</code>
+      (e.g. <em>wireless AND headphones NOT bluetooth</em>).
+    </small>
   </div>
 </div>
 
@@ -338,15 +339,16 @@
   <div class="text-center">
     <button type="submit" class="btn btn-primary btn-lg w-100 pulse-glow">Search Amazon</button>
   </div>
-  </section>
-  </form>
+</section>
+</form>
+</section>
 <!-- Step 7: Advanced Settings -->
 <section class="container text-start mb-4">
   <h2 class="mb-2">✅ Step 7: Advanced Settings</h2>
   <p class="text-muted mb-3">Explore advanced filters and tools to refine your search even further.</p>
 </section>
       <!-- Power-User Tools -->
-      <div class="container text-start mb-4">
+      <section>
         <div class="accordion mb-4" id="accordionPower">
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingPower">
@@ -356,195 +358,41 @@
             </h2>
             <div id="collapsePower" class="accordion-collapse collapse" data-bs-parent="#accordionPower">
               <div class="accordion-body">
-                <!-- …inside your Power-User Tools accordion-body… -->
-<div class="accordion-body">
-
-  <!-- Existing controls -->
-  <div class="form-check mb-2">
-    <input class="form-check-input" type="checkbox" name="enable-boolean" id="enableBoolean">
-    <label class="form-check-label" for="enableBoolean">Enable Boolean Operators</label>
-  </div>
-  <div class="mb-2">
-    <label class="form-label">Field Filters</label>
-    <input type="text" class="form-control" name="field-filters" placeholder="e.g. field-brand:Sony">
-  </div>
-  <div class="mb-2">
-    <label class="form-label">ASIN / ISBN Direct Lookup</label>
-    <input type="text" class="form-control" name="direct-lookup" placeholder="Enter ASIN, ISBN or UPC">
-  </div>
-
-  <!-- NEW: How to use this tool dropdown -->
-  <div class="mt-3">
-    <button class="btn btn-sm btn-outline-primary w-100 text-start" 
-            data-bs-toggle="collapse" 
-            data-bs-target="#howToPowerTools" 
-            aria-expanded="false" 
-            aria-controls="howToPowerTools">
-      ▶ How to use this tool
-    </button>
-    <div class="collapse mt-2" id="howToPowerTools">
-      <div class="card card-body p-3">
-        <h6>1. Enable Boolean Operators</h6>
-        <p><strong>What it does:</strong> Allows you to use <code>AND</code>, <code>OR</code> and <code>NOT</code> in your main keyword box exactly as you typed them.</p>
-        <p><strong>How to use it:</strong></p>
-        <ol>
-          <li>Expand Power-User Tools.</li>
-          <li>Check “Enable Boolean Operators”.</li>
-          <li>In Step 1, type queries like <code>wireless AND headphones NOT bluetooth</code>.</li>
-        </ol>
-        <hr>
-        <h6>2. Field Filters</h6>
-        <p><strong>What it does:</strong> Lets you apply any of Amazon’s internal <code>field:value</code> filters (the ones in <code>rh=</code>) without editing the URL.</p>
-        <p><strong>Common examples:</strong></p>
-        <ul>
-          <li><code>field-brand:Sony</code> – only Sony products</li>
-          <li><code>field-author:J.K.Rowling</code> – only books by J.K. Rowling</li>
-          <li><code>field-price:100-200</code> – items priced \$1.00–\$2.00</li>
-        </ul>
-        <p><strong>How to use it:</strong></p>
-        <ol>
-          <li>Type one or more expressions (space-separated) into Field Filters.</li>
-          <li>Example for Sony headphones under \$50, 4★+:<br>
-            – Step 1: <code>wireless headphones</code><br>
-            – Field Filters: <code>field-brand:Sony field-price:0-50 field-rating:4-</code>
-          </li>
-          <li>Hit “Search Amazon”.</li>
-        </ol>
-        <hr>
-        <h6>3. ASIN / ISBN Direct Lookup</h6>
-        <p><strong>What it does:</strong> Immediately jumps to a single product page by ASIN, ISBN or UPC.</p>
-        <p><strong>How to use it:</strong></p>
-        <ol>
-          <li>Paste the code (e.g. <code>B07PGL2ZSL</code> or <code>9780525555371</code>) into the lookup field.</li>
-          <li>Click “Search Amazon”.</li>
-        </ol>
-        <hr>
-        <h6>Putting it all together</h6>
-        <ul>
-          <li>Expand Power-User Tools</li>
-          <li>(Optional) Enable Boolean Operators</li>
-          <li>(Optional) Add any Field Filters</li>
-          <li>(Optional) Paste an ASIN/ISBN for direct lookup</li>
-          <li>Click “Search Amazon”</li>
-        </ul>
-        </div> <!-- /.accordion-body -->
-    </div>   <!-- /.accordion-collapse -->
-  </div>     <!-- /.accordion-item -->
-</div> <!-- /.container -->
-
-
-  
-     <!-- Deal-Hunter Goodies -->
- <section class="container text-start mb-4">
-  <div class="accordion mb-4" id="accordionDeal">
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingDeal">
-        <button class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseDeal"
-                aria-expanded="false"
-                aria-controls="collapseDeal">
-          Deal-Hunter Goodies
-        </button>
-      </h2>
-
-      <div id="collapseDeal"
-           class="accordion-collapse collapse"
-           aria-labelledby="headingDeal"
-           data-bs-parent="#accordionDeal">
-        <div class="accordion-body">
-
-          <!-- Your existing Deal-Hunter inputs go here -->
-          <div class="mb-3">
-            <label class="form-label">Discount (%) from 90-Day Average Price</label>
-            <input type="number" class="form-control" name="price-drop" placeholder="e.g. 20">
-          </div>
-          <div class="form-check mb-2">
-            <input class="form-check-input" type="checkbox" name="coupon-only" id="couponOnly">
-            <label class="form-check-label" for="couponOnly">Coupon-Clippable Only</label>
-          </div>
-          <div class="form-check mb-2">
-            <input class="form-check-input" type="checkbox" name="warehouse-refurb" id="warehouseRefurb">
-            <label class="form-check-label" for="warehouseRefurb">Warehouse / Open-Box</label>
-          </div>
-          <div class="row g-3 mt-3">
-            <div class="col-6 col-md-3">
-              <label class="form-label">Discount (%) from 30-Day Average</label>
-              <input type="number" min="0" class="form-control" name="below-avg-30" placeholder="e.g. 20">
-            </div>
-            <div class="col-6 col-md-3">
-              <label class="form-label">Discount (%) from 60-Day Average</label>
-              <input type="number" min="0" class="form-control" name="below-avg-60" placeholder="e.g. 15">
-            </div>
-            <div class="col-6 col-md-3">
-              <label class="form-label">Discount (%) from 90-Day Average</label>
-              <input type="number" min="0" class="form-control" name="below-avg-90" placeholder="e.g. 10">
-            </div>
-            <div class="col-6 col-md-3">
-              <label class="form-label">Maximum Daily Price Fluctuation (%)</label>
-              <input type="number" min="0" class="form-control" name="max-volatility-7" placeholder="e.g. 5">
-            </div>
-          </div>
-
-          <!-- NEW: How to use Deal-Hunter Goodies dropdown -->
-          <div class="mt-3">
-            <button class="btn btn-sm btn-outline-primary w-100 text-start"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#howToDealHunter"
-                    aria-expanded="false"
-                    aria-controls="howToDealHunter">
-              ▶ How to use Deal-Hunter Goodies
-            </button>
-            <div class="collapse mt-2" id="howToDealHunter">
-              <div class="card card-body p-3">
-                <h6>Here’s how to make the most of the Deal-Hunter Goodies panel:</h6>
-                <ol>
-                  <li><strong>Open the Deal-Hunter Goodies</strong><br>
-                    Click the “Deal-Hunter Goodies” header to expand this section.
-                  </li>
-                  <li><strong>Discount (%) from 90-Day Average Price</strong><br>
-                    <em>What it does:</em> Compares current price vs. 90-day average.<br>
-                    <em>How to use it:</em> Enter % (e.g. 20) to see only items ≥20% below their 90-day avg.
-                  </li>
-                  <li><strong>Coupon-Clippable Only</strong><br>
-                    <em>What it does:</em> Shows only products with on-page coupons.<br>
-                    <em>How to use it:</em> Check the box to hide everything else.
-                  </li>
-                  <li><strong>Warehouse / Open-Box</strong><br>
-                    <em>What it does:</em> Includes only Amazon Warehouse or open-box items.<br>
-                    <em>How to use it:</em> Check to filter to refurbished/open-box listings.
-                  </li>
-                  <li><strong>Discount (%) from 30-, 60-, and 90-Day Averages</strong><br>
-                    <em>What it does:</em> Lets you focus on recent vs. longer-term discount thresholds.<br>
-                    <em>How to use it:</em> Fill in one or more fields; the largest % is applied.
-                  </li>
-                  <li><strong>Maximum Daily Price Fluctuation (%)</strong><br>
-                    <em>What it does:</em> Filters out items with >X% price swing in 24 hrs.<br>
-                    <em>How to use it:</em> Enter e.g. 5 to avoid ultra-volatile listings.
-                  </li>
-                </ol>
-                <hr>
-                <h6>Putting It All Together</h6>
-                <ul>
-                  <li>Expand Deal-Hunter Goodies</li>
-                  <li>(Optional) Enter a 90-Day Discount %</li>
-                  <li>(Optional) Check Coupon-Clippable or Warehouse/Open-Box</li>
-                  <li>(Optional) Use 30/60/90-Day fields as needed</li>
-                  <li>(Optional) Set Max Daily Volatility</li>
-                  <li>Click “Search Amazon” to apply your filters</li>
-                </ul>
+                <div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="enable-boolean" id="enableBoolean"><label class="form-check-label" for="enableBoolean">Enable Boolean Operators</label></div>
+                <div class="mb-2"><label class="form-label">Field Filters</label><input type="text" class="form-control" name="field-filters" placeholder="e.g. field-brand:Sony"></div>
+                <div class="mb-2"><label class="form-label">ASIN / ISBN Direct Lookup</label><input type="text" class="form-control" name="direct-lookup" placeholder="Enter ASIN, ISBN or UPC"></div>
               </div>
             </div>
           </div>
-          <!-- end How to use Deal-Hunter Goodies -->
+        </div>
+      </section>
 
-        </div>  <!-- /.accordion-body -->
-      </div>    <!-- /.accordion-collapse -->
-    </div>      <!-- /.accordion-item -->
-  </div>
-</section>
-
+      <!-- Deal-Hunter Goodies -->
+      <section>
+        <div class="accordion mb-4" id="accordionDeal">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingDeal">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDeal">
+                Deal-Hunter Goodies
+              </button>
+            </h2>
+            <div id="collapseDeal" class="accordion-collapse collapse" data-bs-parent="#accordionDeal">
+              <div class="accordion-body">
+                <div class="mb-3"><label class="form-label">Discount (%) from 90-Day Average Price</label>
+<input type="number" class="form-control" name="price-drop" placeholder="e.g. 20"></div>
+                <div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="coupon-only" id="couponOnly"><label class="form-check-label" for="couponOnly">Coupon-Clippable Only</label></div>
+                <div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="warehouse-refurb" id="warehouseRefurb"><label class="form-check-label" for="warehouseRefurb">Warehouse / Open-Box</label></div>
+                <div class="row g-3 mt-3">
+                  <div class="col-6 col-md-3"><label class="form-label">Discount (%) from 30-Day Average</label><input type="number" min="0" class="form-control" name="below-avg-30" placeholder="e.g. 20"></div>
+                  <div class="col-6 col-md-3"><label class="form-label">Discount (%) from 60-Day Average</label><input type="number" min="0" class="form-control" name="below-avg-60" placeholder="e.g. 15"></div>
+                  <div class="col-6 col-md-3"><label class="form-label">Discount (%) from 90-Day Average</label><input type="number" min="0" class="form-control" name="below-avg-90" placeholder="e.g. 10"></div>
+                  <div class="col-6 col-md-3"><label class="form-label">Maximum Daily Price Fluctuation (%)</label><input type="number" min="0" class="form-control" name="max-volatility-7" placeholder="e.g. 5"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <!-- Comparison & Research Aids -->
       <section>
@@ -667,21 +515,6 @@
     document.getElementById('shareLink').value = shareBase;
   </script>
 </section>
-<!-- Real-Time Price Drop Alerts -->
-<section id="price-alerts" class="container text-start mb-5">
-  <h2 class="mb-2">🔔 Real-Time Price Drop Alerts</h2>
-  <p class="text-muted mb-3">
-    Never miss a price dip again—set up instant notifications for any Amazon product.
-  </p>
-  <div class="card p-3">
-    <p class="mb-2">
-      We recommend using Keepa’s powerful alerts to track price history and get real-time email or browser notifications when prices fall.
-    </p>
-    <a href="https://keepa.com/" target="_blank" rel="noopener" class="btn btn-outline-primary">
-      Keepa – Amazon Price History &amp; Real-Time Alerts
-    </a>
-  </div>
-</section>
 
  <!-- How-To Modal -->
 <div class="modal fade" id="howToModal" tabindex="-1" aria-labelledby="howToModalLabel" aria-hidden="true">
@@ -705,8 +538,10 @@
   </div>
 </div>
 
+    </form>
+
   </div><!-- /.container -->
-</div><!-- /.container -->
+
 
   <script>
   document.addEventListener('DOMContentLoaded', () => {
@@ -992,40 +827,8 @@ if (discounts.length > 0) {
       window.open(`https://www.amazon.com/s?${params.toString()}`,'_blank');
     });
   });
-  // 7) AI/Personalization
-      if (data.get('predictive-score')==='on') rh.push('predictive-score:1');
-      if (data.get('restock-forecast')?.trim()) rh.push(`restock:${data.get('restock-forecast')}`);
-      if (data.get('emotion-feedback')==='on') rh.push('emotion-feedback:1');
+</script>
 
-      // 8) Combine & open
-      if (rh.length) params.set('rh', rh.join(','));
-      params.set('tag','echolover25-20');
-      window.open(`https://www.amazon.com/s?${params.toString()}`,'_blank');
-    });
-  });
-  </script>
-<!-- Floating Help Button -->
-<button id="helpBtn"
-        style="
-          position: fixed;
-          bottom: 1rem;
-          right: 1rem;
-          width: 3.5rem;
-          height: 3.5rem;
-          border-radius: 50%;
-          background: #007bff;
-          color: white;
-          border: none;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-          font-size: 1.5rem;
-          cursor: pointer;
-          z-index: 1050;
-        "
-        aria-label="Help"
-        data-bs-toggle="modal"
-        data-bs-target="#howToModal">
-  ❔
-</button>
 
 </body>
 </html>
