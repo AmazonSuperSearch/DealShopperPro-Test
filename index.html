@@ -646,13 +646,21 @@ if (node) rh.push(`n:${node}`);
         if (q) params.set('k', q);
 
        // 2) Core Filters (exact cents)
-const low  = data.get('min-price')?.trim(),
-      high = data.get('max-price')?.trim();
-if (low && high) {
-  const lowCents  = Math.round(parseFloat(low)  * 100);
-  const highCents = Math.round(parseFloat(high) * 100);
-  rh.push(`p_36:${lowCents}-${highCents}`);
+const min = data.get('min-price')?.trim();
+const max = data.get('max-price')?.trim();
+
+if (min && max) {
+  const minCents = Math.round(parseFloat(min) * 100);
+  const maxCents = Math.round(parseFloat(max) * 100);
+  rh.push(`p_36:${minCents}-${maxCents}`);
+} else if (min) {
+  const minCents = Math.round(parseFloat(min) * 100);
+  rh.push(`p_36:${minCents}-`);
+} else if (max) {
+  const maxCents = Math.round(parseFloat(max) * 100);
+  rh.push(`p_36:0-${maxCents}`);
 }
+
 if (data.get('percent-off')) rh.push(`p_n_pct-off-with-discount:${data.get('percent-off')}`);
 
         if (data.get('min-rating')) rh.push(`p_72:${data.get('min-rating')}00`);
