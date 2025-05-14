@@ -992,8 +992,40 @@ if (discounts.length > 0) {
       window.open(`https://www.amazon.com/s?${params.toString()}`,'_blank');
     });
   });
-</script>
+  // 7) AI/Personalization
+      if (data.get('predictive-score')==='on') rh.push('predictive-score:1');
+      if (data.get('restock-forecast')?.trim()) rh.push(`restock:${data.get('restock-forecast')}`);
+      if (data.get('emotion-feedback')==='on') rh.push('emotion-feedback:1');
 
+      // 8) Combine & open
+      if (rh.length) params.set('rh', rh.join(','));
+      params.set('tag','echolover25-20');
+      window.open(`https://www.amazon.com/s?${params.toString()}`,'_blank');
+    });
+  });
+  </script>
+<!-- Floating Help Button -->
+<button id="helpBtn"
+        style="
+          position: fixed;
+          bottom: 1rem;
+          right: 1rem;
+          width: 3.5rem;
+          height: 3.5rem;
+          border-radius: 50%;
+          background: #007bff;
+          color: white;
+          border: none;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+          font-size: 1.5rem;
+          cursor: pointer;
+          z-index: 1050;
+        "
+        aria-label="Help"
+        data-bs-toggle="modal"
+        data-bs-target="#howToModal">
+  ❔
+</button>
 
 </body>
 </html>
