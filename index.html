@@ -103,7 +103,9 @@
   opacity: 1;
   cursor: pointer;
 }
-
+#voiceSearchBtn.active {
+  background-color: #ffc107;
+}
     /* Pulse animations */
     @keyframes pulse-glow {0%{box-shadow:0 0 0 0 rgba(13,110,253,0.5);}50%{box-shadow:0 0 20px 10px rgba(13,110,253,0.5);}100%{box-shadow:0 0 0 0 rgba(13,110,253,0.5);} }
     .pulse-glow {animation:pulse-glow 2s infinite;transition:box-shadow .3s ease-in-out;}
@@ -143,20 +145,24 @@
   <p class="text-muted mb-3">Type a product name, keyword, category, ASIN, ISBN, or UPC to start your search.</p>
 
   <div class="card p-3">
-   <input
-  type="text"
-  class="form-control"
-  id="mainSearchInput"
-  name="q"
-  placeholder="e.g. wireless headphones"
-  autocomplete="off">
-
-    <small class="form-text text-muted mt-2">
-      Supports Boolean operators: <code>AND</code>, <code>OR</code>, <code>NOT</code>
-      (e.g. <em>wireless AND headphones NOT bluetooth</em>).
-    </small>
+  <div class="input-group">
+    <input
+      type="text"
+      class="form-control"
+      id="mainSearchInput"
+      name="q"
+      placeholder="e.g. wireless headphones"
+      autocomplete="off">
+    <button class="btn btn-outline-secondary" type="button" id="voiceSearchBtn">
+      🎤
+    </button>
   </div>
+  <small class="form-text text-muted mt-2">
+    Supports Boolean operators: <code>AND</code>, <code>OR</code>, <code>NOT</code>
+    (e.g. <em>wireless AND headphones NOT bluetooth</em>).
+  </small>
 </div>
+
 
 
       <!-- Step 2 heading ABOVE the card box -->
@@ -913,6 +919,38 @@ if (discounts.length > 0) {
       window.open(`https://www.amazon.com/s?${params.toString()}`,'_blank');
     });
   });
+</script>
+<script>
+  const btn = document.getElementById('voiceSearchBtn');
+  const input = document.getElementById('mainSearchInput');
+
+  // Check for browser support
+  if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+    btn.disabled = true;
+    btn.title = 'Voice search not supported';
+  } else {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recog = new SpeechRecognition();
+    recog.continuous = false;
+    recog.lang = 'en-US';
+    recog.interimResults = false;
+    recog.maxAlternatives = 1;
+
+    btn.addEventListener('click', () => {
+      recog.start();
+      btn.classList.add('active');
+    });
+
+    recog.addEventListener('result', (e) => {
+      const transcript = e.results[0][0].transcript;
+      input.value = transcript;
+      recog.stop();
+    });
+
+    recog.addEventListener('end', () => {
+      btn.classList.remove('active');
+    });
+  }
 </script>
 
 
