@@ -358,15 +358,81 @@
             </h2>
             <div id="collapsePower" class="accordion-collapse collapse" data-bs-parent="#accordionPower">
               <div class="accordion-body">
-                <div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="enable-boolean" id="enableBoolean"><label class="form-check-label" for="enableBoolean">Enable Boolean Operators</label></div>
-                <div class="mb-2"><label class="form-label">Field Filters</label><input type="text" class="form-control" name="field-filters" placeholder="e.g. field-brand:Sony"></div>
-                <div class="mb-2"><label class="form-label">ASIN / ISBN Direct Lookup</label><input type="text" class="form-control" name="direct-lookup" placeholder="Enter ASIN, ISBN or UPC"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+                <!-- …inside your Power-User Tools accordion-body… -->
+<div class="accordion-body">
 
+  <!-- Existing controls -->
+  <div class="form-check mb-2">
+    <input class="form-check-input" type="checkbox" name="enable-boolean" id="enableBoolean">
+    <label class="form-check-label" for="enableBoolean">Enable Boolean Operators</label>
+  </div>
+  <div class="mb-2">
+    <label class="form-label">Field Filters</label>
+    <input type="text" class="form-control" name="field-filters" placeholder="e.g. field-brand:Sony">
+  </div>
+  <div class="mb-2">
+    <label class="form-label">ASIN / ISBN Direct Lookup</label>
+    <input type="text" class="form-control" name="direct-lookup" placeholder="Enter ASIN, ISBN or UPC">
+  </div>
+
+  <!-- NEW: How to use this tool dropdown -->
+  <div class="mt-3">
+    <button class="btn btn-sm btn-outline-primary w-100 text-start" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#howToPowerTools" 
+            aria-expanded="false" 
+            aria-controls="howToPowerTools">
+      ▶ How to use this tool
+    </button>
+    <div class="collapse mt-2" id="howToPowerTools">
+      <div class="card card-body p-3">
+        <h6>1. Enable Boolean Operators</h6>
+        <p><strong>What it does:</strong> Allows you to use <code>AND</code>, <code>OR</code> and <code>NOT</code> in your main keyword box exactly as you typed them.</p>
+        <p><strong>How to use it:</strong></p>
+        <ol>
+          <li>Expand Power-User Tools.</li>
+          <li>Check “Enable Boolean Operators”.</li>
+          <li>In Step 1, type queries like <code>wireless AND headphones NOT bluetooth</code>.</li>
+        </ol>
+        <hr>
+        <h6>2. Field Filters</h6>
+        <p><strong>What it does:</strong> Lets you apply any of Amazon’s internal <code>field:value</code> filters (the ones in <code>rh=</code>) without editing the URL.</p>
+        <p><strong>Common examples:</strong></p>
+        <ul>
+          <li><code>field-brand:Sony</code> – only Sony products</li>
+          <li><code>field-author:J.K.Rowling</code> – only books by J.K. Rowling</li>
+          <li><code>field-price:100-200</code> – items priced \$1.00–\$2.00</li>
+        </ul>
+        <p><strong>How to use it:</strong></p>
+        <ol>
+          <li>Type one or more expressions (space-separated) into Field Filters.</li>
+          <li>Example for Sony headphones under \$50, 4★+:<br>
+            – Step 1: <code>wireless headphones</code><br>
+            – Field Filters: <code>field-brand:Sony field-price:0-50 field-rating:4-</code>
+          </li>
+          <li>Hit “Search Amazon”.</li>
+        </ol>
+        <hr>
+        <h6>3. ASIN / ISBN Direct Lookup</h6>
+        <p><strong>What it does:</strong> Immediately jumps to a single product page by ASIN, ISBN or UPC.</p>
+        <p><strong>How to use it:</strong></p>
+        <ol>
+          <li>Paste the code (e.g. <code>B07PGL2ZSL</code> or <code>9780525555371</code>) into the lookup field.</li>
+          <li>Click “Search Amazon”.</li>
+        </ol>
+        <hr>
+        <h6>Putting it all together</h6>
+        <ul>
+          <li>Expand Power-User Tools</li>
+          <li>(Optional) Enable Boolean Operators</li>
+          <li>(Optional) Add any Field Filters</li>
+          <li>(Optional) Paste an ASIN/ISBN for direct lookup</li>
+          <li>Click “Search Amazon”</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+ 
       <!-- Deal-Hunter Goodies -->
       <section>
         <div class="accordion mb-4" id="accordionDeal">
