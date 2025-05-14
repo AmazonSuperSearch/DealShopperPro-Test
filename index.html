@@ -998,7 +998,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function updateWarning() {
     const activeCount = countFilters();
-    warning.style.display = activeCount >= 8 ? 'block' : 'none';
+    warning.style.display = activeCount >= 5 ? 'block' : 'none';
   }
 
   inputs.forEach(input => {
