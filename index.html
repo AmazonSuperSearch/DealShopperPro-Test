@@ -23,7 +23,7 @@
   <link rel="canonical" href="https://amazonsupersearch.com/">
 
   <!-- Open Graph / Social -->
-  <meta property="og:title" content="Advanced Amazon Filter Search Tool – Lightning Deals & Price Drop Alerts">
+  <meta property="og:title" content="Amazon Search Filter Tool – Find In-Stock Deals, Apply Filters, Track Price Drops">
   <meta property="og:description"
         content="Use Amazon Super Search to find in-stock lightning deals, set discount and price-drop alerts, filter free shipping only, and sort by highest ratings.">
   <meta property="og:url" content="https://amazonsupersearch.com/">
@@ -57,6 +57,32 @@
   <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.min.js"></script>
 
   <style>
+    /* ——— AMAZON-ORANGE PULSING HEADING ——— */
+    @keyframes text-pulse {
+      0%   { text-shadow: 0 0 5px rgba(255,153,0,0.7), 0 0 10px rgba(255,153,0,0.5); }
+      50%  { text-shadow: 0 0 20px rgba(255,153,0,0.9), 0 0 30px rgba(255,153,0,0.7); }
+      100% { text-shadow: 0 0 5px rgba(255,153,0,0.7), 0 0 10px rgba(255,153,0,0.5); }
+    }
+
+    h1.text-pulse {
+      color: #FF9900;
+      text-shadow:
+        -1px -1px 0 #000,
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
+      animation: text-pulse 2s infinite ease-in-out;
+    }
+
+    @keyframes orange-pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(255,153,0, 0); }
+      50%  { box-shadow: 0 0 12px 6px rgba(255,153,0, 0.7); }
+      100% { box-shadow: 0 0 0 0 rgba(255,153,0, 0); }
+    }
+
+    .pulse-orange {
+      animation: orange-pulse 2s infinite ease-in-out;
+    }
     /* Fancy frames */
     .card, .accordion-item {
       border: 3px solid #007bff !important;
