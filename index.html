@@ -156,6 +156,15 @@
 <!-- … your existing GA4 snippet on lines 82–88 … -->
 
 <!-- helper to fire events -->
+   <!-- ① Auto-detect and set the cookie before Translate loads -->
+  <script>
+    (function(){
+      // grab e.g. “en”, “es”, “fr”, “de”, etc.
+      var userLang = (navigator.language || navigator.userLanguage).substr(0,2);
+      // tell Google Translate to go from English → userLang
+      document.cookie = "googtrans=/en/" + userLang + "; path=/";
+    })();
+  </script>
   <!-- Google Translate widget (all languages) -->
   <script>
     function googleTranslateElementInit() {
