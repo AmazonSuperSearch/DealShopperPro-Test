@@ -151,19 +151,50 @@
     color: #6c757d;
     font-style: italic;
   }
+    #bookmark-btn {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 9999;
+  background-color: #ffc107;
+  color: #000;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: background-color 0.3s;
+}
+
+#bookmark-btn:hover {
+  background-color: #ffb300;
+}
+
 </style>
 
 <!-- … your existing GA4 snippet on lines 82–88 … -->
 
 <!-- helper to fire events -->
-
   </head>
 <body>
+  <button id="bookmark-btn" onclick="playClick(); bookmarkSite()">⭐ Bookmark</button>
+<script>
   <audio id="clickSound" src="click.mp3" preload="auto"></audio>
   <!-- Hero / SEO-Rich Intro -->
   <div class="bg-warning text-dark text-center py-2 shadow-sm">
     🔎 <strong>Amazon Super Search</strong> — The Fast & Easy Way to Find Exactly What You Want on Amazon
   </div>
+    <div id="easterEggTapZone" style="
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  z-index: 9999;
+  background: transparent;">
+</div>
+
   <div class="text-center text-muted small mt-1">
   <em>Not affiliated with or endorsed by Amazon.com.</em>
 </div>
@@ -1208,7 +1239,146 @@ document.addEventListener('DOMContentLoaded', function () {
   updateWarning(); // Run immediately on load
 });
 </script>
+<script>
+function bookmarkSite() {
+  const url = window.location.href;
+  const title = document.title;
 
+  if (window.sidebar && window.sidebar.addPanel) {
+    // Firefox <23
+    window.sidebar.addPanel(title, url, '');
+  } else if (window.external && ('AddFavorite' in window.external)) {
+    // IE or legacy Edge
+    window.external.AddFavorite(url, title);
+  } else {
+    // Modern browsers
+    alert('📌 Press Ctrl+D (or Cmd+D on Mac) to bookmark this page manually.');
+  }
+  @media (max-width: 600px) {
+  #bookmark-btn {
+    font-size: 14px;
+    padding: 6px 10px;
+    top: 8px;
+    right: 8px;
+  }
+}
+#bookmark-btn:active {
+  transform: scale(1.05);
+}
+
+}
+  function playClick() {
+  const audio = document.getElementById('clickSound');
+  if (audio) {
+    audio.currentTime = 0;
+    audio.play();
+  }
+}
+<script>
+  const easterEggSequence = [
+    "ArrowUp","ArrowUp","ArrowDown","ArrowDown",
+    "ArrowLeft","ArrowRight","ArrowLeft","ArrowRight","b","a"
+  ];
+  let userInput = [];
+
+  window.addEventListener("keydown", function(e) {
+    userInput.push(e.key);
+    if (userInput.length > easterEggSequence.length) {
+      userInput.shift();
+    }
+    if (JSON.stringify(userInput) === JSON.stringify(easterEggSequence)) {
+      triggerEasterEgg();
+      userInput = [];
+    }
+  });
+
+  function triggerEasterEgg() {
+    alert("🎉 You found the Easter Egg!");
+    // Optional: Confetti effect
+    const egg = document.createElement('div');
+    egg.innerHTML = "🥚✨ You unlocked a secret!";
+    egg.style.position = "fixed";
+    egg.style.top = "20px";
+    egg.style.right = "20px";
+    egg.style.background = "#ffeb3b";
+    egg.style.color = "#000";
+    egg.style.padding = "10px 20px";
+    egg.style.border = "2px solid #000";
+    egg.style.zIndex = 9999;
+    document.body.appendChild(egg);
+    setTimeout(() => egg.remove(), 5000);
+  }
+ <script>
+  // Mobile tap-based Easter egg trigger
+  let tapCount = 0;
+  let tapTimer;
+
+  document.getElementById('easterEggTapZone').addEventListener('click', () => {
+    tapCount++;
+    clearTimeout(tapTimer);
+    if (tapCount === 5) {
+      triggerEasterEgg();
+      tapCount = 0;
+    }
+    tapTimer = setTimeout(() => {
+      tapCount = 0;
+    }, 1000);
+  });
+
+  // 🎉 Confetti Easter egg!
+  function triggerEasterEgg() {
+    confetti({
+      particleCount: 200,
+      spread: 100,
+      origin: { y: 0.6 }
+    });
+
+    const msg = document.createElement('div');
+    msg.innerText = "🎊 You found the hidden surprise!";
+    msg.style.cssText = `
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #000;
+      color: #fff;
+      padding: 14px 24px;
+      border-radius: 8px;
+      font-size: 18px;
+      z-index: 9999;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    `;
+    document.body.appendChild(msg);
+    setTimeout(() => msg.remove(), 4000);
+  }
+</script>
+
+
+  // Shared Easter egg action
+  function triggerEasterEgg() {
+    alert("🥚 You discovered the hidden mobile feature!");
+    const msg = document.createElement('div');
+    msg.innerText = "🎊 Easter Egg Found!";
+    msg.style.cssText = `
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #222;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 6px;
+      z-index: 10000;
+      font-size: 18px;
+    `;
+    document.body.appendChild(msg);
+    setTimeout(() => msg.remove(), 4000);
+  }
+ 
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 
 </body>
 </html>
