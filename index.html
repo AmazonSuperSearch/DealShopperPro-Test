@@ -107,7 +107,17 @@
 .equal-columns .card {
   flex: 1 1 0;
 }
-
+ @media (max-width: 600px) {
+  #bookmark-btn {
+    font-size: 14px;
+    padding: 6px 10px;
+    top: 8px;
+    right: 8px;
+  }
+}
+#bookmark-btn:active {
+  transform: scale(1.05);
+}
     .card:hover {
       transform: translateY(-4px);
       box-shadow: 0 8px 24px rgba(0,123,255,0.2) !important;
@@ -1075,94 +1085,6 @@ if (discounts.length > 0) {
   });
 </script>
 <script>
-    // Main form-submit logic
-    document.getElementById('amazon-search-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const data   = new FormData(this);
-      const params = new URLSearchParams();
-      const rh     = [];
-
-      // 2) Department & node
-      const dept = data.get('i');
-      const node = data.get('node');
-      if (dept) params.set('i', dept);
-      if (node) rh.push(`n:${node}`);
-
-      // 1) Boolean keywords
-      let q = (data.get('q')||'').trim();
-      if (data.get('enable-boolean')==='on' && q) {
-        const q2 = q.replace(/\bAND\b/gi,' ').replace(/\bNOT\b/gi,'-');
-        params.set('bop','enable');
-        params.set('k', q2);
-      } else if (q) {
-        params.set('k', q);
-      }
-
-      // 2) Core Filters (exact cents)
-      const min = data.get('min-price')?.trim(),
-            max = data.get('max-price')?.trim();
-      if (min && max) {
-        const minC = Math.round(parseFloat(min)*100),
-              maxC = Math.round(parseFloat(max)*100);
-        rh.push(`p_36:${minC}-${maxC}`);
-      } else if (min) {
-        rh.push(`p_36:${Math.round(parseFloat(min)*100)}-`);
-      } else if (max) {
-        rh.push(`p_36:0-${Math.round(parseFloat(max)*100)}`);
-      }
-      if (data.get('percent-off')) rh.push(`p_n_pct-off-with-discount:${data.get('percent-off')}`);
-      if (data.get('min-rating'))  rh.push(`p_72:${data.get('min-rating')}00`);
-      if (data.get('sort'))        params.set('s', data.get('sort'));
-
-      // 3) Checkbox flags
-      if (data.get('prime-only')==='on')    rh.push('p_n_feature_fulfilled_by_amazon:1');
-      if (data.get('in-stock')==='on')      rh.push('p_n_availability:1248879011');
-      if (data.get('free-shipping')==='on') rh.push('p_76:13184787011');
-      if (data.get('lightning-deals')==='on') rh.push('p_n_specials_match:4366');
-      if (data.get('coupons')==='on')       rh.push('p_n_coupons_available:1');
-
-      // 4) Brand include/exclude
-      const incOnly = data.get('include-only')==='on';
-      let incArr = [], excArr = [];
-      try { incArr = JSON.parse(data.get('brand-include')||'[]').map(o=>o.value); } catch{}
-      try { excArr = JSON.parse(data.get('brand-exclude')||'[]').map(o=>`-${o.value}`); } catch{}
-      if (incArr.length) {
-        if (incOnly) incArr.forEach(v=>rh.push(`p_89:${v}`));
-        else         rh.push(`p_89:${incArr.join('|')}`);
-      }
-      if (excArr.length) rh.push(`p_89:${excArr.join('|')}`);
-
-      // 5) Deal-Hunter Goodies
-      const discounts = [
-        data.get('price-drop'),
-        data.get('below-avg-30'),
-        data.get('below-avg-60'),
-        data.get('below-avg-90'),
-        data.get('max-volatility-7')
-      ].map(v=>parseFloat(v)).filter(v=>!isNaN(v));
-      if (discounts.length) rh.push(`p_n_pct-off-with-discount:${Math.max(...discounts)}`);
-      if (data.get('coupon-only')==='on')     rh.push('p_n_coupons_available:1');
-      if (data.get('warehouse-refurb')==='on') rh.push('p_n_warehouse_refurbished:1');
-
-      // 6) Power-User & Comparison
-      if (data.get('field-filters')?.trim()) rh.push(data.get('field-filters'));
-      if (data.get('direct-lookup')?.trim()) rh.push(`asin:${data.get('direct-lookup')}`);
-      if (data.get('side-by-side')==='on')   rh.push('comparison-specs:enabled');
-      if (data.get('verified-only')==='on')  rh.push('review-verified:1');
-
-      // 7) AI/Personalization
-      if (data.get('predictive-score')==='on') rh.push('predictive-score:1');
-      if (data.get('restock-forecast')?.trim()) rh.push(`restock:${data.get('restock-forecast')}`);
-      if (data.get('emotion-feedback')==='on') rh.push('emotion-feedback:1');
-
-      // 8) Combine & open
-      if (rh.length) params.set('rh', rh.join(','));
-      params.set('tag','echolover25-20');
-      window.open(`https://www.amazon.com/s?${params.toString()}`,'_blank');
-    });
-  });
-</script>
-<script>
   const btn = document.getElementById('voiceSearchBtn');
   const input = document.getElementById('mainSearchInput');
 
@@ -1254,18 +1176,6 @@ function bookmarkSite() {
     // Modern browsers
     alert('📌 Press Ctrl+D (or Cmd+D on Mac) to bookmark this page manually.');
   }
-  @media (max-width: 600px) {
-  #bookmark-btn {
-    font-size: 14px;
-    padding: 6px 10px;
-    top: 8px;
-    right: 8px;
-  }
-}
-#bookmark-btn:active {
-  transform: scale(1.05);
-}
-
 }
   function playClick() {
   const audio = document.getElementById('clickSound');
@@ -1308,7 +1218,7 @@ function bookmarkSite() {
     document.body.appendChild(egg);
     setTimeout(() => egg.remove(), 5000);
   }
- <script>
+
   // Mobile tap-based Easter egg trigger
   let tapCount = 0;
   let tapTimer;
@@ -1351,31 +1261,6 @@ function bookmarkSite() {
     document.body.appendChild(msg);
     setTimeout(() => msg.remove(), 4000);
   }
-</script>
-
-
-  // Shared Easter egg action
-  function triggerEasterEgg() {
-    alert("🥚 You discovered the hidden mobile feature!");
-    const msg = document.createElement('div');
-    msg.innerText = "🎊 Easter Egg Found!";
-    msg.style.cssText = `
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #222;
-      color: #fff;
-      padding: 12px 24px;
-      border-radius: 6px;
-      z-index: 10000;
-      font-size: 18px;
-    `;
-    document.body.appendChild(msg);
-    setTimeout(() => msg.remove(), 4000);
-  }
- 
-
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
