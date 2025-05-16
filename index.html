@@ -357,6 +357,12 @@
           <option value="4">4★ & up</option>
           <option value="5">5★ & up</option>
         </select>
+        <div class="form-check mt-2">
+  <input class="form-check-input" type="checkbox" name="exact-rating" id="exactRating">
+  <label class="form-check-label" for="exactRating">
+    Exact Rating Only
+  </label>
+</div>
       </div>
       <div class="col-12 col-lg-4">
         <label class="form-label">Sort By</label>
@@ -909,8 +915,10 @@ if (min && max) {
 
 if (data.get('percent-off')) rh.push(`p_n_pct-off-with-discount:${data.get('percent-off')}`);
 
-        if (data.get('min-rating')) rh.push(`p_72:${data.get('min-rating')}00`);
-        if (data.get('sort')) params.set('s', data.get('sort'));
+        if (data.get('min-rating')) {
+  const rating = parseInt(data.get('min-rating'), 10);
+  rh.push(`p_72:${rating*100}-`);
+}
 
         // 3) Checkbox Flags
         if (data.get('prime-only')==='on')    rh.push('p_n_feature_fulfilled_by_amazon:1');
