@@ -385,16 +385,19 @@
         </select>
       </div>
       <div class="col-12 col-lg-4">
-        <label class="form-label">Customer Review</label>
-        <select class="form-select" name="min-rating">
-          <option value="">Any</option>
-          <option value="1">1★ & up</option>
-          <option value="2">2★ & up</option>
-          <option value="3">3★ & up</option>
-          <option value="4">4★ & up</option>
-          <option value="5">5★ & up</option>
-        </select>
-      </div>
+  <label class="form-label" for="minRating">
+    Customer Review
+    <span class="text-warning small d-block mt-1">⚠️ May cause 0 results</span>
+  </label>
+  <select class="form-select" name="min-rating" id="minRating">
+    <option value="">Any</option>
+    <option value="1">1★ & up</option>
+    <option value="2">2★ & up</option>
+    <option value="3">3★ & up</option>
+    <option value="4">4★ & up</option>
+    <option value="5">5★ & up</option>
+  </select>
+</div>
       <div class="col-12 col-lg-4">
         <label class="form-label">Sort By</label>
         <select class="form-select" name="sort">
