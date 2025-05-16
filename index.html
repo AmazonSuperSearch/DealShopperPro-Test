@@ -1092,6 +1092,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (data.get('prime-only') === 'on') rh.push('p_n_feature_fulfilled_by_amazon:1');
     if (data.get('in-stock') === 'on') rh.push('p_n_availability:1248879011');
     if (data.get('free-shipping') === 'on') rh.push('p_76:13184787011');
+ 
+const brandInclude = data.get('brand-include')?.trim();
+const brandExclude = data.get('brand-exclude')?.trim();
+const includeOnly = data.get('include-only') === 'on';
+
+if (brandInclude) {
+  params.set('brand-include', brandInclude);
+  if (includeOnly) params.set('include-only', 'on');
+}
+if (brandExclude) {
+  params.set('brand-exclude', brandExclude);
+}
+pping') === 'on') rh.push('p_76:13184787011');
 
     const query = data.get('q')?.trim();
     if (query) params.set('k', query);
