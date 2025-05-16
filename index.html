@@ -1282,23 +1282,41 @@ document.addEventListener('DOMContentLoaded', () => {
     if (data.get('side-by-side') === 'on') rh.push('comparison-specs:enabled');
     if (data.get('verified-only') === 'on') rh.push('review-verified:1');
 
-    // ✅ AI/personalization
-    if (data.get('predictive-score') === 'on') rh.push('predictive-score:1');
-    if (data.get('emotion-feedback') === 'on') rh.push('emotion-feedback:1');
-    if (data.get('restock-forecast')?.trim()) {
-      rh.push(`restock:${data.get('restock-forecast')}`);
-    }
+// ✅ AI/personalization
+if (data.get('predictive-score') === 'on') rh.push('predictive-score:1');
+if (data.get('emotion-feedback') === 'on') rh.push('emotion-feedback:1');
+if (data.get('restock-forecast')?.trim()) {
+  rh.push(`restock:${data.get('restock-forecast')}`);
+}
 
-    // ✅ Build final Amazon URL
-    if (rh.length) params.set('rh', rh.join(','));
-    params.set('tag', 'echolover25-20');
-    const finalUrl = `https://www.amazon.com/s?${params.toString()}`;
+// ✅ Show warning if more than 2 filters are checked
+const checkboxCount = [...form.elements]
+  .filter(el => el.type === 'checkbox' && el.checked)
+  .length;
 
-    // ✅ Open in new tab
+const warningBox = document.getElementById('filter-warning');
+if (warningBox) {
+  if (checkboxCount > 2) {
+    warningBox.style.display = 'block';
+
+    // ❌ Do NOT reload immediately — let user see the warning
+    return; // 🛑 Stop further execution
+  } else {
+    warningBox.style.display = 'none';
+  }
+}
+
+// ✅ Build final Amazon URL
+if (rh.length) params.set('rh', rh.join(','));
+params.set('tag', 'echolover25-20');
+const finalUrl = `https://www.amazon.com/s?${params.toString()}`;
+
+// ✅ Open in new tab
 window.open(finalUrl, '_blank');
 
-// ✅ Refresh this page
+// ✅ Reload only when filters are acceptable
 window.location.reload();
+
   });
 });
 </script>
