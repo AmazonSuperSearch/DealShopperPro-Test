@@ -58,30 +58,35 @@
   <!-- Tagify CSS & JS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css">
   <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.min.js"></script>
-  <!-- Consolidated CSS -->
+
   <style>
-    /* ——— ANIMATIONS ——— */
+      /* ——— AMAZON-ORANGE PULSING HEADING ——— */
     @keyframes text-pulse {
       0%   { text-shadow: 0 0 5px rgba(255,153,0,0.7), 0 0 10px rgba(255,153,0,0.5); }
       50%  { text-shadow: 0 0 20px rgba(255,153,0,0.9), 0 0 30px rgba(255,153,0,0.7); }
       100% { text-shadow: 0 0 5px rgba(255,153,0,0.7), 0 0 10px rgba(255,153,0,0.5); }
     }
+
+    .text-pulse {
+      color: #FF9900;
+      text-shadow:
+        -1px -1px 0 #000,
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
+      animation: text-pulse 2s infinite ease-in-out;
+    }
+
     @keyframes orange-pulse {
-      0%   { box-shadow: 0 0 0 0 rgba(255,153,0,0); }
-      50%  { box-shadow: 0 0 12px 6px rgba(255,153,0,0.7); }
-      100% { box-shadow: 0 0 0 0 rgba(255,153,0,0); }
-    }
-    @keyframes pulse-glow {
-      0%   { box-shadow: 0 0 0 0 rgba(13,110,253,0.5); }
-      50%  { box-shadow: 0 0 20px 10px rgba(13,110,253,0.5); }
-      100% { box-shadow: 0 0 0 0 rgba(13,110,253,0.5); }
+      0%   { box-shadow: 0 0 0 0 rgba(255,153,0, 0); }
+      50%  { box-shadow: 0 0 12px 6px rgba(255,153,0, 0.7); }
+      100% { box-shadow: 0 0 0 0 rgba(255,153,0, 0); }
     }
 
-    .text-pulse   { animation: text-pulse   2s infinite ease-in-out; }
-    .pulse-orange { animation: orange-pulse 2s infinite ease-in-out; }
-    .pulse-glow   { animation: pulse-glow   2s infinite ease-in-out; }
-
-    /* ——— FANCY FRAMES ——— */
+    .pulse-orange {
+      animation: orange-pulse 2s infinite ease-in-out;
+    }
+    /* Fancy frames */
     .card, .accordion-item {
       border: 3px solid #007bff !important;
       border-radius: .75rem !important;
@@ -90,101 +95,133 @@
       margin-bottom: 1.5rem !important;
       background-color: #fff !important;
     }
+    .equal-columns {
+  display: flex;
+  gap: 1rem;
+}
+.equal-columns > [class*="col-"] {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+}
+.equal-columns .card {
+  flex: 1 1 0;
+}
+
     .card:hover {
       transform: translateY(-4px);
-      box-shadow:   0 8px 24px rgba(0,123,255,0.2) !important;
+      box-shadow: 0 8px 24px rgba(0,123,255,0.2) !important;
     }
-    .equal-columns {
-      display: flex; gap: 1rem;
-    }
-    .equal-columns > [class*="col-"] {
-      flex: 1 1 0;
-      display: flex;
-      flex-direction: column;
-    }
-    .equal-columns .card { flex: 1 1 0; }
-
-    /* ——— COMING SOON (disabled filters) ——— */
-    .coming-soon input[type="checkbox"] {
-      pointer-events: none;
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-    .coming-soon label small {
-      color: #6c757d;
-      font-style: italic;
-    }
-
-    /* ——— FLOATING SHARE PANEL ——— */
-    .floating-share {
-      position: fixed;
-      bottom: 1rem; right: 1rem;
-      width: 200px; padding: .75rem;
-      background: rgba(255,255,255,0.95);
-      border: 2px solid #007bff;
-      border-radius: .5rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      z-index: 1000;
-    }
-    .floating-share h2 {
-      font-size: 1rem;
-      margin-bottom: .5rem;
-      text-align: center;
-    }
-    .floating-share .share-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .5rem;
-      justify-content: center;
-    }
-    .floating-share .share-buttons a {
-      flex: 1 1 48%;
-      font-size: .85rem;
-      padding: .3rem;
-      text-align: center;
-    }
-
-    /* ——— BANNER INNER & MEDIA QUERIES ——— */
-    .banner-inner {
-      max-width: 1546px;
-      margin: 0 auto;
-    }
-    .banner-inner h1 {
-      font-size: clamp(2rem, 5vw, 4rem);
-      line-height: 1.2;
-    }
-    .banner-inner p {
-      font-size: clamp(1rem, 2.5vw, 1.5rem);
-      line-height: 1.5;
-    }
-    @media (min-width: 992px) {
-      .banner-inner { padding: 0 3rem; }
-    }
-    @media (min-width: 768px) and (max-width: 991px) {
-      .banner-inner { padding: 0 2rem; }
-    }
-    @media (max-width: 767px) {
-      .banner-inner    { padding: 0 1rem; }
-      .banner-inner h1 { font-size: 1.75rem; }
-      .banner-inner p  { font-size: 1rem; }
-    }
-
-    /* ——— FORM & VOICE BUTTON STYLES ——— */
+    /* Thicker black borders */
     .form-control, .form-select, .form-range {
       border: 3px solid #000 !important;
-      border-radius: 4px     !important;
+      border-radius: 4px !important;
     }
     .form-check-input {
-      width: 1.4em; height: 1.4em;
-      border: 3px solid #000 !important;
-      border-radius: 3px;
-    }
-    #voiceSearchBtn.active {
-      background-color: #ffc107;
+      width: 1.4em; height: 1.4em; border: 3px solid #000 !important; border-radius: 3px;
     }
 
+    .minimized {
+  right: -260px; /* slide out of view */
+  opacity: 0.3;
+  transition: all 0.3s ease-in-out;
+}
+.minimized:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+#voiceSearchBtn.active {
+  background-color: #ffc107;
+}
+    /* Pulse animations */
+    @keyframes pulse-glow {0%{box-shadow:0 0 0 0 rgba(13,110,253,0.5);}50%{box-shadow:0 0 20px 10px rgba(13,110,253,0.5);}100%{box-shadow:0 0 0 0 rgba(13,110,253,0.5);} }
+    .pulse-glow {animation:pulse-glow 2s infinite;transition:box-shadow .3s ease-in-out;}
+    @keyframes text-pulse {0%{text-shadow:0 0 5px rgba(255,153,0,0.7),0 0 10px rgba(255,153,0,0.5);}50%{text-shadow:0 0 20px rgba(255,153,0,0.9),0 0 30px rgba(255,153,0,0.7);}100%{text-shadow:0 0 5px rgba(255,153,0,0.7),0 0 10px rgba(255,153,0,0.5);} }
+    h1.text-pulse {color:#FF9900;text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;animation:text-pulse 2s infinite ease-in-out;}
+    @keyframes orange-pulse {0%{box-shadow:0 0 0 0 rgba(255,153,0,0);}50%{box-shadow:0 0 12px 6px rgba(255,153,0,0.7);}100%{box-shadow:0 0 0 0 rgba(255,153,0,0);} }
+    .pulse-orange {animation:orange-pulse 2s infinite ease-in-out;}
   </style>
+  <style>
+  .coming-soon input[type="checkbox"] {
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  .coming-soon label small {
+    color: #6c757d;
+    font-style: italic;
+  }
+    /* Floating share panel */
+.floating-share {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 200px;
+  padding: 0.75rem;
+  background: rgba(255,255,255,0.95);
+  border: 2px solid #007bff;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 1000;
+}
+.floating-share h2 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+.floating-share .share-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+.floating-share .share-buttons a {
+  flex: 1 1 48%;
+  font-size: 0.85rem;
+  padding: 0.3rem;
+  text-align: center;
+}
+    .banner-inner {
+  max-width: 1546px;
+  margin: 0 auto;
+}
+    .banner-inner h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.2;
+}
 
+.banner-inner p {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  line-height: 1.5;
+}
+/* Desktop (large) */
+@media (min-width: 992px) {
+  .banner-inner {
+    padding: 0 3rem;
+  }
+}
+
+/* Tablet / small desktop */
+@media (min-width: 768px) and (max-width: 991px) {
+  .banner-inner {
+    padding: 0 2rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .banner-inner {
+    padding: 0 1rem;
+  }
+  .banner-inner h1 {
+    font-size: 1.75rem;
+  }
+  .banner-inner p {
+    font-size: 1rem;
+  }
+}
+
+</style>
 
 <!-- … your existing GA4 snippet on lines 82–88 … -->
 
@@ -357,12 +394,6 @@
           <option value="4">4★ & up</option>
           <option value="5">5★ & up</option>
         </select>
-        <div class="form-check mt-2">
-  <input class="form-check-input" type="checkbox" name="exact-rating" id="exactRating">
-  <label class="form-check-label" for="exactRating">
-    Exact Rating Only
-  </label>
-</div>
       </div>
       <div class="col-12 col-lg-4">
         <label class="form-label">Sort By</label>
@@ -861,6 +892,154 @@
       });
   });
 </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize Tagify
+      new Tagify(document.getElementById('brandInclude'), {
+        whitelist: ["Sony","Samsung","LG","Acer","Apple","Dell"],
+        dropdown: { enabled: 0, maxItems: 10 }
+      });
+      new Tagify(document.getElementById('brandExclude'), {
+        whitelist: ["Sony","Samsung","LG","Acer","Apple","Dell"],
+        dropdown: { enabled: 0, maxItems: 10 }
+      });
+
+      // Form submit logic unchanged
+      document.getElementById('amazon-search-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const data = new FormData(this);
+        const params = new URLSearchParams();
+        const rh = [];
+
+        // 2) Department & node
+const dept = data.get('i');
+const node = data.get('node');
+if (dept) params.set('i', dept);
+if (node) rh.push(`n:${node}`);
+
+
+
+        // 1) Boolean keywords
+        let q = (data.get('q') || '').trim();
+        if (data.get('enable-boolean') === 'on' && q) {
+          q = q.replace(/\bAND\b/gi, ' ').replace(/\bNOT\b/gi, '-');
+          params.set('bop','enable');
+        }
+        if (q) params.set('k', q);
+
+       // 2) Core Filters (exact cents)
+const min = data.get('min-price')?.trim();
+const max = data.get('max-price')?.trim();
+
+if (min && max) {
+  const minCents = Math.round(parseFloat(min) * 100);
+  const maxCents = Math.round(parseFloat(max) * 100);
+  rh.push(`p_36:${minCents}-${maxCents}`);
+} else if (min) {
+  const minCents = Math.round(parseFloat(min) * 100);
+  rh.push(`p_36:${minCents}-`);
+} else if (max) {
+  const maxCents = Math.round(parseFloat(max) * 100);
+  rh.push(`p_36:0-${maxCents}`);
+}
+
+if (data.get('percent-off')) rh.push(`p_n_pct-off-with-discount:${data.get('percent-off')}`);
+
+        if (data.get('min-rating')) rh.push(`p_72:${data.get('min-rating')}00`);
+        if (data.get('sort')) params.set('s', data.get('sort'));
+
+        // 3) Checkbox Flags
+        if (data.get('prime-only')==='on')    rh.push('p_n_feature_fulfilled_by_amazon:1');
+        if (data.get('in-stock')==='on')      rh.push('p_n_availability:1248879011');
+        if (data.get('free-shipping')==='on') rh.push('p_76:13184787011');
+        if (data.get('fba-only')==='on')      rh.push('p_6:ATVPDKIKX0DER');
+        if (data.get('lightning-deals')==='on') rh.push('p_n_specials_match:4366');
+        if (data.get('coupons')==='on')       rh.push('p_n_coupons_available:1');
+        if (data.get('subscribe-save')==='on') rh.push('p_n_subscribe:8');
+        if (data.get('amazon-choice')==='on') rh.push('p_n_feature_browse-bin:15527960011');
+        if (data.get('best-seller')==='on')   rh.push('p_n_feature_browse-bin:15527981011');
+        if (data.get('free-returns')==='on')  rh.push('p_n_free_returns_option:1');
+        if (data.get('gift-wrap')==='on')     rh.push('p_n_gift_wrap_available:1');
+       // ✅ Extra Smart Filters (Supported)
+if (data.get('todays-deals') === 'on')      rh.push('p_n_deals_ii:2499179011');
+if (data.get('small-business') === 'on')    rh.push('p_n_c_is_small_business:1');
+if (data.get('amazon-brands') === 'on')     rh.push('p_n_is_amazon_brand:1');
+if (data.get('low-rating') === 'on')        rh.push('p_72:1100');
+
+// 🚧 Coming Soon Filters (not yet supported in URL)
+if (data.get('ships-fast') === 'on')        console.log('Ships in 24 Hours — Coming Soon');
+if (data.get('back-in-stock') === 'on')     console.log('Back in Stock Today — Coming Soon');
+if (data.get('made-in-usa') === 'on')       console.log('Made in USA — Coming Soon');
+if (data.get('eco-friendly') === 'on')      console.log('Eco-Friendly Products — Coming Soon');
+if (data.get('trending-now') === 'on')      console.log('Trending Right Now — Coming Soon');
+if (data.get('new-last-week') === 'on')     console.log('New Arrivals (Last 7 Days) — Coming Soon');
+if (data.get('top-category') === 'on')      console.log('Top 1% of Category — Coming Soon');
+if (data.get('hidden-coupon') === 'on')     console.log('Hidden Coupons Only — Coming Soon');
+if (data.get('giftable') === 'on')          console.log('Highly Giftable Items — Coming Soon');
+if (data.get('bundle-match') === 'on')      console.log('Frequently Bought Together — Coming Soon');
+if (data.get('low-stock') === 'on')         console.log('Low Inventory Left — Coming Soon');
+
+
+       
+
+        // 4) Brand Include/Exclude
+        const incOnly = data.get('include-only') === 'on';
+        let incArr = [], excArr = [];
+        try { incArr = JSON.parse(data.get('brand-include')||'[]').map(o=>encodeURIComponent(o.value)); } catch{}
+        try { excArr = JSON.parse(data.get('brand-exclude')||'[]').map(o=>`-${encodeURIComponent(o.value)}`); } catch{}
+        if (incArr.length) {
+  if (incOnly) {
+    // Add multiple AND match-only filters (split into multiple keys)
+    incArr.forEach(v => rh.push(`p_89:${v}`));
+  } else {
+    // OR search
+    rh.push(`p_89:${incArr.join('|')}`);
+  }
+}
+
+if (excArr.length) {
+  // Negation with minus prefix
+  rh.push(`p_89:${excArr.join('|')}`);
+}
+
+       // 5) Deal-Hunter Goodies
+const discounts = [
+  data.get('price-drop'),
+  data.get('below-avg-30'),
+  data.get('below-avg-60'),
+  data.get('below-avg-90'),
+  data.get('max-volatility-7')
+]
+  .map(v => parseFloat(v))
+  .filter(v => !isNaN(v));
+
+if (discounts.length > 0) {
+  const maxDiscount = Math.max(...discounts);
+  rh.push(`p_n_pct-off-with-discount:${maxDiscount}`);
+}
+
+        if (data.get('coupon-only')==='on')     rh.push('p_n_coupons_available:1');
+        if (data.get('warehouse-refurb')==='on') rh.push('p_n_warehouse_refurbished:1');
+
+        // 6) Power-User & Comparison
+        if (data.get('field-filters')?.trim()) rh.push(data.get('field-filters'));
+        if (data.get('direct-lookup')?.trim()) rh.push(`asin:${data.get('direct-lookup')}`);
+        if (data.get('side-by-side')==='on')   rh.push('comparison-specs:enabled');
+        if (data.get('verified-only')==='on')  rh.push('review-verified:1');
+
+        // 7) AI/Personalization
+        if (data.get('predictive-score')==='on')  rh.push('predictive-score:1');
+        if (data.get('restock-forecast')?.trim()) rh.push(`restock:${data.get('restock-forecast')}`);
+        if (data.get('emotion-feedback')==='on')  rh.push('emotion-feedback:1');
+
+        // 8) Combine & open
+        if (rh.length) params.set('rh', rh.join(','));
+        params.set('tag', 'echolover25-20');
+        window.open(`https://www.amazon.com/s?${params.toString()}`, '_blank');
+      });  /* ← close form submit listener */
+    });    /* ← close outer DOMContentLoaded */
+  </script>
     <!-- …your search-logic <script> closes here… -->
  <!-- end of search logic -->
 
