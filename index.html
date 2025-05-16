@@ -229,6 +229,24 @@
   box-shadow: 0 0 8px 2px rgba(255, 193, 7, 0.8);
   transition: box-shadow 0.5s ease-in-out;
 }
+.visually-hidden-focusable {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.visually-hidden-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  left: auto;
+  background: #ffffcc;
+  padding: 0.5rem;
+  z-index: 1000;
+}
 
 </style>
 
@@ -256,6 +274,8 @@
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </head>
 <body>
+  <a href="#main" class="visually-hidden-focusable">Skip to main content</a>
+  <main id="main">
   <!-- Google Translate dropdown -->
   <div id="google_translate_element" class="text-end p-2"></div>
 
@@ -322,9 +342,6 @@
     </div>
   </div>
 </div>
-
-
-
 
       <!-- Step 2 heading ABOVE the card box -->
 <div class="container text-start mb-4">
