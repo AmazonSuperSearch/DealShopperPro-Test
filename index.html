@@ -987,17 +987,6 @@
   }
 </script>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const clickSound = document.getElementById('clickSound');
-    document.querySelectorAll('button').forEach(btn => {
-      btn.addEventListener('click', () => {
-        clickSound.currentTime = 0;
-        clickSound.play();
-      });
-    });
-  });
-</script>
-<script>
   // Also play click sound when language selector is used
   document.addEventListener('DOMContentLoaded', function() {
     const clickSound = document.getElementById('clickSound');
@@ -1093,18 +1082,95 @@ document.addEventListener('DOMContentLoaded', () => {
     if (data.get('in-stock') === 'on') rh.push('p_n_availability:1248879011');
     if (data.get('free-shipping') === 'on') rh.push('p_76:13184787011');
  
-const brandInclude = data.get('brand-include')?.trim();
-const brandExclude = data.get('brand-exclude')?.trim();
+// ✅ Handle brand include/exclude filters
+const brandIncludeRaw = data.get('brand-include')?.trim();
+const brandExcludeRaw = data.get('brand-exclude')?.trim();
 const includeOnly = data.get('include-only') === 'on';
 
-if (brandInclude) {
-  params.set('brand-include', brandInclude);
-  if (includeOnly) params.set('include-only', 'on');
+if (brandIncludeRaw) {
+  const brands = JSON.parse(brandIncludeRaw).map(obj => obj.value);
+  brands.forEach(b => rh.push(`p_89:${b}`));
+  if (includeOnly) {
+    // Nothing else to add — already filtered only by selected brands
+  }
 }
-if (brandExclude) {
-  params.set('brand-exclude', brandExclude);
+
+if (brandExcludeRaw) {
+  const brands = JSON.parse(brandExcludeRaw).map(obj => obj.value);
+  brands.forEach(b => params.append('brand-exclude', b));
 }
-pping') === 'on') rh.push('p_76:13184787011');
+
+
+    const query = data.get('q')?.trim();
+    if (query) params.set('k', query);
+
+    if (rh.length) params.set('rh', rh.join(','));
+    params.set('tag', 'echolover25-20');
+
+    const finalUrl = `https://www.amazon.com/s?${params.toString()}`;
+    window.open(finalUrl, '_blank');
+    window.location.reload();
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('amazon-search-form');
+  const warningBox = document.getElementById('filter-warning');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // ✅ Count checked checkboxes (excluding coming soon)
+    const checked = [...form.elements].filter(el =>
+      el.type === 'checkbox' && el.checked && !el.closest('.coming-soon')
+    ).length;
+
+    if (checked > 2) {
+      if (warningBox) warningBox.style.display = 'block';
+      return;
+    } else {
+      if (warningBox) warningBox.style.display = 'none';
+    }
+
+    // ✅ Sync Tagify input values before using FormData
+    ['brandInclude', 'brandExclude'].forEach(id => {
+      const tagifyInput = document.getElementById(id);
+      if (tagifyInput && tagifyInput._tagify) {
+        tagifyInput.value = JSON.stringify(tagifyInput._tagify.value);
+      }
+    });
+
+    const data = new FormData(form);
+    const params = new URLSearchParams();
+    const rh = [];
+
+    if (data.get('prime-only') === 'on') rh.push('p_n_feature_fulfilled_by_amazon:1');
+    if (data.get('in-stock') === 'on') rh.push('p_n_availability:1248879011');
+    if (data.get('free-shipping') === 'on') rh.push('p_76:13184787011');
+
+    // ✅ Handle brand filters
+    const brandIncludeRaw = data.get('brand-include')?.trim();
+    const brandExcludeRaw = data.get('brand-exclude')?.trim();
+    const includeOnly = data.get('include-only') === 'on';
+
+    if (brandIncludeRaw) {
+      const brands = JSON.parse(brandIncludeRaw).map(obj => obj.value);
+      brands.forEach(b => rh.push(`p_89:${b}`));
+      if (includeOnly) {
+        // Already restricted to selected brands
+      }
+    }
+
+    if (brandExcludeRaw) {
+      const brands = JSON.parse(brandExcludeRaw).map(obj => obj.value);
+      brands.forEach(b => params.append('brand-exclude', b));
+    }
+
+    // ✅ Advanced filters
+    if (data.get('enable-boolean') === 'on') params.set('boolean', 'on');
+    if (data.get('field-filters')) params.set('fields', data.get('field-filters').trim());
+    if (data.get('direct-lookup')) params.set('asin', data.get('direct-lookup').trim());
 
     const query = data.get('q')?.trim();
     if (query) params.set('k', query);
