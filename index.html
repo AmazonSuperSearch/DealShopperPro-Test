@@ -1183,113 +1183,131 @@ document.addEventListener('DOMContentLoaded', () => {
     dropdown: { enabled: 0, maxItems: 10 }
   });
 
-  // Single, unified submit listener
-  document.getElementById('amazon-search-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const data   = new FormData(this);
-    const params = new URLSearchParams();
-    const rh     = [];
+ <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('amazon-search-form');
 
-    // 1) Dept & node
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const data = new FormData(form);
+    const params = new URLSearchParams();
+    const rh = [];
+
+    // ✅ Search keyword
+    let q = (data.get('q') || '').trim();
+    if (data.get('enable-boolean') === 'on' && q) {
+      q = q.replace(/\bAND\b/gi, ' ').replace(/\bNOT\b/gi, '-');
+      params.set('bop', 'enable');
+    }
+    if (q) params.set('k', q);
+
+    // ✅ Department / node (optional)
     const dept = data.get('i'), node = data.get('node');
     if (dept) params.set('i', dept);
     if (node) rh.push(`n:${node}`);
 
-    // 2) Boolean keywords
-    let q = (data.get('q')||'').trim();
-    if (data.get('enable-boolean') === 'on' && q) {
-      q = q.replace(/\bAND\b/gi,' ').replace(/\bNOT\b/gi,'-');
-      params.set('bop','enable');
-    }
-    if (q) params.set('k', q);
-
-    // 3) Price range
-    const min = data.get('min-price')?.trim(),
-          max = data.get('max-price')?.trim();
+    // ✅ Price filter (convert dollars → cents)
+    const min = data.get('min-price')?.trim();
+    const max = data.get('max-price')?.trim();
     if (min && max) {
-      rh.push(`p_36:${Math.round(min*100)}-${Math.round(max*100)}`);
+      rh.push(`p_36:${Math.round(min * 100)}-${Math.round(max * 100)}`);
     } else if (min) {
-      rh.push(`p_36:${Math.round(min*100)}-`);
+      rh.push(`p_36:${Math.round(min * 100)}-`);
     } else if (max) {
-      rh.push(`p_36:0-${Math.round(max*100)}`);
+      rh.push(`p_36:0-${Math.round(max * 100)}`);
     }
 
-    // 4) % off
-    if (data.get('percent-off')) {
-      rh.push(`p_n_pct-off-with-discount:${data.get('percent-off')}`);
-    }
-
-    // 5) Rating (with exact-only support)
+    // ✅ Rating (always use "X stars and up")
     if (data.get('min-rating')) {
       const rating = parseInt(data.get('min-rating'), 10);
-      if (document.getElementById('exactRating')?.checked) {
-        // exact star only
-        rh.push(`p_72:${rating*100}-${rating*100}`);
-      } else {
-        // at least rating
-        rh.push(`p_72:${rating*100}-`);
+      if (!isNaN(rating)) {
+        rh.push(`p_72:${rating * 100}-`);
       }
     }
 
-    // 6) Sort
+    // ✅ Sort
     if (data.get('sort')) {
       params.set('s', data.get('sort'));
     }
 
-    // 7) Checkbox filters
-    if (data.get('prime-only')   === 'on') rh.push('p_n_feature_fulfilled_by_amazon:1');
-    if (data.get('in-stock')     === 'on') rh.push('p_n_availability:1248879011');
-    if (data.get('free-shipping')=== 'on') rh.push('p_76:13184787011');
-    if (data.get('coupons')      === 'on') rh.push('p_n_coupons_available:1');
-    if (data.get('lightning-deals')==='on') rh.push('p_n_specials_match:4366');
-    if (data.get('todays-deals') === 'on') rh.push('p_n_deals_ii:2499179011');
-    if (data.get('small-business')==='on') rh.push('p_n_c_is_small_business:1');
-    if (data.get('amazon-brands')==='on') rh.push('p_n_is_amazon_brand:1');
-    if (data.get('low-rating')   === 'on') rh.push('p_72:1100');
+    // ✅ Checkbox filters
+    const flags = {
+      'prime-only': 'p_n_feature_fulfilled_by_amazon:1',
+      'in-stock': 'p_n_availability:1248879011',
+      'free-shipping': 'p_76:13184787011',
+      'coupons': 'p_n_coupons_available:1',
+      'lightning-deals': 'p_n_specials_match:4366',
+      'todays-deals': 'p_n_deals_ii:2499179011',
+      'small-business': 'p_n_c_is_small_business:1',
+      'amazon-brands': 'p_n_is_amazon_brand:1',
+      'low-rating': 'p_72:1100'
+    };
+    Object.entries(flags).forEach(([name, value]) => {
+      if (data.get(name) === 'on') rh.push(value);
+    });
 
-    // 8) Brand include/exclude
-    const incOnly = data.get('include-only')==='on';
+    // ✅ Brand include/exclude logic
+    const incOnly = data.get('include-only') === 'on';
     let incArr = [], excArr = [];
-    try { incArr = JSON.parse(data.get('brand-include')||'[]').map(o=>encodeURIComponent(o.value)); } catch {}
-    try { excArr = JSON.parse(data.get('brand-exclude')||'[]').map(o=>`-${encodeURIComponent(o.value)}`); } catch {}
-    if (incArr.length) {
-      if (incOnly) incArr.forEach(v=>rh.push(`p_89:${v}`));
-      else         rh.push(`p_89:${incArr.join('|')}`);
-    }
-    if (excArr.length) rh.push(`p_89:${excArr.join('|')}`);
+    try {
+      incArr = JSON.parse(data.get('brand-include') || '[]').map(o => encodeURIComponent(o.value));
+    } catch {}
+    try {
+      excArr = JSON.parse(data.get('brand-exclude') || '[]').map(o => `-${encodeURIComponent(o.value)}`);
+    } catch {}
 
-    // 9) Deal-hunter goodies
-    const discounts = [
+    if (incArr.length) {
+      if (incOnly) incArr.forEach(v => rh.push(`p_89:${v}`));
+      else rh.push(`p_89:${incArr.join('|')}`);
+    }
+    if (excArr.length) {
+      rh.push(`p_89:${excArr.join('|')}`);
+    }
+
+    // ✅ Discount & volatility filters — only add if > 0
+    const discountInputs = [
       data.get('price-drop'),
       data.get('below-avg-30'),
       data.get('below-avg-60'),
       data.get('below-avg-90'),
-      data.get('max-volatility-7')
-    ].map(parseFloat).filter(v=>!isNaN(v));
-    if (discounts.length) {
-      rh.push(`p_n_pct-off-with-discount:${Math.max(...discounts)}`);
+      data.get('max-volatility-7'),
+      data.get('percent-off')
+    ];
+    const validDiscounts = discountInputs
+      .map(v => parseFloat(v))
+      .filter(v => !isNaN(v) && v > 0);
+    if (validDiscounts.length) {
+      const maxDiscount = Math.max(...validDiscounts);
+      rh.push(`p_n_pct-off-with-discount:${maxDiscount}`);
     }
-    if (data.get('coupon-only')==='on')       rh.push('p_n_coupons_available:1');
-    if (data.get('warehouse-refurb')==='on') rh.push('p_n_warehouse_refurbished:1');
 
-    // 10) Power-user & comparison
-    if (data.get('field-filters')?.trim()) rh.push(data.get('field-filters'));
-    if (data.get('direct-lookup')?.trim()) rh.push(`asin:${data.get('direct-lookup')}`);
-    if (data.get('side-by-side')==='on')   rh.push('comparison-specs:enabled');
-    if (data.get('verified-only')==='on')  rh.push('review-verified:1');
+    // ✅ Other deal toggles
+    if (data.get('coupon-only') === 'on') rh.push('p_n_coupons_available:1');
+    if (data.get('warehouse-refurb') === 'on') rh.push('p_n_warehouse_refurbished:1');
 
-    // 11) AI/Personalization
-    if (data.get('predictive-score')==='on')  rh.push('predictive-score:1');
-    if (data.get('restock-forecast')?.trim()) rh.push(`restock:${data.get('restock-forecast')}`);
-    if (data.get('emotion-feedback')==='on')  rh.push('emotion-feedback:1');
+    // ✅ Power-user inputs
+    const fieldFilter = data.get('field-filters')?.trim();
+    const directLookup = data.get('direct-lookup')?.trim();
+    if (fieldFilter) rh.push(fieldFilter);
+    if (directLookup) rh.push(`asin:${directLookup}`);
 
-    // Combine & go
+    // ✅ AI / personalization (if present)
+    if (data.get('predictive-score') === 'on') rh.push('predictive-score:1');
+    if (data.get('emotion-feedback') === 'on') rh.push('emotion-feedback:1');
+    if (data.get('restock-forecast')?.trim()) {
+      rh.push(`restock:${data.get('restock-forecast').trim()}`);
+    }
+
+    // ✅ Assemble and open search
     if (rh.length) params.set('rh', rh.join(','));
-    params.set('tag','echolover25-20');
-    window.open(`https://www.amazon.com/s?${params.toString()}`, '_blank');
+    params.set('tag', 'echolover25-20'); // your affiliate ID
+    const finalUrl = `https://www.amazon.com/s?${params.toString()}`;
+    window.open(finalUrl, '_blank');
   });
 });
 </script>
+
 
 
 </body>
