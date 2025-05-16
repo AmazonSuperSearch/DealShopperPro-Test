@@ -1183,10 +1183,10 @@ document.addEventListener('DOMContentLoaded', () => {
     dropdown: { enabled: 0, maxItems: 10 }
   });
 
- <script>
+<script>
 document.addEventListener('DOMContentLoaded', () => {
+  // ✅ Form submit logic
   const form = document.getElementById('amazon-search-form');
-
   form.addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -1194,7 +1194,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const params = new URLSearchParams();
     const rh = [];
 
-    // ✅ Search keyword
+    // ✅ Search query
     let q = (data.get('q') || '').trim();
     if (data.get('enable-boolean') === 'on' && q) {
       q = q.replace(/\bAND\b/gi, ' ').replace(/\bNOT\b/gi, '-');
@@ -1202,34 +1202,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     if (q) params.set('k', q);
 
-    // ✅ Department / node (optional)
+    // ✅ Department / node
     const dept = data.get('i'), node = data.get('node');
     if (dept) params.set('i', dept);
     if (node) rh.push(`n:${node}`);
 
-    // ✅ Price filter (convert dollars → cents)
+    // ✅ Price range (dollars to cents)
     const min = data.get('min-price')?.trim();
     const max = data.get('max-price')?.trim();
-    if (min && max) {
-      rh.push(`p_36:${Math.round(min * 100)}-${Math.round(max * 100)}`);
-    } else if (min) {
-      rh.push(`p_36:${Math.round(min * 100)}-`);
-    } else if (max) {
-      rh.push(`p_36:0-${Math.round(max * 100)}`);
-    }
+    if (min && max) rh.push(`p_36:${Math.round(min * 100)}-${Math.round(max * 100)}`);
+    else if (min) rh.push(`p_36:${Math.round(min * 100)}-`);
+    else if (max) rh.push(`p_36:0-${Math.round(max * 100)}`);
 
-    // ✅ Rating (always use "X stars and up")
+    // ✅ Rating
     if (data.get('min-rating')) {
       const rating = parseInt(data.get('min-rating'), 10);
-      if (!isNaN(rating)) {
-        rh.push(`p_72:${rating * 100}-`);
-      }
+      if (!isNaN(rating)) rh.push(`p_72:${rating * 100}-`);
     }
 
     // ✅ Sort
-    if (data.get('sort')) {
-      params.set('s', data.get('sort'));
-    }
+    if (data.get('sort')) params.set('s', data.get('sort'));
 
     // ✅ Checkbox filters
     const flags = {
@@ -1243,11 +1235,11 @@ document.addEventListener('DOMContentLoaded', () => {
       'amazon-brands': 'p_n_is_amazon_brand:1',
       'low-rating': 'p_72:1100'
     };
-    Object.entries(flags).forEach(([name, value]) => {
-      if (data.get(name) === 'on') rh.push(value);
+    Object.entries(flags).forEach(([name, val]) => {
+      if (data.get(name) === 'on') rh.push(val);
     });
 
-    // ✅ Brand include/exclude logic
+    // ✅ Brands
     const incOnly = data.get('include-only') === 'on';
     let incArr = [], excArr = [];
     try {
@@ -1261,11 +1253,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (incOnly) incArr.forEach(v => rh.push(`p_89:${v}`));
       else rh.push(`p_89:${incArr.join('|')}`);
     }
-    if (excArr.length) {
-      rh.push(`p_89:${excArr.join('|')}`);
-    }
+    if (excArr.length) rh.push(`p_89:${excArr.join('|')}`);
 
-    // ✅ Discount & volatility filters — only add if > 0
+    // ✅ Deal filters (only if value > 0)
     const discountInputs = [
       data.get('price-drop'),
       data.get('below-avg-30'),
@@ -1274,35 +1264,35 @@ document.addEventListener('DOMContentLoaded', () => {
       data.get('max-volatility-7'),
       data.get('percent-off')
     ];
-    const validDiscounts = discountInputs
-      .map(v => parseFloat(v))
-      .filter(v => !isNaN(v) && v > 0);
-    if (validDiscounts.length) {
-      const maxDiscount = Math.max(...validDiscounts);
-      rh.push(`p_n_pct-off-with-discount:${maxDiscount}`);
-    }
+    const validDiscounts = discountInputs.map(v => parseFloat(v)).filter(v => !isNaN(v) && v > 0);
+    if (validDiscounts.length) rh.push(`p_n_pct-off-with-discount:${Math.max(...validDiscounts)}`);
 
-    // ✅ Other deal toggles
     if (data.get('coupon-only') === 'on') rh.push('p_n_coupons_available:1');
     if (data.get('warehouse-refurb') === 'on') rh.push('p_n_warehouse_refurbished:1');
 
-    // ✅ Power-user inputs
-    const fieldFilter = data.get('field-filters')?.trim();
-    const directLookup = data.get('direct-lookup')?.trim();
-    if (fieldFilter) rh.push(fieldFilter);
-    if (directLookup) rh.push(`asin:${directLookup}`);
+    // ✅ Power-user filters
+    const field = data.get('field-filters')?.trim();
+    if (field) rh.push(field);
 
-    // ✅ AI / personalization (if present)
+    const direct = data.get('direct-lookup')?.trim();
+    if (direct) rh.push(`asin:${direct}`);
+
+    if (data.get('side-by-side') === 'on') rh.push('comparison-specs:enabled');
+    if (data.get('verified-only') === 'on') rh.push('review-verified:1');
+
+    // ✅ AI/personalization
     if (data.get('predictive-score') === 'on') rh.push('predictive-score:1');
     if (data.get('emotion-feedback') === 'on') rh.push('emotion-feedback:1');
     if (data.get('restock-forecast')?.trim()) {
-      rh.push(`restock:${data.get('restock-forecast').trim()}`);
+      rh.push(`restock:${data.get('restock-forecast')}`);
     }
 
-    // ✅ Assemble and open search
+    // ✅ Build final Amazon URL
     if (rh.length) params.set('rh', rh.join(','));
-    params.set('tag', 'echolover25-20'); // your affiliate ID
+    params.set('tag', 'echolover25-20');
     const finalUrl = `https://www.amazon.com/s?${params.toString()}`;
+
+    // ✅ Open in new tab
     window.open(finalUrl, '_blank');
   });
 });
