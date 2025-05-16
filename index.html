@@ -305,8 +305,10 @@
   <div class="card p-3">
     <div class="input-group">
       <!-- Mic on left -->
-      <button class="btn btn-outline-secondary" type="button" id="voiceSearchBtn">
-        🎤
+      <button class="btn btn-outline-secondary" type="button" id="voiceSearchBtn" aria-label="Activate voice search">
+  🎤
+</button>
+
       </button>
       <!-- Then the text input -->
       <input
@@ -592,12 +594,14 @@
   ⚠️ Too many filters may return no results. Try removing a few for better results.
 </div>
 
-    <button 
-      type="submit" 
-      form="amazon-search-form" 
-      class="btn btn-primary btn-lg w-100 pulse-glow">
-      🔍 Search Amazon
-    </button>
+   <button 
+  type="submit" 
+  form="amazon-search-form" 
+  class="btn btn-primary btn-lg w-100 pulse-glow"
+  aria-label="Search Amazon with selected filters">
+  🔍 Search Amazon
+</button>
+
     <p class="text-warning mt-2 text-center" style="font-weight: bold;">
   ⚠️ Too many filters may return no results.
 </p>
