@@ -399,8 +399,13 @@
   </select>
 </div>
       <div class="col-12 col-lg-4">
-        <label class="form-label">Sort By</label>
-        <select class="form-select" name="sort">
+      <label class="form-label d-flex align-items-center gap-1" for="sort">
+  Sort By
+  <span class="text-warning d-flex align-items-center" style="font-size: 0.85rem;">
+    ⚠️ <span class="ms-1">Only works with search term alone</span>
+  </span>
+</label>
+<select class="form-select" name="sort">
           <option value="">Relevance</option>
           <option value="price-asc-rank">Price: Low → High</option>
           <option value="price-desc-rank">Price: High → Low</option>
