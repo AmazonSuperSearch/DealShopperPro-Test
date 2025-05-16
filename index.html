@@ -1182,8 +1182,9 @@ document.addEventListener('DOMContentLoaded', () => {
     whitelist: ["Sony","Samsung","LG","Acer","Apple","Dell"],
     dropdown: { enabled: 0, maxItems: 10 }
   });
-
-<script>
+});     
+</script>
+<script>  
 document.addEventListener('DOMContentLoaded', () => {
   // ✅ Form submit logic
   const form = document.getElementById('amazon-search-form');
@@ -1193,7 +1194,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const data = new FormData(form);
     const params = new URLSearchParams();
     const rh = [];
-
+   
+  
     // ✅ Search query
     let q = (data.get('q') || '').trim();
     if (data.get('enable-boolean') === 'on' && q) {
