@@ -1185,6 +1185,106 @@ window.location.reload();
   });
 });
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('amazon-search-form');
+  const warningBox = document.getElementById('filter-warning');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // ✅ Show warning if too many filters
+    const checked = [...form.elements].filter(el =>
+      el.type === 'checkbox' && el.checked && !el.closest('.coming-soon')
+    ).length;
+    if (checked > 2) {
+      if (warningBox) warningBox.style.display = 'block';
+      return;
+    } else {
+      if (warningBox) warningBox.style.display = 'none';
+    }
+
+    // ✅ Sync Tagify values
+    ['brandInclude', 'brandExclude'].forEach(id => {
+      const tagifyInput = document.getElementById(id);
+      if (tagifyInput && tagifyInput._tagify) {
+        tagifyInput.value = JSON.stringify(tagifyInput._tagify.value);
+      }
+    });
+
+    const data = new FormData(form);
+    const params = new URLSearchParams();
+    const rh = [];
+
+    // ✅ Core keyword
+    const query = data.get('q')?.trim();
+    if (query) params.set('k', query);
+
+    // ✅ Core filters
+    if (data.get('prime-only') === 'on') rh.push('p_n_feature_fulfilled_by_amazon:1');
+    if (data.get('in-stock') === 'on') rh.push('p_n_availability:1248879011');
+    if (data.get('free-shipping') === 'on') rh.push('p_76:13184787011');
+
+    // ✅ Price range (p_36:MIN-MAX in cents)
+    const minPrice = parseFloat(data.get('min-price'));
+    const maxPrice = parseFloat(data.get('max-price'));
+    if (!isNaN(minPrice) || !isNaN(maxPrice)) {
+      const min = isNaN(minPrice) ? '' : Math.round(minPrice * 100);
+      const max = isNaN(maxPrice) ? '' : Math.round(maxPrice * 100);
+      rh.push(`p_36:${min}-${max}`);
+    }
+
+    // ✅ Percent-off
+    const percentOff = data.get('percent-off');
+    if (percentOff) {
+      rh.push(`p_n_pct-off-with-tax:${percentOff}`);
+    }
+
+    // ✅ Ratings
+    const rating = data.get('min-rating');
+    if (rating) {
+      rh.push(`p_72:${rating}00`);
+    }
+
+    // ✅ Sorting
+    const sort = data.get('sort');
+    if (sort) {
+      params.set('s', sort);
+    }
+
+    // ✅ Brand Include
+    const brandIncludeRaw = data.get('brand-include')?.trim();
+    const includeOnly = data.get('include-only') === 'on';
+    if (brandIncludeRaw) {
+      const brands = JSON.parse(brandIncludeRaw).map(obj => obj.value);
+      brands.forEach(b => rh.push(`p_89:${encodeURIComponent(b)}`));
+      if (includeOnly) {
+        // Already restricted to only these brands via rh
+      }
+    }
+
+    // ✅ Brand Exclude (added as params)
+    const brandExcludeRaw = data.get('brand-exclude')?.trim();
+    if (brandExcludeRaw) {
+      const brands = JSON.parse(brandExcludeRaw).map(obj => obj.value);
+      brands.forEach(b => params.append('brand-exclude', b));
+    }
+
+    // ✅ Advanced filters
+    if (data.get('enable-boolean') === 'on') params.set('boolean', 'on');
+    if (data.get('field-filters')) params.set('fields', data.get('field-filters').trim());
+    if (data.get('direct-lookup')) params.set('asin', data.get('direct-lookup').trim());
+
+    // ✅ Tag + RH combo
+    if (rh.length) params.set('rh', rh.join(','));
+    params.set('tag', 'echolover25-20');
+
+    const finalUrl = `https://www.amazon.com/s?${params.toString()}`;
+    window.open(finalUrl, '_blank');
+    window.location.reload();
+  });
+});
+</script>
 
 </body>
 </html>
