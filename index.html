@@ -308,9 +308,15 @@
         Filter by price, brand, Prime-only, free shipping, top ratings—and never miss another deal.
         No signup, no fluff—just the products you crave, right now.
       </p>
-      <a href="#amazon-search-form" class="btn btn-primary btn-lg pulse-glow">
-        🎯 Start Your Custom Search
-      </a>
+     <a href="#amazon-search-form" class="btn btn-primary btn-lg pulse-glow"
+   onclick="gtag('event', 'start_custom_search', {
+     event_category: 'CTA',
+     event_label: 'Top Hero Button',
+     value: 1
+   })">
+  🎯 Start Your Custom Search
+</a>
+
       <p class="mt-3 text-muted">
         Save this page to your bookmarks 🔖 and share it with everyone you know—never miss another deal! 🚀
       </p>
@@ -323,7 +329,10 @@
 </button>
 
 <input type="hidden" name="i" value="">
-<form id="amazon-search-form">
+<form id="amazon-search-form" onsubmit="gtag('event', 'submit_search_form', {
+  event_category: 'Form',
+  event_label: 'Main Amazon Search'
+});">
 <div class="container text-start mb-4">
   <h2 id="step1" class="mb-2">✅ Step 1: What are you shopping for?</h2>
   <p class="text-muted mb-3">
@@ -962,6 +971,11 @@
     btn.addEventListener('click', () => {
       recog.start();
       btn.classList.add('active');
+      gtag('event', 'voice_search_started', {
+  event_category: 'Voice',
+  event_label: 'Microphone Button'
+});
+
     });
 
     recog.addEventListener('result', (e) => {
