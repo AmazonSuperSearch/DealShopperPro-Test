@@ -965,7 +965,6 @@
     });
   }
 </script>
-</script>
 <!-- Floating Share Panel -->
 <div class="floating-share">
   <h2>Share With Friends</h2>
@@ -1006,19 +1005,6 @@
     </a>
   </div>
 </div>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  // Init Tagify
-  new Tagify(document.querySelector('input[name="brand-include"]'), {
-    whitelist: ["Sony","Samsung","LG","Acer","Apple","Dell"],
-    dropdown: { enabled: 0, maxItems: 10 }
-  });
-  new Tagify(document.querySelector('input[name="brand-exclude"]'), {
-    whitelist: ["Sony","Samsung","LG","Acer","Apple","Dell"],
-    dropdown: { enabled: 0, maxItems: 10 }
-  });
-});     
-</script>
 <!-- All your HTML content above... -->
 
 <script>
@@ -1197,7 +1183,19 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
-
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Init Tagify
+  new Tagify(document.querySelector('input[name="brand-include"]'), {
+    whitelist: ["Sony","Samsung","LG","Acer","Apple","Dell"],
+    dropdown: { enabled: 0, maxItems: 10 }
+  });
+  new Tagify(document.querySelector('input[name="brand-exclude"]'), {
+    whitelist: ["Sony","Samsung","LG","Acer","Apple","Dell"],
+    dropdown: { enabled: 0, maxItems: 10 }
+  });
+});     
+</script>
 
 </body>
 </html>
