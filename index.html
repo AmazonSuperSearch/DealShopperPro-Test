@@ -679,8 +679,8 @@
           <p>🔍 It will take you straight to that product in filtered results.</p>
 
           <div class="form-check mb-2">
-            <input class="form-check-input" type="checkbox" name="enable-boolean-adv" id="enableBooleanAdv">
-            <label class="form-check-label" for="enableBooleanAdv">Enable Boolean Operators (Advanced)</label>
+            <input class="form-check-input" type="checkbox" name="enable-boolean" id="enableBoolean">
+            <label class="form-check-label" for="enableBoolean">Enable Boolean Operators</label>
           </div>
           <div class="mb-2">
             <label class="form-label">Field Filters</label>
@@ -1016,14 +1016,6 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // *** Bind click-sound globally, once ***
-  document.querySelectorAll('button, input[type=\"submit\"]').forEach(el => {
-    el.addEventListener('click', () => {
-      const clickSound = document.getElementById('clickSound');
-      if (clickSound) clickSound.play().catch(() => {});
-    });
-  });
-
   const form = document.getElementById('amazon-search-form');
   const warningBox = document.getElementById('filter-warning');
 
@@ -1045,7 +1037,11 @@ document.addEventListener('DOMContentLoaded', () => {
         tagifyInput.value = JSON.stringify(tagifyInput._tagify.value);
       }
     });
-});
+document.querySelectorAll('button, input[type="submit"]').forEach(el => {
+  el.addEventListener('click', () => {
+    const clickSound = document.getElementById('clickSound');
+    if (clickSound) clickSound.play().catch(() => {});
+  });
 });
     const data = new FormData(form);
     const params = new URLSearchParams();
@@ -1082,7 +1078,7 @@ document.addEventListener('DOMContentLoaded', () => {
       rh.push('p_n_deal_type:23566065011');
     }
 
-    if (data.get('enable-boolean') === 'on' || data.get('enable-boolean-adv') === 'on') params.set('boolean', 'on');
+    if (data.get('enable-boolean') === 'on') params.set('boolean', 'on');
     if (data.get('field-filters')) params.set('fields', data.get('field-filters').trim());
     if (data.get('direct-lookup')) params.set('asin', data.get('direct-lookup').trim());
 
