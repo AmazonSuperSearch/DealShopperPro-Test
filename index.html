@@ -889,15 +889,6 @@
   </div>
 </section>
 
-    <script>
-      // Populate the shareLink field on load
-      document.addEventListener('DOMContentLoaded', function() {
-       <input type="hidden" id="shareLink" value="">
-      });
-    </script>
-</form>
-
-
     <!-- …your search-logic <script> closes here… -->
  <!-- end of search logic -->
 
@@ -943,18 +934,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
   
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const searchInput = document.getElementById('mainSearchInput');
-    if (searchInput) {
-      searchInput.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') {
-          e.preventDefault(); // Block Enter from submitting the form
-        }
-      });
-    }
-  });
-</script>
-<script>
   const btn = document.getElementById('voiceSearchBtn');
   const input = document.getElementById('mainSearchInput');
 
@@ -986,16 +965,6 @@
     });
   }
 </script>
-<script>
-  // Also play click sound when language selector is used
-  document.addEventListener('DOMContentLoaded', function() {
-    const clickSound = document.getElementById('clickSound');
-    document.getElementById('google_translate_element')
-      .addEventListener('click', () => {
-        clickSound.currentTime = 0;
-        clickSound.play();
-      });
-  });
 </script>
 <!-- Floating Share Panel -->
 <div class="floating-share">
@@ -1072,13 +1041,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ✅ Proceed with Amazon search
     const data = new FormData(form);
-    const params = new URLSearchParams();
-    const rh = [];
+const params = new URLSearchParams();
+const rh = [];
 
-    if (data.get('prime-only') === 'on') rh.push('p_n_feature_fulfilled_by_amazon:1');
-    if (data.get('in-stock') === 'on') rh.push('p_n_availability:1248879011');
-    if (data.get('free-shipping') === 'on') rh.push('p_76:13184787011');
- 
+const min = data.get('min-price')?.trim();
+const max = data.get('max-price')?.trim();
+
+if (min && max) {
+  rh.push(`p_36:${parseInt(min * 100)}-${parseInt(max * 100)}`);
+} else if (min) {
+  rh.push(`p_36:${parseInt(min * 100)}-`);
+} else if (max) {
+  rh.push(`p_36:-${parseInt(max * 100)}`);
+}
+
 // ✅ Handle brand include/exclude filters
 const brandIncludeRaw = data.get('brand-include')?.trim();
 const brandExcludeRaw = data.get('brand-exclude')?.trim();
@@ -1130,30 +1106,28 @@ document.addEventListener('DOMContentLoaded', () => {
       if (warningBox) warningBox.style.display = 'none';
     }
 
-    // ✅ Sync Tagify input values before using FormData
-    ['brandInclude', 'brandExclude'].forEach(id => {
-      const tagifyInput = document.getElementById(id);
-      if (tagifyInput && tagifyInput._tagify) {
-        tagifyInput.value = JSON.stringify(tagifyInput._tagify.value);
-      }
-    });
+   // ✅ Sync Tagify values BEFORE FormData
+['brandInclude', 'brandExclude'].forEach(id => {
+  const tagifyInput = document.getElementById(id);
+  if (tagifyInput && tagifyInput._tagify) {
+    tagifyInput.value = JSON.stringify(tagifyInput._tagify.value);
+  }
+});
 
-    const data = new FormData(form);
-    const params = new URLSearchParams();
-    const rh = [];
+// ✅ THEN call FormData
+const data = new FormData(form);
 
-    if (data.get('prime-only') === 'on') rh.push('p_n_feature_fulfilled_by_amazon:1');
-    if (data.get('in-stock') === 'on') rh.push('p_n_availability:1248879011');
-    if (data.get('free-shipping') === 'on') rh.push('p_76:13184787011');
+// ✅ Now safe to extract brand data
+const brandIncludeRaw = data.get('brand-include')?.trim();
+const brandExcludeRaw = data.get('brand-exclude')?.trim();
+const includeOnly = data.get('include-only') === 'on';
 
-    // ✅ Handle brand filters
-    const brandIncludeRaw = data.get('brand-include')?.trim();
-    const brandExcludeRaw = data.get('brand-exclude')?.trim();
-    const includeOnly = data.get('include-only') === 'on';
+
+    
 
     if (brandIncludeRaw) {
       const brands = JSON.parse(brandIncludeRaw).map(obj => obj.value);
-      brands.forEach(b => rh.push(p_89:${b}));
+      brands.forEach(b => rh.push(`p_89:${encodeURIComponent(b)}`));
       if (includeOnly) {
         // Already restricted to selected brands
       }
