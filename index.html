@@ -1008,12 +1008,19 @@
 </div>
 <!-- All your HTML content above... -->
 
-<script>
+
+
+  
+
+
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('amazon-search-form');
   const warningBox = document.getElementById('filter-warning');
+
+  new Tagify(document.querySelector('input[name="brand-include"]'));
+  new Tagify(document.querySelector('input[name="brand-exclude"]'));
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -1021,6 +1028,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const checked = [...form.elements].filter(el =>
       el.type === 'checkbox' && el.checked && !el.closest('.coming-soon')
     ).length;
+
     if (warningBox) warningBox.style.display = (checked > 2) ? 'block' : 'none';
 
     ['brandInclude', 'brandExclude'].forEach(id => {
@@ -1042,8 +1050,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const brandIncludeRaw = data.get('brand-include')?.trim();
     const brandExcludeRaw = data.get('brand-exclude')?.trim();
-    const includeOnly = data.get('include-only') === 'on';
-
     if (brandIncludeRaw) {
       const brands = JSON.parse(brandIncludeRaw).map(obj => obj.value);
       brands.forEach(b => rh.push(`p_89:${encodeURIComponent(b)}`));
@@ -1063,17 +1069,20 @@ document.addEventListener('DOMContentLoaded', () => {
       rh.push(`p_n_pct-off-with-tax:${discountMap[percentOff]}`);
     }
 
+    if (data.get('lightning-deals') === 'on') {
+      rh.push('p_n_deal_type:23566065011');
+    }
+
+    if (data.get('enable-boolean') === 'on') params.set('boolean', 'on');
+    if (data.get('field-filters')) params.set('fields', data.get('field-filters').trim());
+    if (data.get('direct-lookup')) params.set('asin', data.get('direct-lookup').trim());
+
     const sort = data.get('sort');
     if (sort) params.set('s', sort);
 
     const query = data.get('q')?.trim();
     if (query) params.set('k', query);
 
-    if (data.get('enable-boolean') === 'on') params.set('boolean', 'on');
-    if (data.get('field-filters')) params.set('fields', data.get('field-filters').trim());
-    if (data.get('direct-lookup')) params.set('asin', data.get('direct-lookup').trim());
-
-    if (data.get('lightning-deals') === 'on') rh.push('p_n_deal_type:23566065011');
     if (rh.length) params.set('rh', rh.join(','));
     params.set('tag', 'echolover25-20');
 
