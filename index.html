@@ -1134,6 +1134,11 @@ document.addEventListener('DOMContentLoaded', () => {
     rh.push('p_89:amazon');  // Filter for Amazon-branded products
     }
 
+    // Check if "Free Shipping" checkbox is selected
+    if (data.get('free-shipping') === 'on') {
+    rh.push('p_n_shipping:2665395011');  // Free Shipping filter
+    }
+
     // Check if "In Stock" checkbox is selected
     if (data.get('in-stock') === 'on') {
     rh.push('p_n_availability:2931576011');  // In Stock filter
