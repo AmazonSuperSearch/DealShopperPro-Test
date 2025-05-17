@@ -1124,6 +1124,41 @@ document.addEventListener('DOMContentLoaded', () => {
       brands.forEach(b => params.append('brand-exclude', b));
     }
 
+    // Check if "Amazon Brands Only" checkbox is selected
+    if (data.get('amazon-brands') === 'on') {
+    rh.push('p_89:amazon');  // Filter for Amazon-branded products
+    }
+
+    // Check if "In Stock" checkbox is selected
+    if (data.get('in-stock') === 'on') {
+    rh.push('p_n_availability:2931576011');  // In Stock filter
+    }
+
+    // Check if "Today's Deals Only" checkbox is selected
+    if (data.get('todays-deals') === 'on') {
+    rh.push('p_n_deal_type:23566065011');  // Today's Deals filter
+    }
+
+    // Check if "Best Seller" checkbox is selected
+    if (data.get('best-seller') === 'on') {
+    rh.push('p_n_rank:1');  // Best Seller filter
+    }
+
+    // Check if "Gift Wrap Available" checkbox is selected
+    if (data.get('gift-wrap') === 'on') {
+    rh.push('p_n_giftwrap_available:true');  // Gift Wrap Available filter
+    }
+
+    // Check if "Low Rating Products" checkbox is selected
+    if (data.get('low-rating') === 'on') {
+    rh.push('p_n_ratings:low');  // Low Rating Products filter
+    }
+  
+     // Check if "Sold & Shipped by Amazon" checkbox is selected
+     if (data.get('fba-only') === 'on') {
+     rh.push('p_n_vendor:Amazon');  // Filter for Sold & Shipped by Amazon
+    }
+
     // Check if "Coupons Available" checkbox is selected
     if (data.get('coupons') === 'on') {
       rh.push('p_n_coupon_available:true');  // Apply filter for coupons
@@ -1133,7 +1168,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (data.get('free-returns') === 'on') {
       rh.push('p_n_free_returns:2937117011');  // Free Returns filter
     }
-
+  
+    // Handle the Subscribe & Save filter
+    if (data.get('subscribe-save') === 'on') {
+      rh.push('p_n_subscribe-save:3039453011');  // Subscribe & Save filter
+    }
+  
     // Check if "Small Business Products" checkbox is selected
     if (data.get('small-business') === 'on') {
       rh.push('p_89:small-business');  // Small Business Products filter
