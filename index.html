@@ -1047,12 +1047,13 @@ const min = data.get('min-price')?.trim();
 const max = data.get('max-price')?.trim();
 
 if (min && max) {
-  rh.push(`p_36:${parseInt(min * 100)}-${parseInt(max * 100)}`);
+  rh.push(`p_36:${Math.round(min * 100)}-${Math.round(max * 100)}`);
 } else if (min) {
-  rh.push(`p_36:${parseInt(min * 100)}-`);
+  rh.push(`p_36:${Math.round(min * 100)}-`);
 } else if (max) {
-  rh.push(`p_36:-${parseInt(max * 100)}`);
+  rh.push(`p_36:-${Math.round(max * 100)}`);
 }
+
 
 // ✅ Handle brand include/exclude filters
 const brandIncludeRaw = data.get('brand-include')?.trim();
@@ -1165,7 +1166,7 @@ params.set('tag', 'echolover25-20');
 
 const finalUrl = `https://www.amazon.com/s?${params.toString()}`;
 window.open(finalUrl, '_blank');
-window.location.reload();
+
 
   });
 });
