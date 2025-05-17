@@ -1138,6 +1138,11 @@ document.querySelectorAll('button, input[type="submit"]').forEach(el => {
       const brands = JSON.parse(brandExcludeRaw).map(obj => obj.value);
       brands.forEach(b => params.append('brand-exclude', b));
     }
+    // Check if "Free Returns" checkbox is selected
+if (data.get('free-returns') === 'on') {
+  rh.push('p_n_free_returns:2937117011');  // Free Returns filter
+}
+
     // Check if "Small Business Products" checkbox is selected
 if (data.get('small-business') === 'on') {
   rh.push('p_89:small-business');  // Small Business Products filter
