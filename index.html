@@ -1445,21 +1445,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
   
-  <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const clickSound = document.getElementById('clickSound');
+<script>
+const clickSound = document.getElementById('clickSound');
 
-  document.querySelectorAll('button, input[type="submit"]').forEach(el => {
-    el.addEventListener('click', () => {
-      if (clickSound) {
-        // Clone the audio node to allow multiple rapid plays
-        const sound = clickSound.cloneNode();
-        sound.play().catch(() => {});
-      }
-    });
+document.querySelectorAll('button, input[type="submit"]').forEach(el => {
+  el.addEventListener('click', () => {
+    if (clickSound) {
+      clickSound.currentTime = 0;
+      clickSound.play().catch((err) => {
+        console.warn('Click sound failed to play:', err);
+      });
+    }
   });
 });
 </script>
-
 </body>
 </html>
