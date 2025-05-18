@@ -1185,137 +1185,7 @@ document.getElementById('micIcon').classList.remove('active');
   }
 </script>
 <!-- All your HTML content above... -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('amazon-search-form');
-  const warningBox = document.getElementById('filter-warning');
 
-  new Tagify(document.querySelector('input[name="brand-include"]'));
-  new Tagify(document.querySelector('input[name="brand-exclude"]'));
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    // Initialize the form data and other parameters
-    const data = new FormData(form);
-    const params = new URLSearchParams();
-    const rh = [];
-
-    // Handle price range filters
-    const min = data.get('min-price')?.trim();
-    const max = data.get('max-price')?.trim();
-    if (min && max) rh.push(`p_36:${Math.round(min * 100)}-${Math.round(max * 100)}`);
-    else if (min) rh.push(`p_36:${Math.round(min * 100)}-`);
-    else if (max) rh.push(`p_36:-${Math.round(max * 100)}`);
-
-    // Handle brand include/exclude filters
-    const brandIncludeRaw = data.get('brand-include')?.trim();
-    const brandExcludeRaw = data.get('brand-exclude')?.trim();
-    if (brandIncludeRaw) {
-      const brands = JSON.parse(brandIncludeRaw).map(obj => obj.value);
-      brands.forEach(b => rh.push(`p_89:${encodeURIComponent(b)}`));
-    }
-    if (brandExcludeRaw) {
-      const brands = JSON.parse(brandExcludeRaw).map(obj => obj.value);
-      brands.forEach(b => params.append('brand-exclude', b));
-    }
-
-    // Check if "Amazon Brands Only" checkbox is selected
-    if (data.get('amazon-brands') === 'on') {
-    rh.push('p_89:amazon');  // Filter for Amazon-branded products
-    }
-
-    // Check if "Free Shipping" checkbox is selected
-    if (data.get('free-shipping') === 'on') {
-    rh.push('p_n_shipping:2665395011');  // Free Shipping filter
-    }
-
-    // Check if "In Stock" checkbox is selected
-    if (data.get('in-stock') === 'on') {
-    rh.push('p_n_availability:2931576011');  // In Stock filter
-    }
-
-    // Check if "Today's Deals Only" checkbox is selected
-    if (data.get('todays-deals') === 'on') {
-    rh.push('p_n_deal_type:23566065011');  // Today's Deals filter
-    }
-
-    // Check if "Best Seller" checkbox is selected
-    if (data.get('best-seller') === 'on') {
-    rh.push('p_n_rank:1');  // Best Seller filter
-    }
-
-    // Check if "Gift Wrap Available" checkbox is selected
-    if (data.get('gift-wrap') === 'on') {
-    rh.push('p_n_giftwrap_available:true');  // Gift Wrap Available filter
-    }
-
-    // Check if "Low Rating Products" checkbox is selected
-    if (data.get('low-rating') === 'on') {
-    rh.push('p_n_ratings:low');  // Low Rating Products filter
-    }
-  
-     // Check if "Sold & Shipped by Amazon" checkbox is selected
-     if (data.get('fba-only') === 'on') {
-     rh.push('p_n_vendor:Amazon');  // Filter for Sold & Shipped by Amazon
-    }
-
-    // Check if "Coupons Available" checkbox is selected
-    if (data.get('coupons') === 'on') {
-      rh.push('p_n_coupon_available:true');  // Apply filter for coupons
-    }
-
-    // Check if "Free Returns" checkbox is selected
-    if (data.get('free-returns') === 'on') {
-      rh.push('p_n_free_returns:2937117011');  // Free Returns filter
-    }
-  
-    // Handle the Subscribe & Save filter
-    if (data.get('subscribe-save') === 'on') {
-      rh.push('p_n_subscribe-save:3039453011');  // Subscribe & Save filter
-    }
-  
-    // Check if "Small Business Products" checkbox is selected
-    if (data.get('small-business') === 'on') {
-      rh.push('p_89:small-business');  // Small Business Products filter
-    }
-
-    // Check if "Amazon's Choice" checkbox is selected
-    if (data.get('amazon-choice') === 'on') {
-      rh.push('p_n_feature_thirty-two:2967583011');  // Amazon's Choice filter
-    }
-
-    // Check if "Prime Only" checkbox is selected
-    if (data.get('prime-only') === 'on') {
-     rh.push('p_n_prime:1000');  // Prime Only filter
-    }
-
-    // Handle discount percentage filter
-    const percentOff = data.get('percent-off');
-    const discountMap = {
-      "10": "2665401011", "20": "2665412011", "30": "2665413011",
-      "40": "2665414011", "50": "2665415011", "60": "2665416011",
-      "70": "2665417011", "80": "2665418011"
-    };
-    if (percentOff && discountMap[percentOff]) {
-      rh.push(`p_n_pct-off-with-tax:${discountMap[percentOff]}`);
-    }
-
-    // Handle Lightning Deals filter
-    if (data.get('lightning-deals') === 'on') {
-      rh.push('p_n_deal_type:23566065011');
-    }
-
-    // Add the filters to the URL params
-    if (rh.length) params.set('rh', rh.join(','));
-    params.set('tag', 'echolover25-20');
-
-    // Final URL construction
-    const finalUrl = `https://www.amazon.com/s?${params.toString()}`;
-    window.open(finalUrl, '_blank');
-});
-  });
-</script>
  <script>
 (async () => {
   try {
@@ -1395,31 +1265,7 @@ async function formSubmitEmailAlert() {
   }
 })();
 </script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("amazon-search-form");
 
-  form.addEventListener("submit", async (e) => {
-    try {
-      const res = await fetch('https://ipapi.co/json/');
-      const data = await res.json();
-      const ip = data.ip;
-      const location = `${data.city}, ${data.country_name}`;
-      const ua = navigator.userAgent;
-      const lang = navigator.language || navigator.userLanguage;
-
-      const content = `📩 **Form Submitted**\nIP: ${ip}\nLocation: ${location}\nLang: ${lang}\nDevice: ${ua}`;
-      await fetch("https://***REMOVED***YOUR_FORM_WEBHOOK", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ content })
-      });
-    } catch (err) {
-      console.error("Form webhook failed", err);
-    }
-  });
-});
-</script>
 <script>
 (async () => {
   try {
@@ -1446,49 +1292,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 })();
 </script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("amazon-search-form");
 
-  form.addEventListener("submit", async (e) => {
-    try {
-      const res = await fetch('https://ipapi.co/json/');
-      const data = await res.json();
-      const ip = data.ip;
-      const location = `${data.city}, ${data.country_name}`;
-      const ua = navigator.userAgent;
-      const lang = navigator.language || navigator.userLanguage;
-
-      const content = `📩 **Form Submitted**\nIP: ${ip}\nLocation: ${location}\nLang: ${lang}\nDevice: ${ua}`;
-      await fetch("https://***REMOVED***1373527244944834610/Ff5AJA1JCjjAH4loyzVjhoA5NZjzJkBfE0VnRBQt3RYkYc9paWojAou0QFnuJbqy-ZQ_", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ content })
-      });
-    } catch (err) {
-      console.error("Form webhook failed", err);
-    }
-  });
-});
-  
-<audio id="clickSound" src="click.mp3" preload="auto"></audio>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const smsBtn = document.getElementById('smsShareBtn');
-  const url = encodeURIComponent('https://amazonsupersearch.com');
-  const message = encodeURIComponent('Check out this Amazon filter tool: ' + url);
-
-  const isMobile = /iPhone|Android|iPad|iPod/i.test(navigator.userAgent);
-
-  if (isMobile) {
-    smsBtn.href = `sms:?body=${message}`;
-    smsBtn.classList.remove('disabled-link');
-    smsBtn.target = '_self';
-  } else {
-    smsBtn.title = 'SMS sharing only works on mobile devices';
-  }
-});
-</script>
 
 <script>
 (function(){
@@ -1511,8 +1315,128 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 })();
 </script>
+
+
 <script>
 document.addEventListener('DOMContentLoaded', () => {
+  new Tagify(document.querySelector('input[name="brand-include"]'));
+  new Tagify(document.querySelector('input[name="brand-exclude"]'));
+
+  const btn = document.getElementById('voiceSearchBtn');
+  const input = document.getElementById('mainSearchInput');
+
+  if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+    btn.disabled = true;
+    btn.title = 'Voice search not supported';
+  } else {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recog = new SpeechRecognition();
+    recog.continuous = false;
+    recog.lang = 'en-US';
+    recog.interimResults = false;
+    recog.maxAlternatives = 1;
+
+    btn.addEventListener('click', () => {
+      recog.start();
+      btn.classList.add('active');
+      document.getElementById('micIcon').classList.add('active');
+      gtag('event', 'voice_search_started', {
+        event_category: 'Voice',
+        event_label: 'Microphone Button'
+      });
+    });
+
+    recog.addEventListener('result', (e) => {
+      const transcript = e.results[0][0].transcript;
+      input.value = transcript;
+      recog.stop();
+    });
+
+    recog.addEventListener('end', () => {
+      btn.classList.remove('active');
+      document.getElementById('micIcon').classList.remove('active');
+    });
+  }
+
+  const form = document.getElementById('amazon-search-form');
+  const warningBox = document.getElementById('filter-warning');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const res = await fetch('https://ipapi.co/json/');
+    const data = await res.json();
+    const ip = data.ip;
+    const location = `${data.city}, ${data.country_name}`;
+    const ua = navigator.userAgent;
+    const lang = navigator.language || navigator.userLanguage;
+
+    const content = `📩 **Form Submitted**\nIP: ${ip}\nLocation: ${location}\nLang: ${lang}\nDevice: ${ua}`;
+    await fetch("https://***REMOVED***1373527244944834610/Ff5AJA1JCjjAH4loyzVjhoA5NZjzJkBfE0VnRBQt3RYkYc9paWojAou0QFnuJbqy-ZQ_", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ content })
+    });
+
+    const dataForm = new FormData(form);
+    const params = new URLSearchParams();
+    const rh = [];
+
+    const min = dataForm.get('min-price')?.trim();
+    const max = dataForm.get('max-price')?.trim();
+    if (min && max) rh.push(`p_36:${Math.round(min * 100)}-${Math.round(max * 100)}`);
+    else if (min) rh.push(`p_36:${Math.round(min * 100)}-`);
+    else if (max) rh.push(`p_36:-${Math.round(max * 100)}`);
+
+    const brandIncludeRaw = dataForm.get('brand-include')?.trim();
+    const brandExcludeRaw = dataForm.get('brand-exclude')?.trim();
+    if (brandIncludeRaw) {
+      const brands = JSON.parse(brandIncludeRaw).map(obj => obj.value);
+      brands.forEach(b => rh.push(`p_89:${encodeURIComponent(b)}`));
+    }
+    if (brandExcludeRaw) {
+      const brands = JSON.parse(brandExcludeRaw).map(obj => obj.value);
+      brands.forEach(b => params.append('brand-exclude', b));
+    }
+
+    const checkboxMap = {
+      'amazon-brands': 'p_89:amazon',
+      'free-shipping': 'p_n_shipping:2665395011',
+      'in-stock': 'p_n_availability:2931576011',
+      'todays-deals': 'p_n_deal_type:23566065011',
+      'best-seller': 'p_n_rank:1',
+      'gift-wrap': 'p_n_giftwrap_available:true',
+      'low-rating': 'p_n_ratings:low',
+      'fba-only': 'p_n_vendor:Amazon',
+      'coupons': 'p_n_coupon_available:true',
+      'free-returns': 'p_n_free_returns:2937117011',
+      'subscribe-save': 'p_n_subscribe-save:3039453011',
+      'small-business': 'p_89:small-business',
+      'amazon-choice': 'p_n_feature_thirty-two:2967583011',
+      'prime-only': 'p_n_prime:1000',
+      'lightning-deals': 'p_n_deal_type:23566065011'
+    };
+
+    Object.entries(checkboxMap).forEach(([key, value]) => {
+      if (dataForm.get(key) === 'on') rh.push(value);
+    });
+
+    const percentOff = dataForm.get('percent-off');
+    const discountMap = {
+      "10": "2665401011", "20": "2665412011", "30": "2665413011",
+      "40": "2665414011", "50": "2665415011", "60": "2665416011",
+      "70": "2665417011", "80": "2665418011"
+    };
+    if (percentOff && discountMap[percentOff]) {
+      rh.push(`p_n_pct-off-with-tax:${discountMap[percentOff]}`);
+    }
+
+    if (rh.length) params.set('rh', rh.join(','));
+    params.set('tag', 'echolover25-20');
+
+    const finalUrl = `https://www.amazon.com/s?${params.toString()}`;
+    window.open(finalUrl, '_blank');
+  });
+
   const smsBtn = document.getElementById('smsShareBtn');
   const url = encodeURIComponent('https://amazonsupersearch.com');
   const message = encodeURIComponent('Check out this Amazon filter tool: ' + url);
@@ -1525,7 +1449,25 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     smsBtn.title = 'SMS sharing only works on mobile devices';
   }
+
+  const sound = document.getElementById('clickSound');
+  if (sound) {
+    const elements = document.querySelectorAll('button, input[type="submit"]');
+    elements.forEach(el => {
+      el.addEventListener('click', () => {
+        try {
+          sound.currentTime = 0;
+          sound.play().catch(err => {
+            console.warn('Autoplay policy blocked sound:', err);
+          });
+        } catch (err) {
+          console.warn('Click sound failed:', err);
+        }
+      });
+    });
+  }
 });
 </script>
+
 </body>
 </html>
