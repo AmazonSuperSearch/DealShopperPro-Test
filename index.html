@@ -311,43 +311,7 @@
     opacity: 0;
   }
   
-.share-buttons .share-btn {
-  font-size: 2.2rem; /* bigger icons */
-  width: 64px;
-  height: 64px;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  color: white;
-  text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
-/* Optional hover animation */
-.share-btn:hover {
-  transform: scale(1.2);
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
-}
-
-/* Brand-specific colors */
-.facebook { background-color: #1877f2; }
-.twitter  { background-color: #1da1f2; }
-.email    { background-color: #ea4335; }
-.sms      { background-color: #97d700; color: black; font-weight: bold; }
-.reddit   { background-color: #ff4500; }
-.linkedin { background-color: #0077b5; }
-
-
-}
-.facebook { background-color: #3b5998; }
-.twitter { background-color: #1da1f2; }
-.email { background-color: #ea4335; }
-.sms { background-color: #34af23; }
-.disabled-link {
-  opacity: 0.5;
-  pointer-events: none;
-}
 
 </style>
 
@@ -1032,26 +996,25 @@
 </p>
 <div id="share-now" class="share-panel text-center my-4">
   <h2>📤 Share This Page</h2>
-  <div class="share-buttons d-flex justify-content-center flex-wrap gap-3 mt-3">
+  <div class="share-buttons d-flex justify-content-center flex-wrap gap-4 mt-3">
   <a href="https://www.facebook.com/sharer/sharer.php?u=https://amazonsupersearch.com"
-     class="share-btn facebook" target="_blank" aria-label="Share on Facebook">
-  </a>
-  <a href="https://twitter.com/intent/tweet?text=Check%20this%20out%20https://amazonsupersearch.com"
-     class="share-btn twitter" target="_blank" aria-label="Share on Twitter">
-  </a>
+     class="share-btn" target="_blank" aria-label="Share on Facebook">📘</a>
+
+  <a href="https://twitter.com/intent/tweet?text=Check%20out%20this%20Amazon%20deal%20search!%20https://amazonsupersearch.com"
+     class="share-btn" target="_blank" aria-label="Share on Twitter">🐦</a>
+
   <a href="mailto:?subject=Check%20this%20out&body=Amazon%20Super%20Search:%20https://amazonsupersearch.com"
-     class="share-btn email" aria-label="Share via Email">
-    <i class="fas fa-envelope"></i>
-  </a>
-  <a id="smsShareBtn" class="share-btn sms disabled-link" aria-label="Share via SMS">
-    <i class="fas fa-sms"></i>
-  </a>
-  <a href="https://www.reddit.com/submit?url=https://amazonsupersearch.com"
-     class="share-btn reddit" target="_blank" aria-label="Share on Reddit">
-  </a>
-  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://amazonsupersearch.com"
-     class="share-btn linkedin" target="_blank" aria-label="Share on LinkedIn">
-  </a>
+     class="share-btn" aria-label="Share via Email">✉️</a>
+
+  <a id="smsShareBtn"
+     class="share-btn disabled-link"
+     aria-label="Share via SMS">💬</a>
+
+  <a href="https://www.reddit.com/submit?url=https://amazonsupersearch.com&title=Amazon%20Super%20Search"
+     class="share-btn" target="_blank" aria-label="Share on Reddit">👽</a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://amazonsupersearch.com"
+     class="share-btn" target="_blank" aria-label="Share on LinkedIn">💼</a>
 </div>
 
     <!-- Facebook -->
