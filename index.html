@@ -1445,19 +1445,29 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
   
-<script>
-const clickSound = document.getElementById('clickSound');
+<audio id="clickSound" src="click.mp3" preload="auto"></audio>
 
-document.querySelectorAll('button, input[type="submit"]').forEach(el => {
-  el.addEventListener('click', () => {
-    if (clickSound) {
-      clickSound.currentTime = 0;
-      clickSound.play().catch((err) => {
-        console.warn('Click sound failed to play:', err);
-      });
-    }
-  });
-});
+<script>
+(function(){
+  const sound = document.getElementById('clickSound');
+  if (!sound) return;
+
+  // Add click to all buttons and input[type=submit]
+  const elements = document.querySelectorAll('button, input[type="submit"]');
+  for (const el of elements) {
+    el.addEventListener('click', function () {
+      try {
+        sound.currentTime = 0;
+        sound.play().catch(err => {
+          console.warn('Autoplay policy blocked sound:', err);
+        });
+      } catch (err) {
+        console.warn('Click sound failed:', err);
+      }
+    });
+  }
+})();
 </script>
+
 </body>
 </html>
