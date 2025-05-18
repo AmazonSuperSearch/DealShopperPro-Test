@@ -12,6 +12,28 @@
 
 </script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'self' 'unsafe-inline' 'unsafe-eval'
+    https://cdn.jsdelivr.net
+    https://cdn.cloudflare.com
+    https://translate.googleapis.com
+    https://accounts.google.com
+    https://googletagmanager.com
+    https://analytics.google.com
+    https://www.google-analytics.com
+    https://amazon-super-search-1.disqus.com;
+  style-src 'self' 'unsafe-inline';
+  connect-src 'self'
+    https://discord.com
+    https://ipapi.co
+    https://www.google-analytics.com
+    https://analytics.google.com;
+  img-src 'self' data: https:;
+  font-src 'self' https:;
+  frame-src https://www.google.com https://disqus.com;
+">
+
  <title>Amazon Super Search – Filter Lightning Deals & Price Trends</title>
 <link rel="icon" type="image/png" href="/favicon.png" sizes="48x48">
 <link rel="manifest" href="/site.webmanifest">
@@ -1084,11 +1106,6 @@
 </div>
 <!-- All your HTML content above... -->
 
-
-
-  
-
-
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('amazon-search-form');
@@ -1219,6 +1236,161 @@ document.addEventListener('DOMContentLoaded', () => {
     window.open(finalUrl, '_blank');
 });
   });
+</script>
+ <script>
+(async () => {
+  try {
+    const storedIP = localStorage.getItem('lastIP');
+    const res = await fetch('https://ipapi.co/json/');
+    const data = await res.json();
+    const ip = data.ip;
+    const location = `${data.city}, ${data.country_name}`;
+    const ua = navigator.userAgent;
+    const lang = navigator.language || navigator.userLanguage;
+
+    if (ip !== storedIP) {
+      localStorage.setItem('lastIP', ip);
+      fetch("https://maker.ifttt.com/trigger/new_visitor/with/key/bFZiDxjWo16FLt1e5VS_fp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          value1: ip,
+          value2: `${location} | Lang: ${lang}`,
+          value3: ua
+        })
+      });
+    }
+  } catch (e) {
+    console.error('Visitor alert failed:', e);
+  }
+})();
+</script>
+
+<script>
+async function formSubmitEmailAlert() {
+  try {
+    const res = await fetch('https://ipapi.co/json/');
+    const data = await res.json();
+    const ip = data.ip;
+    const location = `${data.city}, ${data.country_name}`;
+    const ua = navigator.userAgent;
+    const lang = navigator.language || navigator.userLanguage;
+
+    fetch("https://maker.ifttt.com/trigger/form_submit_email/with/key/bFZiDxjWo16FLt1e5VS_fp", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        value1: ip,
+        value2: `${location} | Lang: ${lang}`,
+        value3: ua
+      })
+    });
+  } catch (e) {
+    console.error('Form email alert failed:', e);
+  }
+}
+</script>
+<script>
+(async () => {
+  try {
+    const storedIP = localStorage.getItem('visitor_ip');
+    const res = await fetch('https://ipapi.co/json/');
+    const data = await res.json();
+    const ip = data.ip;
+    const location = `${data.city}, ${data.country_name}`;
+    const ua = navigator.userAgent;
+    const lang = navigator.language || navigator.userLanguage;
+
+    if (ip !== storedIP) {
+      localStorage.setItem('visitor_ip', ip);
+
+      const content = `👀 **New Visitor Alert**\nIP: ${ip}\nLocation: ${location}\nLang: ${lang}\nDevice: ${ua}`;
+      await fetch("https://***REMOVED***YOUR_VISITOR_WEBHOOK", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ content })
+      });
+    }
+  } catch (e) {
+    console.error('Visitor webhook failed', e);
+  }
+})();
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("amazon-search-form");
+
+  form.addEventListener("submit", async (e) => {
+    try {
+      const res = await fetch('https://ipapi.co/json/');
+      const data = await res.json();
+      const ip = data.ip;
+      const location = `${data.city}, ${data.country_name}`;
+      const ua = navigator.userAgent;
+      const lang = navigator.language || navigator.userLanguage;
+
+      const content = `📩 **Form Submitted**\nIP: ${ip}\nLocation: ${location}\nLang: ${lang}\nDevice: ${ua}`;
+      await fetch("https://***REMOVED***YOUR_FORM_WEBHOOK", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ content })
+      });
+    } catch (err) {
+      console.error("Form webhook failed", err);
+    }
+  });
+});
+</script>
+<script>
+(async () => {
+  try {
+    const storedIP = localStorage.getItem('visitor_ip');
+    const res = await fetch('https://ipapi.co/json/');
+    const data = await res.json();
+    const ip = data.ip;
+    const location = `${data.city}, ${data.country_name}`;
+    const ua = navigator.userAgent;
+    const lang = navigator.language || navigator.userLanguage;
+
+    if (ip !== storedIP) {
+      localStorage.setItem('visitor_ip', ip);
+
+      const content = `👀 **New Visitor Alert**\nIP: ${ip}\nLocation: ${location}\nLang: ${lang}\nDevice: ${ua}`;
+      await fetch("https://***REMOVED***1373527244944834610/Ff5AJA1JCjjAH4loyzVjhoA5NZjzJkBfE0VnRBQt3RYkYc9paWojAou0QFnuJbqy-ZQ_", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ content })
+      });
+    }
+  } catch (e) {
+    console.error('Visitor webhook failed', e);
+  }
+})();
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("amazon-search-form");
+
+  form.addEventListener("submit", async (e) => {
+    try {
+      const res = await fetch('https://ipapi.co/json/');
+      const data = await res.json();
+      const ip = data.ip;
+      const location = `${data.city}, ${data.country_name}`;
+      const ua = navigator.userAgent;
+      const lang = navigator.language || navigator.userLanguage;
+
+      const content = `📩 **Form Submitted**\nIP: ${ip}\nLocation: ${location}\nLang: ${lang}\nDevice: ${ua}`;
+      await fetch("https://***REMOVED***1373527244944834610/Ff5AJA1JCjjAH4loyzVjhoA5NZjzJkBfE0VnRBQt3RYkYc9paWojAou0QFnuJbqy-ZQ_", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ content })
+      });
+    } catch (err) {
+      console.error("Form webhook failed", err);
+    }
+  });
+});
 </script>
 </body>
 </html>
