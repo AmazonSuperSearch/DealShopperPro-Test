@@ -14,25 +14,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
  <meta http-equiv="Content-Security-Policy" content="
   default-src 'self';
-  script-src 'self' 'unsafe-inline' 'unsafe-eval'
-    https://cdn.jsdelivr.net
-    https://cdn.cloudflare.com
-    https://translate.googleapis.com
-    https://accounts.google.com
-    https://googletagmanager.com
-    https://analytics.google.com
-    https://www.google-analytics.com
-    https://amazon-super-search-1.disqus.com;
-  style-src 'self' 'unsafe-inline';
-  connect-src 'self'
-    https://discord.com
-    https://ipapi.co
-    https://www.google-analytics.com
-    https://analytics.google.com;
+  style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+  font-src 'self' https://fonts.gstatic.com;
+  script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdn.cloudflare.com;
+  connect-src 'self' https://discord.com https://ipapi.co https://www.google-analytics.com https://analytics.google.com;
   img-src 'self' data: https:;
-  font-src 'self' https:;
-  frame-src https://www.google.com https://disqus.com;
-">
+  frame-src https://www.google.com https://disqus.com;">
+
 
 
  <title>Amazon Super Search – Filter Lightning Deals & Price Trends</title>
