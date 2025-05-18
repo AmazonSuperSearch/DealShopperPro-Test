@@ -12,7 +12,27 @@
 
 </script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://translate.googleapis.com https://googletagmanager.com https://accounts.google.com; style-src 'self' 'unsafe-inline';">
+  <meta http-equiv="Content-Security-Policy" content="
+  default-src 'self'; 
+  script-src 'self' 'unsafe-inline' 'unsafe-eval' 
+    https://cdn.jsdelivr.net 
+    https://cdn.cloudflare.com 
+    https://translate.googleapis.com 
+    https://accounts.google.com 
+    https://googletagmanager.com 
+    https://analytics.google.com 
+    https://www.google-analytics.com 
+    https://amazon-super-search-1.disqus.com;
+  style-src 'self' 'unsafe-inline' 
+    https://cdn.jsdelivr.net 
+    https://cdn.cloudflare.com;
+  connect-src 'self' 
+    https://analytics.google.com 
+    https://www.google-analytics.com;
+  img-src 'self' data:;
+  font-src 'self' https://cdn.jsdelivr.net;
+  object-src 'none';">
+
 
  <title>Amazon Super Search – Filter Lightning Deals & Price Trends</title>
 <link rel="icon" type="image/png" href="/favicon.png" sizes="48x48">
