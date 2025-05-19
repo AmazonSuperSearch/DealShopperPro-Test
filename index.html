@@ -522,28 +522,28 @@
 </div>
 
 <!-- Step 3: Customize your deal filters -->
-<div class="container text-start mb-4">
-  <h2 id="step3" class="mb-2">✅ Step 3: Customize your deal filters</h2>
-  <p class="text-muted mb-3">Pick a minimum discount, customer rating, and how you want the results sorted.</p>
+ <section id="step-3" class="container my-5">
+  <h3 class="border rounded px-3 py-2 bg-white">
+    ✅ Step 3: Customize your deal filters
+  </h3>
+  <p class="text-muted mb-4">
+    Choose an item <strong>condition</strong> (Any, New, Used, etc.), then pick a minimum discount, customer rating, and sort order.
+  </p>
 
- <div class="card p-3">
-  <div class="row g-3">
-    <!-- % Off -->
-    <div class="col-12 col-lg-4">
-      <label class="form-label" for="percentOff">% Off</label>
-      <select class="form-select" name="percent-off" id="percentOff">
-        <option value="">Any</option>
-        <option value="10">10% or more</option>
-        <option value="20">20% or more</option>
-        <option value="30">30% or more</option>
-        <option value="40">40% or more</option>
-        <option value="50">50% or more</option>
-        <option value="60">60% or more</option>
-        <option value="70">70% or more</option>
-        <option value="80">80% or more</option>
-      </select>
-    </div>
-
+  <div class="border rounded p-3">
+    <div class="row g-3">
+      
+      <!-- Step 3a: Condition -->
+      <div class="col-md-3">
+        <label for="condition" class="form-label">Condition</label>
+        <select id="condition" name="condition" class="form-select">
+          <option value="">Any</option>
+          <option value="new">New</option>
+          <option value="used">Used</option>
+          <option value="refurbished">Refurbished</option>
+          <option value="collectible">Collectible</option>
+        </select>
+      </div>
     <!-- Customer Review -->
 <div class="col-12 col-lg-4">
   <label class="form-label" for="minRating">
