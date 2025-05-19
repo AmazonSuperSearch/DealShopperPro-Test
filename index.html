@@ -522,21 +522,20 @@
 </div>
 
 <!-- Step 3: Customize your deal filters -->
-<section id="step-3" class="container my-5">
-  <h3 class="border rounded px-3 py-2 bg-white">
-    ✅ Step 3: Customize your deal filters
-  </h3>
-  <p class="text-muted mb-4">
-    Choose an item <strong>condition</strong> (Any, New, Used, etc.), then pick a minimum discount, customer rating, and sort order.
+<!-- Step 3: Customize your deal filters -->
+<div class="container text-start mb-4">
+  <h2 class="mb-2">✅ Step 3: Customize your deal filters</h2>
+  <p class="text-muted mb-3">
+    Choose an item <strong>condition</strong> (Any, New, Used, etc.), then pick a minimum discount, customer rating, and how you want the results sorted.
   </p>
 
-  <div class="border rounded p-3">
+  <div class="card p-3">
     <div class="row g-3">
-
-      <!-- Condition -->
-      <div class="col-md-3">
-        <label for="condition" class="form-label">Condition</label>
-        <select id="condition" name="condition" class="form-select">
+      
+      <!-- Condition (NEW) -->
+      <div class="col-12 col-lg-3">
+        <label class="form-label" for="condition">Condition</label>
+        <select class="form-select" name="condition" id="condition">
           <option value="">Any</option>
           <option value="new">New</option>
           <option value="used">Used</option>
@@ -545,65 +544,53 @@
         </select>
       </div>
 
-      <!-- % Off -->
-      <div class="col-md-3">
-        <label for="discount" class="form-label">% Off</label>
-        <select id="discount" name="discount" class="form-select">
-          <!-- your existing % Off options here -->
+      <!-- % Off (unchanged) -->
+      <div class="col-12 col-lg-3">
+        <label class="form-label" for="percentOff">% Off</label>
+        <select class="form-select" name="percent-off" id="percentOff">
           <option value="">Any</option>
-          <option value="10">10%+</option>
-          <option value="20">20%+</option>
-          <option value="30">30%+</option>
-          <!-- etc. -->
+          <option value="10">10% or more</option>
+          <option value="20">20% or more</option>
+          <option value="30">30% or more</option>
+          <option value="40">40% or more</option>
+          <option value="50">50% or more</option>
+          <option value="60">60% or more</option>
+          <option value="70">70% or more</option>
+          <option value="80">80% or more</option>
         </select>
       </div>
 
-      <!-- Customer Review -->
-      <div class="col-md-3">
-        <label for="rating" class="form-label">Customer Review</label>
-        <select id="rating" name="rating" class="form-select">
-          <!-- your existing Customer Review options here -->
+      <!-- Customer Review (unchanged) -->
+      <div class="col-12 col-lg-3">
+        <label class="form-label" for="minRating">Customer Review</label>
+        <select class="form-select" name="min-rating" id="minRating">
           <option value="">Any</option>
-          <option value="4">4 ★ & Up</option>
-          <option value="3">3 ★ & Up</option>
-          <option value="2">2 ★ & Up</option>
-          <!-- etc. -->
+          <option value="1">1★ & up</option>
+          <option value="2">2★ & up</option>
+          <option value="3">3★ & up</option>
+          <option value="4">4★ & up</option>
+          <option value="5">5★ & up</option>
         </select>
       </div>
 
-      <!-- Sort By -->
-      <div class="col-md-3">
-        <label for="sortBy" class="form-label">Sort By</label>
-        <select id="sortBy" name="sortBy" class="form-select">
-          <!-- your existing Sort By options here -->
-          <option value="relevance">Relevance</option>
-          <option value="price-asc">Price: Low → High</option>
-          <option value="price-desc">Price: High → Low</option>
-          <option value="avg-review">Avg. Customer Review</option>
-          <!-- etc. -->
+      <!-- Sort By (unchanged) -->
+      <div class="col-12 col-lg-3">
+        <label class="form-label" for="sort">Sort By</label>
+        <select class="form-select" name="sort" id="sort">
+          <option value="">Relevance</option>
+          <option value="price-asc-rank">Price: Low → High</option>
+          <option value="price-desc-rank">Price: High → Low</option>
+          <option value="review-rank">Avg. Customer Review</option>
+          <option value="date-desc-rank">Newest Arrivals</option>
+          <option value="salesrank">Best Sellers</option>
         </select>
       </div>
 
     </div>
   </div>
-</section>
+</div>
 
-    <!-- Sort By -->
-    <div class="col-12 col-lg-4">
-      <label class="form-label" for="sort">Sort By</label>
-      <select class="form-select" name="sort" id="sort">
-        <option value="">Relevance</option>
-        <option value="price-asc-rank">Price: Low → High</option>
-        <option value="price-desc-rank">Price: High → Low</option>
-        <option value="review-rank">Avg. Customer Review</option>
-        <option value="date-desc-rank">Newest Arrivals</option>
-        <option value="salesrank">Best Sellers</option>
-      </select>
-    </div>
-  </div>
-</div>
-</div>
-   
+
   
    <!-- Step 4: Brand Filters -->
 <section class="container text-start mb-4">
