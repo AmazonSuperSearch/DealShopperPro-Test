@@ -1,3 +1,4 @@
+<script>
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('amazon-search-form');
   const warningBox = document.getElementById('filter-warning');
@@ -165,3 +166,4 @@ window.open(finalUrl, '_blank');
 
   });
 });
+</script>
