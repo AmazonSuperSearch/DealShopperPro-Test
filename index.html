@@ -1439,19 +1439,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('amazon-search-form');
   const warningBox = document.getElementById('filter-warning');
 
-  // Initialize Tagify on your brand inputs
-  new Tagify(form.querySelector('input[name="brand-include"]'));
+  // 1️⃣ Capture your brand-include input and initialize Tagify
+  const brandInput  = form.querySelector('input[name="brand-include"]');
+  const brandTagify = new Tagify(brandInput);
 
+  // 2️⃣ Main submit handler
   form.addEventListener('submit', e => {
     e.preventDefault();
-    const data = new FormData(form);
-    const params = new URLSearchParams();
-    const rh = [];
 
-    // Helper to push checkbox-driven filters
-    const pushFilter = (field, param, val) => {
-      if (data.get(field) === 'on') rh.push(`${param}:${val}`);
-    };
+    // 🔄 Sync Tagify tags into the real <input> before serializing
+    brandInput.value = JSON.stringify(brandTagify.value);
+
+    // Now it’s safe to grab the FormData **once**
+    const data   = new FormData(form);
+    const params = new URLSearchParams();
+    const rh     = [];
 
     // Show warning if too many filters
     const checkedCount = [...form.elements].filter(el =>
