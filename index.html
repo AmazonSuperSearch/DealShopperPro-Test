@@ -74,30 +74,6 @@
          1px  1px 0 #000;
       animation: text-pulse 2s infinite ease-in-out;
     }
-/* ——————— Text Glow Animation ——————— */
-@keyframes glow-text {
-  0% {
-    text-shadow:
-      0 0 5px  rgba(255,153,0,0.7),
-      0 0 10px rgba(255,153,0,0.5);
-  }
-  50% {
-    text-shadow:
-      0 0 20px rgba(255,153,0,0.9),
-      0 0 30px rgba(255,153,0,0.7);
-  }
-  100% {
-    text-shadow:
-      0 0 5px  rgba(255,153,0,0.7),
-      0 0 10px rgba(255,153,0,0.5);
-  }
-}
-
-.text-glow {
-  color: #FF9900;                       /* Amazon-orange */
-  animation: glow-text 2s ease-in-out infinite;
-}
-
 
     @keyframes orange-pulse {
       0%   { box-shadow: 0 0 0 0 rgba(255,153,0, 0); }
@@ -272,59 +248,21 @@
 <body>
   <a href="#main" class="visually-hidden-focusable">Skip to main content</a>
   <main id="main">
-
-<!-- Hero / SEO-Rich Intro -->
-<div class="bg-warning text-dark text-center py-2 shadow-sm">
-  🔎 <strong>Amazon Super Search</strong> — The Fast & Easy Way to Find Exactly What You Want on Amazon
-</div>
-
-<!-- Full-width row: centered disclaimer + right-aligned translate -->
-<div class="position-relative text-center py-2 w-100">
-  <!-- Centered disclaimer -->
-  <small class="text-muted">
-    <em>Not affiliated with or endorsed by Amazon.com.</em>
-  </small>
-
-  <!-- Right-aligned translate widget -->
-  <div
-    id="google_translate_element"
-    class="position-absolute end-0 me-3"
-    style="top: 50%; transform: translateY(-50%); display: inline-block !important;"
-  ></div>
-</div>
-  <!-- …the rest of your content… -->
-  <div class="text-center my-3">
-    <h2 class="text-pulse display-6 fw-bold">
-      🔥 Find Lightning Deals & Filter Instantly With Our Search Tool Designed For Amazon Products!
-    </h2>
-   <div class="text-center mt-3">
-    <a
-      href="#amazon-search-form"
-      class="btn btn-primary btn-lg pulse-glow d-inline-block"
-    >
-      🎯 Start Your Custom Search in 5 Easy Steps!
-    </a>
+  <!-- Google Translate dropdown -->
+ <audio id="clickSound" src="/click.mp3" preload="auto"></audio>
+  <!-- Hero / SEO-Rich Intro -->
+  <div class="bg-warning text-dark text-center py-2 shadow-sm">
+    🔎 <strong>Amazon Super Search</strong> — The Fast & Easy Way to Find Exactly What You Want on Amazon
   </div>
+    <div id="google_translate_element" class="text-end p-2"></div>
+  <div class="text-center text-muted small mt-1">
+  <em>Not affiliated with or endorsed by Amazon.com.</em>
 </div>
-
-  </div>
-  <p class="lead mb-4 text-center">
-    Tired of endless scrolling? Amazon Super Search lets you zero in on exactly what you want in seconds.  
-    Filter by price, brand, rating, free shipping, and top reviews — and never miss another deal.  
-    No signup, no fluff — just the products you crave, right now.
-  </p>
-  <p class="mt-3 text-muted text-center">
-    Save this page to your bookmarks 🔖 and share it with everyone you know—never miss another deal! 🚀
-  </p>
-
-  <!-- Open the form once -->
-  <form id="amazon-search-form">
-    <!-- New intro line -->
-    <div class="container text-center my-4">
-      <h3 class="fw-normal text-glow">
-        Find exactly what you’re looking for in 5 simple steps!
-      </h3>
-    </div>
+<div class="text-center my-3">
+  <h2 class="text-pulse display-6 fw-bold">
+    🔥 Find Lightning Deals & Filter Instantly With Our Search Tool Designed For Amazon Products!
+  </h2>
+</div>
  <section class="hero-section">
   <div class="container-fluid text-center my-5 px-3 px-md-5">
     <div class="banner-inner">
@@ -334,27 +272,19 @@
       </h1>
       <p class="lead mb-4">
         Tired of endless scrolling? Amazon Super Search lets you zero in on exactly what you want in seconds.
-        Filter by price, brand, rating, free shipping, and top reviews — and never miss another deal.
-No signup, no fluff — just the products you crave, right now.
+        Filter by price, , , free shipping, top ratings—and never miss another deal.
+        No signup, no fluff—just the products you crave, right now.
       </p>
+      <a href="#amazon-search-form" class="btn btn-primary btn-lg pulse-glow">
+        🎯 Start Your Custom Search
+      </a>
       <p class="mt-3 text-muted">
         Save this page to your bookmarks 🔖 and share it with everyone you know—never miss another deal! 🚀
       </p>
     </div>
   </div>
-<!-- Open the form once -->
-<form id="amazon-search-form">
-
-  <!-- New intro line -->
-  <div class="container text-center my-4">
-    <h3 class="fw-normal text-glow">
-      Find exactly what you’re looking for in 5 simple steps!
-    </h3>
-  </div>
-
-  <!-- Hidden field -->
-  <input type="hidden" name="i" value="">
-
+</section>
+<input type="hidden" name="i" value="">
 <form id="amazon-search-form">
 <div class="container text-start mb-4">
   <h2 class="mb-2">✅ Step 1: What are you shopping for?</h2>
@@ -478,7 +408,7 @@ No signup, no fluff — just the products you crave, right now.
   
 <!-- Step 4: Brand Filters -->
 <section class="container text-start mb-4">
-  <h2 class="mb-2">✅ Step 4: Choose which brands to include.</h2>
+  <h2 class="mb-2">✅ Step 4: Choose which brands to include. Check the box below to limit results to only these brands.</h2>
   <p class="text-muted mb-3">
     Narrow results by including only certain brands.
   </p>
@@ -488,7 +418,7 @@ No signup, no fluff — just the products you crave, right now.
 
       <!-- Include Brands -->
       <div class="col-12 col-md-6">
-        <label class="form-label" for="brandInclude">Include These Brands</label>
+        <label class="form-label" for="brandInclude">Include Brands</label>
         <input
           type="text"
           class="form-control"
@@ -505,9 +435,12 @@ No signup, no fluff — just the products you crave, right now.
     checked
   >
           <label class="form-check-label" for="includeOnly">
-          Enter one or more brands (comma-separated).
+            Match only these brands
           </label>
         </div>
+        <small class="form-text text-muted">
+          Enter one or more brands (comma-separated or via tagify).
+        </small>
       </div>
     </div>
   </div>
@@ -1093,13 +1026,13 @@ No signup, no fluff — just the products you crave, right now.
         <button class="accordion-button collapsed" type="button"
                 data-bs-toggle="collapse" data-bs-target="#faqCollapse4"
                 aria-expanded="false" aria-controls="faqCollapse4">
-          Can I only get results for a specific brand?
+          Can I include or exclude specific brands?
         </button>
       </h3>
       <div id="faqCollapse4" class="accordion-collapse collapse"
            aria-labelledby="faqHeading4" data-bs-parent="#faqAccordion">
         <div class="accordion-body">
-          Yes! Step 4 lets you limit your search results to the brand(s) of your choice.”
+          Step 4 lets you type brands to include or exclude—plus you can toggle “Match only these brands.”
         </div>
       </div>
     </div>
