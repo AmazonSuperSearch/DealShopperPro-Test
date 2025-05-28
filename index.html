@@ -27,14 +27,15 @@
   </script>
 
 
-  <title>Amazon Super Search: Advanced Filter Tool for Lightning Deals & Best Prices</title>
+<title>Amazon Super Search – Find Prime Day 2025 Deals & Lightning Discounts</title>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" href="/favicon.png" sizes="48x48">
   <link rel="manifest" href="/site.webmanifest">
 
   <!-- Intro paragraph -->
 
   <!-- SEO Meta Tags -->
- <meta name="description" content="Amazon Super Search helps you uncover live lightning deals, set deep discount thresholds, filter free-shipping & Prime-only items, and sort by top ratings—no signup.">
+  <meta name="description" content="Find Amazon’s best in-stock deals, lightning discounts, and Prime-only items in seconds—filter by price, brand, rating & more.">
   <meta name="keywords" content="advanced Amazon search, Amazon filter tool, Amazon search by price, Amazon Prime-only deals, Amazon coupon filter, Amazon lightning deals finder, Amazon price tracker, Amazon sort by rating, exclude brands on Amazon, search Amazon by brand, best Amazon deals today, Amazon free shipping filter, Amazon deals with coupons, in-stock Amazon items, Amazon hidden deals, filter Amazon by condition, Amazon discount tracker, Amazon wishlist filter, Amazon smart search tool, Amazon product finder by features">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://amazonsupersearch.com/">
@@ -64,90 +65,192 @@
     "description": "Amazon Super Search lets you uncover live in-stock lightning deals, filter by free shipping only, set deep discount thresholds, filter by past price trends, and sort by top customer ratings."
   }
   </script>
+  <!-- 1) Define the init callback -->
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+
+  <!-- 2) Load Google’s Translate library -->
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
+
+  <!-- 3) Override CSS: both general AND iframe-specific rules -->
+  <style>
+    /* General scroll override inside the iframe */
+    .goog-te-menu2 {
+      max-height: 300px !important;
+      overflow-y: auto !important;
+    }
+    .goog-te-menu2 table {
+      width: 100% !important;
+    }
+
+    /* Scroll override for the injected iframe wrapper */
+    .goog-te-menu-frame,
+    iframe.goog-te-menu-frame.skiptranslate {
+      max-height: 300px !important;
+      overflow-y: auto !important;
+      height: auto !important;
+    }
+    /* Extra specificity for in-page menus */
+    .skiptranslate .goog-te-menu2 {
+      max-height: 300px !important;
+      overflow-y: auto !important;
+      height: auto !important;
+    }
+  </style>
 
   <!-- Bootstrap CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
 
+ <!-- Inter font -->
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+  rel="stylesheet">
+  
   <!-- Tagify CSS & JS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css">
-  <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.min.js" defer></script>
 
-  <style>
-      /* ——— AMAZON-ORANGE PULSING HEADING ——— */
-    @keyframes text-pulse {
-      0%   { text-shadow: 0 0 5px rgba(255,153,0,0.7), 0 0 10px rgba(255,153,0,0.5); }
-      50%  { text-shadow: 0 0 20px rgba(255,153,0,0.9), 0 0 30px rgba(255,153,0,0.7); }
-      100% { text-shadow: 0 0 5px rgba(255,153,0,0.7), 0 0 10px rgba(255,153,0,0.5); }
-    }
+<style>
+  /* 1) Global font */
+  body {
+    font-family: 'Inter', sans-serif;
+  }
 
-    .text-pulse {
-      color: #FF9900;
+  /* 2) Scale animation */
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.05); }
+  }
+
+  /* 3) Text glow animation */
+  @keyframes glow {
+    0% {
       text-shadow:
-        -1px -1px 0 #000,
-         1px -1px 0 #000,
-        -1px  1px 0 #000,
-         1px  1px 0 #000;
-      animation: text-pulse 2s infinite ease-in-out;
+        0 0 8px rgba(255,255,255,0.6),
+        0 0 16px rgba(255,255,255,0.4);
     }
+    100% {
+      text-shadow:
+        0 0 16px rgba(255,255,255,1),
+        0 0 32px rgba(255,255,255,0.7);
+    }
+  }
 
-    @keyframes orange-pulse {
-      0%   { box-shadow: 0 0 0 0 rgba(255,153,0, 0); }
-      50%  { box-shadow: 0 0 12px 6px rgba(255,153,0, 0.7); }
-      100% { box-shadow: 0 0 0 0 rgba(255,153,0, 0); }
-    }
+  /* 4) Apply to the banner heading */
+  .banner-inner .site-title {
+    display: block;
+    text-align: center;
 
-    .pulse-orange {
-      animation: orange-pulse 2s infinite ease-in-out;
-    }
-    /* Fancy frames */
-    .card, .accordion-item {
-      border: 3px solid #007bff !important;
-      border-radius: .75rem !important;
-      box-shadow: 0 4px 12px rgba(0,123,255,0.15) !important;
-      padding: 1rem !important;
-      margin-bottom: 1.5rem !important;
-      background-color: #fff !important;
-    }
-    .equal-columns {
-  display: flex;
-  gap: 1rem;
-}
-.equal-columns > [class*="col-"] {
-  flex: 1 1 0;
-  display: flex;
-  flex-direction: column;
-}
-.equal-columns .card {
-  flex: 1 1 0;
-}
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    line-height: 1.2;
+    color: #FF9900;
+    animation:
+      pulse 3s ease-in-out infinite,
+      glow  2.5s ease-in-out infinite alternate;
+  }
 
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(0,123,255,0.2) !important;
-    }
-    /* Thicker black borders */
-    .form-control, .form-select, .form-range {
-      border: 3px solid #000 !important;
-      border-radius: 4px !important;
-    }
-    .form-check-input {
-      width: 1.4em; height: 1.4em; border: 3px solid #000 !important; border-radius: 3px;
-    }
+  /* 5) Apply to the steps */
+  .container.text-start h2,
+  section.container h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    animation:
+      pulse 3s ease-in-out infinite,
+      glow  2.5s ease-in-out infinite alternate;
+  }
 
-    .minimized {
-  right: -260px; /* slide out of view */
-  opacity: 0.3;
-  transition: all 0.3s ease-in-out;
-}
-.minimized:hover {
-  opacity: 1;
-  cursor: pointer;
-}
-#voiceSearchBtn.active {
-  background-color: #ffc107;
-}
-    </style>
-     <style>
+
+  /* ——— AMAZON-ORANGE PULSING HEADING ——— */
+  @keyframes text-pulse {
+    0%   { text-shadow: 0 0 5px rgba(255,153,0,0.7), 0 0 10px rgba(255,153,0,0.5); }
+    50%  { text-shadow: 0 0 20px rgba(255,153,0,0.9), 0 0 30px rgba(255,153,0,0.7); }
+    100% { text-shadow: 0 0 5px rgba(255,153,0,0.7), 0 0 10px rgba(255,153,0,0.5); }
+  }
+  .text-pulse {
+    color: #FF9900;
+    text-shadow:
+      -1px -1px 0 #000,
+       1px -1px 0 #000,
+      -1px  1px 0 #000,
+       1px  1px 0 #000;
+    animation: text-pulse 2s infinite ease-in-out;
+  }
+
+  @keyframes orange-pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(255,153,0, 0); }
+    50%  { box-shadow: 0 0 12px 6px rgba(255,153,0, 0.7); }
+    100% { box-shadow: 0 0 0 0 rgba(255,153,0, 0); }
+  }
+  .pulse-orange {
+    animation: orange-pulse 2s infinite ease-in-out;
+  }
+
+  /* ——— Fancy frames & cards ——— */
+  .card, .accordion-item {
+    border: 3px solid #007bff !important;
+    border-radius: .75rem !important;
+    box-shadow: 0 4px 12px rgba(0,123,255,0.15) !important;
+    padding: 1rem !important;
+    margin-bottom: 1.5rem !important;
+    background-color: #fff !important;
+  }
+  .equal-columns {
+    display: flex;
+    gap: 1rem;
+  }
+  .equal-columns > [class*="col-"] {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .equal-columns .card {
+    flex: 1 1 0;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,123,255,0.2) !important;
+  }
+
+  /* ——— Form element borders ——— */
+  .form-control,
+  .form-select,
+  .form-range {
+    border: 3px solid #000 !important;
+    border-radius: 4px !important;
+  }
+  .form-check-input {
+    width: 1.4em;
+    height: 1.4em;
+    border: 3px solid #000 !important;
+    border-radius: 3px;
+  }
+
+  /* ——— Minimized drawer ——— */
+  .minimized {
+    right: -260px;
+    opacity: 0.3;
+    transition: all 0.3s ease-in-out;
+  }
+  .minimized:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  /* ——— Voice search button active ——— */
+  #voiceSearchBtn.active {
+    background-color: #ffc107;
+  }
+
+  /* ——— “Coming soon” disabled styling ——— */
   .coming-soon input[type="checkbox"] {
     pointer-events: none;
     opacity: 0.5;
@@ -157,130 +260,301 @@
     color: #6c757d;
     font-style: italic;
   }
-    </style>
-  <style>
-    .banner-inner {
-  max-width: 1546px;
-  margin: 0 auto;
-}
-    .banner-inner h1 {
-  font-size: clamp(2rem, 5vw, 4rem);
-  line-height: 1.2;
-}
 
-.banner-inner p {
-  font-size: clamp(1rem, 2.5vw, 1.5rem);
-  line-height: 1.5;
-}
-/* Desktop (large) */
-@media (min-width: 992px) {
+  /* ——— Banner container & text ——— */
   .banner-inner {
-    padding: 0 3rem;
-  }
-}
-
-/* Tablet / small desktop */
-@media (min-width: 768px) and (max-width: 991px) {
-  .banner-inner {
-    padding: 0 2rem;
-  }
-}
-
-/* Mobile */
-@media (max-width: 767px) {
-  .banner-inner {
-    padding: 0 1rem;
-  }
-  .banner-inner h1 {
-    font-size: 1.75rem;
+    max-width: 1546px;
+    margin: 0 auto;
   }
   .banner-inner p {
-    font-size: 1rem;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    line-height: 1.5;
+    text-align: center;
   }
-}
-#minRating:disabled {
-  background-color: #e9ecef;
-  cursor: not-allowed;
-}
 
-#minRating.enabled-glow {
-  box-shadow: 0 0 8px 2px rgba(255, 193, 7, 0.8);
-  transition: box-shadow 0.5s ease-in-out;
-}
-.visually-hidden-focusable {
-  position: absolute;
-  left: -9999px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
+  /* ——— Rating dropdown states ——— */
+  #minRating:disabled {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+  }
+  #minRating.enabled-glow {
+    box-shadow: 0 0 8px 2px rgba(255,193,7,0.8);
+    transition: box-shadow 0.5s ease-in-out;
+  }
 
-.visually-hidden-focusable:focus {
-  position: static;
-  width: auto;
-  height: auto;
-  left: auto;
-  background: #ffffcc;
-  padding: 0.5rem;
-  z-index: 1000;
-}
-    /* Pulse animations */
-    @keyframes pulse-glow {0%{box-shadow:0 0 0 0 rgba(13,110,253,0.5);}50%{box-shadow:0 0 20px 10px rgba(13,110,253,0.5);}100%{box-shadow:0 0 0 0 rgba(13,110,253,0.5);} }
-    .pulse-glow {animation:pulse-glow 2s infinite;transition:box-shadow .3s ease-in-out;}
-  </style>
+  /* ——— Hidden-focusable skip link ——— */
+  .visually-hidden-focusable {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+  .visually-hidden-focusable:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    left: auto;
+    background: #ffffcc;
+    padding: 0.5rem;
+    z-index: 1000;
+  }
 
-<!-- … your existing GA4 snippet on lines 82–88 … -->
+  /* ——— Pulse glow for buttons ——— */
+  @keyframes pulse-glow {
+    0%   { box-shadow: 0 0 0 0 rgba(13,110,253,0.5); }
+    50%  { box-shadow: 0 0 20px 10px rgba(13,110,253,0.5); }
+    100% { box-shadow: 0 0 0 0 rgba(13,110,253,0.5); }
+  }
+  .pulse-glow {
+    animation: pulse-glow 2s infinite;
+    transition: box-shadow .3s ease-in-out;
+  }
 
-<!-- helper to fire events -->
-   <!-- ① Auto-detect and set the cookie before Translate loads -->
-  <script>
-    (function(){
-      // grab e.g. “en”, “es”, “fr”, “de”, etc.
-      var userLang = (navigator.language || navigator.userLanguage).substr(0,2);
-      // tell Google Translate to go from English → userLang
-      document.cookie = "googtrans=/en/" + userLang + "; path=/";
-    })();
-  </script>
-  <!-- Google Translate widget (all languages) -->
-  <script>
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-      }, 'google_translate_element');
+  /* ——— Responsive breakpoints ——— */
+  /* Tablet / small desktop (768px–991px) */
+  @media (min-width: 768px) and (max-width: 991px) {
+    .banner-inner {
+      padding: 0 2rem;
     }
-  </script>
-  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  </head>
-<body>
-  <nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Amazon Super Search</li>
-  </ol>
-</nav>
-  <a href="#main" class="visually-hidden-focusable">Skip to main content</a>
-  <main id="main">
-    <h1 class="display-4 text-center mb-4">
-  Amazon Super Search: Your Lightning Deal & Filter Hub
-</h1>
-    <!-- Google Translate dropdown -->
-    <audio id="clickSound" src="/click.mp3" preload="auto"></audio>
-    <div id="google_translate_element" class="text-end p-2"></div>
+    .banner-inner img.img-fluid {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+    }
+  }
 
-    <!-- Disclaimer -->
-    <div class="text-center text-muted small mt-1">
-      <em>I built this independent tool to help you pinpoint exactly what you’re looking for on Amazon—this site is not affiliated with or endorsed by Amazon.com.</em>
+  /* Desktop (992px and up) */
+  @media (min-width: 992px) {
+    .banner-inner {
+      padding: 0 3rem;
+    }
+    .banner-inner img.img-fluid {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+    }
+  }
+
+  /* Mobile (up to 767px) */
+  @media (max-width: 767px) {
+    .banner-inner {
+      padding: 0 1rem;
+    }
+    .banner-inner .site-title {
+      font-size: clamp(1rem, 4vw, 1.75rem);
+    }
+    .banner-inner p {
+      font-size: 1rem;
+    }
+    .banner-inner .lead {
+      font-size: 0.95rem;
+      line-height: 1.4;
+      max-width: 32rem;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .btn {
+      padding: .75rem 1rem;
+      font-size: 1rem;
+    }
+  }
+
+  /* ——— True desktop cap (992px and up) ——— */
+  @media (min-width: 992px) {
+    .banner-inner img.img-fluid {
+      width: 100% !important;
+      max-width: 600px !important;
+      height: auto !important;
+      margin: 0 auto !important;
+      display: block !important;
+    }
+  }
+
+  /* ——— Cap the “start with step 1” banner on desktop ——— */
+  @media (min-width: 992px) {
+    .text-center.mt-2.mb-3 img.img-fluid.w-100 {
+      width: auto !important;
+      max-width: 600px !important;
+      height: auto !important;
+      margin: 0 auto !important;
+      display: block !important;
+    }
+  }
+
+  /* Accordion button: allow normal wrapping and spacing */
+  .accordion-button {
+    white-space: normal;
+  }
+</style>
+
+
+<!-- Auto-detect and set the cookie before Translate loads -->
+<script>
+  (function(){
+    var userLang = (navigator.language || navigator.userLanguage).substr(0,2);
+    document.cookie = "googtrans=/en/" + userLang + "; path=/";
+  })();
+</script>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="/">Amazon Super Search</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <!-- Google Translate widget -->
+          <li class="nav-item">
+            <div id="google_translate_element" class="nav-link p-0"></div>
+          </li>
+          <!-- Help & How-To link -->
+          <li class="nav-item">
+            <a class="nav-link fw-semibold" href="help.html">Help and How To Page</a>
+          </li>
+        <!-- Our Media link -->
+        <li class="nav-item">
+          <a class="nav-link fw-semibold" href="media.html">Our Media</a>
+        </li>
+      </ul>
     </div>
+  </div>
+</nav>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Amazon Super Search</li>
+    </ol>
+  </nav>
+  <!-- Override Translate menu height & scrolling -->
+<!-- NOTE: Consider fronting this site with a CDN like Cloudflare for caching and performance -->
+</head>
+<body>
+  <script>
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
+</script>
+
+
+
+  <!-- ↓ HERE ↓ -->
+  <!-- ↓ FULL SEARCH LOGIC ↓ -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+   // 1) Tagify (only if the brand-include input exists)
+  const brandInput = document.querySelector('input[name="brand-include"]');
+  if (brandInput) {
+    try {
+      new Tagify(brandInput);
+    } catch (err) {
+      console.warn('Tagify init failed:', err);
+    }
+  }
+
+  // 2) Auto-select Google Translate
+  const userLang = (navigator.language||navigator.userLanguage).substr(0,2);
+  setTimeout(() => {
+    const combo = document.querySelector('.goog-te-combo');
+    if (combo && combo.value !== userLang) {
+      combo.value = userLang;
+      combo.dispatchEvent(new Event('change'));
+    }
+  }, 500);
+
+  // 3) Form submit → build & open Amazon URL
+  const form = document.getElementById('amazon-search-form');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const params = new URLSearchParams();
+    const rh = [];
+
+    // basic query + sort
+    const q = data.get('q')?.trim();
+    if (!q) return alert('Please enter a search term.');
+    if (data.get('eco-friendly') === 'on') {
+  q += (q.endsWith(' ') ? '' : ' ') + 'eco friendly';
+}
+    params.set('k', q);
+    const sort = data.get('sort');
+    if (sort) params.set('s', sort);
+
+ // 2) Price range → push into rh[]
+const min = parseFloat(data.get('min-price') || 0);
+const max = parseFloat(data.get('max-price') || 0);
+
+if (min > 0 || max > 0) {
+  // if user only set min, Amazon wants "p_36:<min>-"
+  // if user only set max, Amazon wants "p_36:0-<max>"
+  const lower = min > 0 ? Math.round(min * 100) : 0;
+  const upper = max > 0 ? Math.round(max * 100) : '';
+  rh.push(`p_36:${lower}-${upper}`);
+}
+
+// 3) Checkbox helper
+const pushFilter = (field, param, val) => {
+  if (data.get(field) === 'on') rh.push(`${param}:${val}`);
+};
+
+    // brand tags
+    const tags = JSON.parse(data.get('brand-include')||'[]');
+    tags.forEach(t => rh.push(`p_89:${encodeURIComponent(t.value)}`));
+
+    // consolidate
+    if (rh.length) params.set('rh', rh.join(','));
+    params.set('tag','echolover25-20');
+
+    // domain by currency
+    const hostMap = {
+      usd:'www.amazon.com', eur:'www.amazon.de',
+      gbp:'www.amazon.co.uk', jpy:'www.amazon.co.jp',
+      inr:'www.amazon.in'
+    };
+    const host = hostMap[data.get('currency')]||'www.amazon.com';
+
+    const url = `https://${host}/s?${params.toString()}`;
+    console.log('🔗 Amazon URL:',url);
+    window.open(url, '_blank');
+  });
+});
+</script>
+<!-- ↑ END FULL SEARCH LOGIC ↑ -->
+
+  <!-- ↑ AND HERE ↑ -->
+
+  <!-- then the rest of your page content… -->
+  <main id="main"> … </main>
+  <footer> … </footer>
+
+  <a href="#main" class="visually-hidden-focusable">Skip to main content</a>
+   <div class="banner-inner">
+  <h1 class="site-title">
+    Amazon Super Search:<br>
+    Your Lightning Deal & Filter Hub
+  </h1>
+  <p class="lead">
+    Welcome to <strong>Amazon Super Search: Your Lightning Deal & Filter Hub</strong>—the only tool you need 
+    to uncover Amazon’s best in-stock lightning deals, apply advanced filters, and snag hidden coupons 
+    in seconds.
+  </p>
+</div>
 
     <!-- Banner -->
     <div class="text-center mt-2 mb-3">
-     <img
+    <img
   src="amazon-super-search-start-with-step-1-below-banner.jpg"
-  alt="Amazon Super Search banner: start with step 1 below"
-  class="img-fluid d-block mx-auto"
-  style="max-width:600px;"
+  alt="Filter by price and find Amazon coupons instantly"
+  class="img-fluid d-block mx-auto w-100"
   loading="lazy"
 />
     </div>
@@ -288,7 +562,7 @@
   <input type="hidden" name="i" value="">
   <form id="amazon-search-form">
     <div class="container text-start mb-4">
-      <h2>Step 1: What Are You Shopping For?</h2>
+      <h2>✅ Step 1: What Are You Shopping For?</h2>
       <p class="text-muted mb-3">
         Type a product name, keyword, category, ASIN, ISBN, or UPC to start your search.
       </p>
@@ -318,8 +592,11 @@
   
       <!-- Step 2 heading ABOVE the card box -->
 <div class="container text-start mb-4">
-  <h2 class="mb-2">✅ Step 2: Set your price range ($)</h2>
-  <p class="text-muted mb-3">Choose the minimum and maximum price you're willing to spend.</p>
+ <h2>✅ Step 2: Filter by Price & Set Your Range ($) 
+ </h2>
+<p class="text-muted mb-3">
+  Choose the minimum and maximum price you’re willing to spend—and instantly see items that match.
+</p>
 
   <div class="card p-3">
     <div class="row g-3 align-items-end">
@@ -452,20 +729,42 @@
 
  <!-- Step 5: Fine-tune your preferences -->
 <section class="container text-start mb-4">
-  <h2 class="mb-2">✅ Step 5: Fine-tune your preferences</h2>
-  <p class="text-muted mb-3">
-    Select additional filters like Prime only, in stock, free shipping, coupons, and more.
-  </p>
+ <h2 class="mb-2">
+  ✅ Step 5: Fine-tune Preferences & Find Coupons
+</h2>
+<p class="text-muted mb-3">
+  Select Prime-only, Lightning Deals only, in-stock, free shipping—and toggle coupon filters to become your own Amazon coupon finder.
+</p>
 
   <div class="card mb-4 p-3">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
 
       <!-- Most Popular Filters -->
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="prime-only" id="primeOnly" aria-label="Filter by Prime Only items">
+     <!-- Prime-Only -->
+<div class="form-check">
+  <input
+    class="form-check-input"
+    type="checkbox"
+    name="prime-only"
+    id="primeOnly"
+    aria-label="Filter by Prime Only items">
+  <label class="form-check-label" for="primeOnly">
+    🤩 Prime Only
+  </label>
+</div>
 
-        <label class="form-check-label" for="primeOnly">Prime Only</label>
-      </div>
+<!-- Seller-Fulfilled Prime -->
+<div class="form-check">
+  <input
+    class="form-check-input"
+    type="checkbox"
+    name="seller-fulfilled-prime"
+    id="sellerFulfilledPrime"
+    aria-label="Show Seller-Fulfilled Prime only">
+  <label class="form-check-label" for="sellerFulfilledPrime">
+    🚚 Seller-Fulfilled Prime Only
+  </label>
+</div>
       <div class="form-check">
         <input class="form-check-input" type="checkbox" name="free-shipping" id="freeShipping" aria-label="Filter by Free Shipping only">
         <label class="form-check-label" for="freeShipping">Free Shipping</label>
@@ -480,30 +779,39 @@
       </div>
       <div class="form-check">
        <input class="form-check-input" type="checkbox" name="lightning-deals" id="lightningDeals" aria-label="Show Lightning Deals only">
-        <label class="form-check-label" for="lightningDeals">Lightning Deals</label>
+        <label class="form-check-label" for="lightningDeals">⚡Lightning Deals⚡</label>
       </div>
       <div class="form-check">
         <input class="form-check-input" type="checkbox" name="todays-deals" id="todaysDeals" aria-label="Show Today’s Deals only">
-        <label class="form-check-label" for="todaysDeals">Today's Deals Only</label>
+        <label class="form-check-label" for="todaysDeals">🔥Today's Deals Only🔥</label>
       </div>
+     <!-- ♻️ Search Eco-Friendly -->
+<div class="form-check">
+  <input
+    class="form-check-input"
+    type="checkbox"
+    name="eco-friendly"
+    id="ecoFriendlyToggle"
+  >
+  <label class="form-check-label" for="ecoFriendlyToggle">
+    ♻️ Eco-Friendly Products
+  </label>
+</div>
+      <!-- somewhere in your filters section -->
+<div class="form-check">
+  <input
+    class="form-check-input"
+    type="checkbox"
+    name="filter-cruelty-free"
+    id="filter-cruelty-free"
+  >
+  <label class="form-check-label" for="filter-cruelty-free">
+    Cruelty Free
+  </label>
+</div>
+
 
       <!-- Other Available Filters -->
-        <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="condition-new" id="conditionNew">
-        <label class="form-check-label" for="conditionNew">New</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="condition-used" id="conditionUsed">
-        <label class="form-check-label" for="conditionUsed">Used</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="condition-refurbished" id="conditionRefurbished">
-        <label class="form-check-label" for="conditionRefurbished">Refurbished</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="condition-collectible" id="conditionCollectible">
-        <label class="form-check-label" for="conditionCollectible">Collectible</label>
-      </div>
       <div class="form-check">
         <input class="form-check-input" type="checkbox" name="subscribe-save" id="subscribeSave" aria-label="Show Subscribe & Save items">
         <label class="form-check-label" for="subscribeSave">Subscribe & Save</label>
@@ -549,10 +857,6 @@
       <div class="form-check coming-soon">
         <input class="form-check-input" type="checkbox" name="made-in-usa" id="madeInUsa">
         <label class="form-check-label" for="madeInUsa">Made in USA <small>(Coming Soon)</small></label>
-      </div>
-      <div class="form-check coming-soon">
-        <input class="form-check-input" type="checkbox" name="eco-friendly" id="ecoFriendly">
-        <label class="form-check-label" for="ecoFriendly">Eco-Friendly Products <small>(Coming Soon)</small></label>
       </div>
       <div class="form-check coming-soon">
         <input class="form-check-input" type="checkbox" name="trending-now" id="trendingNow">
@@ -968,7 +1272,7 @@
 </section>
   </form>
 <section id="faq" class="container my-5">
-  <h2 class="mb-4">🔍 Frequently Asked Questions</h2>
+  <h2 class="mb-4">🔍 <strong>Frequently Asked Questions</strong></h2>
   <div class="accordion" id="faqAccordion">
 
     <!-- Q1 -->
@@ -977,13 +1281,14 @@
         <button class="accordion-button" type="button"
                 data-bs-toggle="collapse" data-bs-target="#faqCollapse1"
                 aria-expanded="true" aria-controls="faqCollapse1">
-          What is Amazon Super Search?
+          What is <strong>Amazon Super Search</strong> and its <strong>advanced Amazon deals filter</strong> capabilities?
         </button>
       </h3>
       <div id="faqCollapse1" class="accordion-collapse collapse show"
            aria-labelledby="faqHeading1" data-bs-parent="#faqAccordion">
         <div class="accordion-body">
-          Amazon Super Search is our advanced filter tool that lets you find exactly what you want—no fluff, no signup.
+          <strong>Amazon Super Search</strong> is our <strong>advanced Amazon deal filter tool</strong> designed to uncover 
+          <strong>best in-stock deals on Amazon</strong> with no signup required—helping you find exactly what you want faster.
         </div>
       </div>
     </div>
@@ -994,13 +1299,13 @@
         <button class="accordion-button collapsed" type="button"
                 data-bs-toggle="collapse" data-bs-target="#faqCollapse2"
                 aria-expanded="false" aria-controls="faqCollapse2">
-          How do I filter by price range?
+          How do I use the <strong>Amazon price range filter</strong> feature?
         </button>
       </h3>
       <div id="faqCollapse2" class="accordion-collapse collapse"
            aria-labelledby="faqHeading2" data-bs-parent="#faqAccordion">
         <div class="accordion-body">
-          Use the min/max price fields in Step 2 to set your desired price range.
+          Simply enter your minimum and maximum values in the <strong>min/max price fields</strong> in Step 2 to instantly narrow results to your budget.
         </div>
       </div>
     </div>
@@ -1011,13 +1316,13 @@
         <button class="accordion-button collapsed" type="button"
                 data-bs-toggle="collapse" data-bs-target="#faqCollapse3"
                 aria-expanded="false" aria-controls="faqCollapse3">
-          How do I select item condition?
+          Can I refine by <strong>Amazon product condition</strong> (new, used, refurbished)?
         </button>
       </h3>
       <div id="faqCollapse3" class="accordion-collapse collapse"
            aria-labelledby="faqHeading3" data-bs-parent="#faqAccordion">
         <div class="accordion-body">
-          In Step 3 choose New, Used, Refurbished, or Any from the Condition dropdown.
+          Yes — use the <strong>condition dropdown</strong> in Step 3 to select from new, used, or refurbished items.
         </div>
       </div>
     </div>
@@ -1028,13 +1333,13 @@
         <button class="accordion-button collapsed" type="button"
                 data-bs-toggle="collapse" data-bs-target="#faqCollapse4"
                 aria-expanded="false" aria-controls="faqCollapse4">
-          Can I include or exclude specific brands?
+          How do I apply a <strong>brand filter on Amazon</strong>?
         </button>
       </h3>
       <div id="faqCollapse4" class="accordion-collapse collapse"
            aria-labelledby="faqHeading4" data-bs-parent="#faqAccordion">
         <div class="accordion-body">
-          Step 4 lets you type brands to include or exclude—plus you can toggle “Match only these brands.”
+          In Step 4, type or tag the brands you want to include and toggle “Match only these brands” for precise brand-specific results.
         </div>
       </div>
     </div>
@@ -1045,13 +1350,13 @@
         <button class="accordion-button collapsed" type="button"
                 data-bs-toggle="collapse" data-bs-target="#faqCollapse5"
                 aria-expanded="false" aria-controls="faqCollapse5">
-          How do I apply Prime, Free Shipping, or In-Stock filters?
+          How do I filter for <strong>Prime-only</strong>, <strong>Free Shipping</strong>, or <strong>In-stock</strong> items?
         </button>
       </h3>
       <div id="faqCollapse5" class="accordion-collapse collapse"
            aria-labelledby="faqHeading5" data-bs-parent="#faqAccordion">
         <div class="accordion-body">
-          Just check the Prime Only, Free Shipping, or In Stock boxes in Step 5.
+          Just check the <strong>Prime-only</strong>, <strong>Free Shipping</strong>, or <strong>In-stock</strong> boxes in Step 5 to narrow your search.
         </div>
       </div>
     </div>
@@ -1062,13 +1367,13 @@
         <button class="accordion-button collapsed" type="button"
                 data-bs-toggle="collapse" data-bs-target="#faqCollapse6"
                 aria-expanded="false" aria-controls="faqCollapse6">
-          How do I start the search?
+          How do I <strong>start an advanced Amazon search</strong>?
         </button>
       </h3>
       <div id="faqCollapse6" class="accordion-collapse collapse"
            aria-labelledby="faqHeading6" data-bs-parent="#faqAccordion">
         <div class="accordion-body">
-          Click the “🔍 Search Amazon” button in Step 6 to open your results in a new tab.
+          Click the <strong>🔍 Search Amazon</strong> button in Step 6 to open filtered results in a new tab.
         </div>
       </div>
     </div>
@@ -1079,13 +1384,13 @@
         <button class="accordion-button collapsed" type="button"
                 data-bs-toggle="collapse" data-bs-target="#faqCollapse7"
                 aria-expanded="false" aria-controls="faqCollapse7">
-          How do I use Boolean operators to refine my search?
+          How do I use <strong>Boolean search operators</strong> for deeper filtering?
         </button>
       </h3>
       <div id="faqCollapse7" class="accordion-collapse collapse"
            aria-labelledby="faqHeading7" data-bs-parent="#faqAccordion">
         <div class="accordion-body">
-          Enable “Boolean Operators” in Step 7 and use <code>AND</code>, <code>OR</code>, <code>NOT</code>.
+          Enable “Boolean Operators” in Step 7 and use <code>AND</code>, <code>OR</code>, or <code>NOT</code> for advanced query logic.
         </div>
       </div>
     </div>
@@ -1096,13 +1401,13 @@
         <button class="accordion-button collapsed" type="button"
                 data-bs-toggle="collapse" data-bs-target="#faqCollapse8"
                 aria-expanded="false" aria-controls="faqCollapse8">
-          Can I go straight to a product using its ASIN or ISBN?
+          Can I do a <strong>direct ASIN or ISBN lookup</strong>?
         </button>
       </h3>
       <div id="faqCollapse8" class="accordion-collapse collapse"
            aria-labelledby="faqHeading8" data-bs-parent="#faqAccordion">
         <div class="accordion-body">
-          Use the “ASIN / ISBN Direct Lookup” field in Power-User Tools.
+          Yes — paste any ASIN or ISBN into the <strong>ASIN / ISBN Direct Lookup</strong> field in Power-User Tools.
         </div>
       </div>
     </div>
@@ -1113,13 +1418,13 @@
         <button class="accordion-button collapsed" type="button"
                 data-bs-toggle="collapse" data-bs-target="#faqCollapse9"
                 aria-expanded="false" aria-controls="faqCollapse9">
-          What are Field Filters and how do I use them?
+          What are <strong>Field Filters on Amazon</strong> and how do I use them?
         </button>
       </h3>
       <div id="faqCollapse9" class="accordion-collapse collapse"
            aria-labelledby="faqHeading9" data-bs-parent="#faqAccordion">
         <div class="accordion-body">
-          Field Filters let you target Amazon fields like <code>field-brand:Sony</code>.
+          Field Filters let you target specific Amazon fields (e.g. <code>field-brand:Sony</code>) for pinpoint precision.
         </div>
       </div>
     </div>
@@ -1130,140 +1435,54 @@
         <button class="accordion-button collapsed" type="button"
                 data-bs-toggle="collapse" data-bs-target="#faqCollapse10"
                 aria-expanded="false" aria-controls="faqCollapse10">
-          How do I filter for Prime-only or free-shipping items?
+          How do I filter for <strong>lightning deals</strong> & <strong>today’s deals</strong> only?
         </button>
       </h3>
       <div id="faqCollapse10" class="accordion-collapse collapse"
            aria-labelledby="faqHeading10" data-bs-parent="#faqAccordion">
         <div class="accordion-body">
-          Check “Prime Only” or “Free Shipping” in Step 5.
+          Check the <strong>Lightning Deals</strong> or <strong>Today’s Deals Only</strong> box in Step 5 to surface exclusive time-sensitive offers.
         </div>
       </div>
     </div>
 
   </div>
 </section>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is Amazon Super Search?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Amazon Super Search is our advanced filter tool that lets you find exactly what you want—no fluff, no signup."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I filter by price range?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Use the min/max price fields in Step 2 to set your desired price range."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I select item condition?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "In Step 3 choose New, Used, Refurbished, or Any from the Condition dropdown."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I include or exclude specific brands?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Step 4 lets you type brands to include or exclude—plus you can toggle “Match only these brands.”"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I apply Prime, Free Shipping, or In-Stock filters?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Just check the Prime Only, Free Shipping, or In Stock boxes in Step 5."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I start the search?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Click the “🔍 Search Amazon” button in Step 6 to open your results in a new tab."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I use Boolean operators to refine my search?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Enable “Boolean Operators” in Step 7 and use AND, OR, NOT."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I go straight to a product using its ASIN or ISBN?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Use the “ASIN / ISBN Direct Lookup” field in Power-User Tools."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What are Field Filters and how do I use them?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Field Filters let you target Amazon fields like field-brand:Sony."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I filter for Prime-only or free-shipping items?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Check “Prime Only” or “Free Shipping” in Step 5."
-      }
-    }
-  ]
-}
-</script>
 
     <!-- …your search-logic <script> closes here… -->
  <!-- end of search logic -->
 <section id="about-amazon-super-search" class="container my-5">
-  <h2 class="mb-3">🧭 What is Amazon Super Search and How Does It Help You?</h2>
+  <h2 class="mb-3">🧭 What is <strong>Amazon Super Search</strong> and How Does It Help You?</h2>
   <p>
-    <strong>Amazon Super Search</strong> is a powerful <em>advanced Amazon filter tool</em> that helps you find 
-    <strong>in-stock deals</strong>, <strong>hidden discounts</strong>, <strong>coupon-enabled listings</strong>, 
-    and <strong>Prime-only products</strong>—faster than ever before. Whether you're looking for 
-    <em>wireless headphones under $50</em>, <em>eco-friendly home goods</em>, or <em>top-rated gadgets with free shipping</em>, 
+    <strong>Amazon Super Search</strong> is a powerful <strong>advanced Amazon deal filter</strong> that helps you find 
+    <strong>best Amazon in-stock deals</strong>, <strong>hidden coupon codes</strong>, <strong>coupon-enabled listings</strong>, 
+    and <strong>Prime-only product search results</strong>—faster than ever before. Whether you’re hunting for 
+    <em>wireless earbuds under $50 with free shipping</em>, <em>eco-friendly home goods on Amazon</em>, or <em>top-rated gadgets under budget</em>, 
     our tool lets you fine-tune every search with ease.
   </p>
 
   <h3 class="mt-4">🔍 How to Use It:</h3>
   <ul>
-    <li>Enter your product keywords, ASIN, or UPC.</li>
-    <li>Filter by price, rating, brand, shipping speed, deal type, and more.</li>
+    <li>Enter your product <strong>keywords, ASIN, or UPC</strong>.</li>
+    <li>Use our <strong>filter Amazon by past price trends</strong>, <strong>discount percentage tracker</strong>, <strong>brand filter</strong>, and <strong>customer rating filter</strong>.</li>
     <li>
-      Click <strong>“Search Amazon”</strong> to instantly view results that match your filters. 
-      <em>All products will be displayed on Amazon’s official website. This tool is for advanced searching only—nothing is sold directly on this site. You'll be redirected to Amazon for any purchases.</em>
+      Click <strong>“Search Amazon”</strong> to instantly view your custom results. 
+      <em>All products display on Amazon’s official site—this is purely an advanced Amazon search tool.</em>
     </li>
+    <li>Toggle <strong>“Coupons Available”</strong> to become your own <strong>Amazon coupon finder</strong>.</li>
+    <li>Zero in on your budget with our <strong>price range filter</strong>.</li>
   </ul>
 
   <h3 class="mt-4">💡 Why It Works:</h3>
   <p>
-    With over <strong>20 smart filters</strong>, including <em>lightning deals</em>, <em>free returns</em>, 
-    <em>Amazon’s Choice</em>, and <em>discount percentages from past average prices</em>, you can:
+    With over <strong>20 smart filters</strong>, including <strong>lightning deals finder</strong>, <strong>free returns filter</strong>, 
+    <strong>Amazon’s Choice selector</strong>, and <strong>deep discount alerts</strong>, you can:
   </p>
   <ul>
     <li>Avoid endless scrolling</li>
-    <li>Spot real deals—not fake markdowns</li>
+    <li>Spot genuine markdowns—not fake deals</li>
     <li>Uncover coupons Amazon hides at checkout</li>
-    <li>Save time and money with targeted searches</li>
+    <li>Save time and money with precise <strong>Amazon search filters</strong></li>
   </ul>
 
   <h3 class="mt-4">🛡️ Your Privacy Matters:</h3>
@@ -1433,8 +1652,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('amazon-search-form');
   const warningBox = document.getElementById('filter-warning');
 
-  // Initialize Tagify on your brand inputs
-  new Tagify(form.querySelector('input[name="brand-include"]'));
+    // — Google Translate auto-select —
+const userLang = (navigator.language || navigator.userLanguage).substr(0,2);
+setTimeout(() => {
+  const combo = document.querySelector('.goog-te-combo');
+  if (combo && combo.value !== userLang) {
+    combo.value = userLang;
+    combo.dispatchEvent(new Event('change'));
+  }
+}, 500);
 
   form.addEventListener('submit', e => {
     e.preventDefault();
@@ -1447,29 +1673,35 @@ document.addEventListener('DOMContentLoaded', () => {
       if (data.get(field) === 'on') rh.push(`${param}:${val}`);
     };
 
-    // Show warning if too many filters
-    const checkedCount = [...form.elements].filter(el =>
-      el.type === 'checkbox' &&
-      el.checked &&
-      !el.closest('.coming-soon')
-    ).length;
-    warningBox.style.display = checkedCount > 2 ? 'block' : 'none';
 
-    // 1) Basic query + sort
-    const q = data.get('q')?.trim();
-    if (!q) return alert('Please enter a search term.');
-    params.set('k', q);
+  // 1) Basic query + sort (with “eco-friendly” support)
+let q = data.get('q')?.trim();
+if (!q) return alert('Please enter a search term.');
 
-    const sort = data.get('sort');
-    if (sort) params.set('s', sort);
+// >>> NEW: if eco-friendly checkbox checked, append that keyword
+if (data.get('eco-friendly') === 'on') {
+  // ensure a space before appending
+  q = q + (q.endsWith(' ') ? '' : ' ') + 'eco friendly';
+}
+    // after you gather other filters…
+if (data.get('filter-cruelty-free') === 'on') {
+  q = q + (q.endsWith(' ') ? '' : ' ') + 'cruelty free';
+}
 
-    // 2) Price range
-    const min = parseFloat(data.get('min-price')||0);
-    const max = parseFloat(data.get('max-price')||0);
-    if (min || max) {
-      const minC = Math.round(min*100), maxC = Math.round(max*100);
-      rh.push(`p_36:${minC}-${maxC}`);
-    }
+params.set('k', q);
+
+const sort = data.get('sort');
+if (sort) params.set('s', sort);
+
+ // 2) Price range → push into rh[]
+const min = parseFloat(data.get('min-price') || 0);
+const max = parseFloat(data.get('max-price') || 0);
+if (min || max) {
+  const minC = Math.round(min * 100);
+  const maxC = Math.round(max * 100);
+  rh.push(`p_36:${minC}-${maxC}`);
+}
+  
 
     // 3) Percentage-off dropdown
     const pctMap = {10:'2665401011',20:'2665412011',30:'2665413011',40:'2665414011',
@@ -1478,7 +1710,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (pctMap[pct]) rh.push(`p_n_pct-off-with-tax:${pctMap[pct]}`);
 
     // 4) All the other checkboxes via helper
- pushFilter('prime-only',      'p_85',    '2470955011');         // Amazon Prime
+// all Prime items (FBA + Seller-Fulfilled Prime)
+pushFilter('prime-only',      'p_85',                     '2470955011');
+// only Seller-Fulfilled Prime (no FBA warehouses)
+pushFilter('seller-fulfilled-prime', 'p_n_fulfillment_type-bin', '18407304011');
 pushFilter('free-shipping',   'p_76',    '1249177011');         // Free Shipping
 pushFilter('in-stock',        'p_n_availability', '2661601011'); // In Stock
 pushFilter('coupons',         'p_n_feature_browse-bin', '6779703011'); // Coupons Available
@@ -1494,6 +1729,7 @@ pushFilter('amazon-brands',   'p_n_feature_fourteen_browse-bin', '18584192011');
 pushFilter('low-rating',      'p_n_feature_twenty_browse-bin', '21397296011'); // 1–2 Star Items
 pushFilter('coupon-only',     'p_n_feature_browse-bin', '6779703011'); // Same as coupons
 pushFilter('warehouse-refurb','p_n_condition-type', '2224371011'); // Used & Refurbished (Warehouse)
+
 
 
     // 5) AI-driven filters
@@ -1513,8 +1749,23 @@ pushFilter('warehouse-refurb','p_n_condition-type', '2224371011'); // Used & Ref
     if (vol) rh.push(`p_n_price-volatility:${vol}`);
 
     // 7) Brand Include (Tagify JSON arrays)
-    const includeTags = JSON.parse(data.get('brand-include') || '[]');
-    includeTags.forEach(t => rh.push(`p_89:${encodeURIComponent(t.value)}`));
+   let tagsRaw = data.get('brand-include') || '';
+let includeTags;
+
+try {
+  includeTags = JSON.parse(tagsRaw);
+  // If it parsed to a single string, wrap it in an array
+  if (!Array.isArray(includeTags)) {
+    includeTags = [{ value: String(includeTags) }];
+  }
+} catch {
+  // Fallback: split on commas
+  includeTags = tagsRaw
+    .split(',')
+    .map(s => s.trim())
+    .filter(Boolean)
+    .map(v => ({ value: v }));
+}
 
 
     // 8) Boolean, field filters, ASIN lookup
@@ -1540,6 +1791,7 @@ const domainMap = {
 const host = domainMap[currency] || 'www.amazon.com';
 
 const url = `https://${host}/s?${params.toString()}`;
+  console.log('🔗 Amazon URL:', url);
 window.open(url, '_blank');
   });
 });
@@ -1547,6 +1799,11 @@ window.open(url, '_blank');
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const clickSound = document.getElementById("clickSound");
+
+  if (location.hash === "#") {
+      // Replace the current history entry with one without the "#"
+      history.replaceState(null, "", location.pathname + location.search);
+    }
 
   // Play sound function
   const playClick = () => {
@@ -1566,6 +1823,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
-
+<script>
+  // 1) Initialize the widget (inline, no banner)
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
+      </script>
 </body>
 </html>
