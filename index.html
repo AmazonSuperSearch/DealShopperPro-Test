@@ -727,113 +727,68 @@ const pushFilter = (field, param, val) => {
 
 
 
- <!-- Step 5: Fine-tune your preferences -->
+<!-- ✅ Step 5: Fine-tune Preferences & Find Coupons -->
 <section class="container text-start mb-4">
- <h2 class="mb-2">
-  ✅ Step 5: Fine-tune Preferences & Find Coupons
-</h2>
-<p class="text-muted mb-3">
-  Select Prime-only, Lightning Deals only, in-stock, free shipping—and toggle coupon filters to become your own Amazon coupon finder.
-</p>
+  <h2 class="mb-2">✅ Step 5: Fine-tune Preferences & Find Coupons</h2>
+  <p class="text-muted mb-3">
+    Select Prime-only, Lightning Deals only, in-stock, free shipping—and toggle coupon filters to become your own Amazon coupon finder.
+  </p>
 
   <div class="card mb-4 p-3">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
 
-      <!-- Most Popular Filters -->
-     <!-- Prime-Only -->
-<div class="form-check">
-  <input
-    class="form-check-input"
-    type="checkbox"
-    name="prime-only"
-    id="primeOnly"
-    aria-label="Filter by Prime Only items">
-  <label class="form-check-label" for="primeOnly">
-    🤩 Prime Only
-  </label>
-</div>
+      <!-- ✅ Most Popular Filters -->
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="prime-only" id="primeOnly"><label class="form-check-label" for="primeOnly">🤩 Prime Only</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="seller-fulfilled-prime" id="sellerFulfilledPrime"><label class="form-check-label" for="sellerFulfilledPrime">🚚 Seller-Fulfilled Prime Only</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="free-shipping" id="freeShipping"><label class="form-check-label" for="freeShipping">Free Shipping</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="in-stock" id="inStock"><label class="form-check-label" for="inStock">In Stock</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="coupons" id="coupons"><label class="form-check-label" for="coupons">Coupons Available</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="lightning-deals" id="lightningDeals"><label class="form-check-label" for="lightningDeals">⚡Lightning Deals⚡</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="todays-deals" id="todaysDeals"><label class="form-check-label" for="todaysDeals">🔥Today's Deals Only🔥</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="eco-friendly" id="ecoFriendlyToggle"><label class="form-check-label" for="ecoFriendlyToggle">♻️ Eco-Friendly Products</label></div>
 
-<!-- Seller-Fulfilled Prime -->
-<div class="form-check">
-  <input
-    class="form-check-input"
-    type="checkbox"
-    name="seller-fulfilled-prime"
-    id="sellerFulfilledPrime"
-    aria-label="Show Seller-Fulfilled Prime only">
-  <label class="form-check-label" for="sellerFulfilledPrime">
-    🚚 Seller-Fulfilled Prime Only
-  </label>
-</div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="free-shipping" id="freeShipping" aria-label="Filter by Free Shipping only">
-        <label class="form-check-label" for="freeShipping">Free Shipping</label>
-      </div>
-      <div class="form-check">
-       <input class="form-check-input" type="checkbox" name="in-stock" id="inStock" aria-label="Show only in-stock items">
-        <label class="form-check-label" for="inStock">In Stock</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="coupons" id="coupons" aria-label="Show items with available coupons">
-        <label class="form-check-label" for="coupons">Coupons Available</label>
-      </div>
-      <div class="form-check">
-       <input class="form-check-input" type="checkbox" name="lightning-deals" id="lightningDeals" aria-label="Show Lightning Deals only">
-        <label class="form-check-label" for="lightningDeals">⚡Lightning Deals⚡</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="todays-deals" id="todaysDeals" aria-label="Show Today’s Deals only">
-        <label class="form-check-label" for="todaysDeals">🔥Today's Deals Only🔥</label>
-      </div>
-     <!-- ♻️ Search Eco-Friendly -->
-<div class="form-check">
-  <input
-    class="form-check-input"
-    type="checkbox"
-    name="eco-friendly"
-    id="ecoFriendlyToggle"
-  >
-  <label class="form-check-label" for="ecoFriendlyToggle">
-    ♻️ Eco-Friendly Products
-  </label>
-</div>
       <!-- 🎁 Gift Filters -->
-<div class="form-check"><input class="form-check-input" type="checkbox" name="gifts-for-kids" id="gifts-for-kids"><label class="form-check-label" for="gifts-for-kids">🎁 Gifts for Kids</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" name="gifts-for-teens" id="gifts-for-teens"><label class="form-check-label" for="gifts-for-teens">🎁 Gifts for Teens</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" name="gifts-for-babies" id="gifts-for-babies"><label class="form-check-label" for="gifts-for-babies">🎁 Gifts for Babies</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" name="gifts-for-coworkers" id="gifts-for-coworkers"><label class="form-check-label" for="gifts-for-coworkers">🎁 Gifts for Coworkers</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" name="gifts-under-25" id="gifts-under-25"><label class="form-check-label" for="gifts-under-25">💲 Gifts Under $25</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" name="gifts-under-50" id="gifts-under-50"><label class="form-check-label" for="gifts-under-50">💲 Gifts Under $50</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" name="stocking-stuffers" id="stocking-stuffers"><label class="form-check-label" for="stocking-stuffers">🎄 Stocking Stuffers</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" name="white-elephant" id="white-elephant"><label class="form-check-label" for="white-elephant">🎁 White Elephant Gifts</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="gifts-for-kids" id="gifts-for-kids"><label class="form-check-label" for="gifts-for-kids">🎁 Gifts for Kids</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="gifts-for-teens" id="gifts-for-teens"><label class="form-check-label" for="gifts-for-teens">🎁 Gifts for Teens</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="gifts-for-babies" id="gifts-for-babies"><label class="form-check-label" for="gifts-for-babies">🎁 Gifts for Babies</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="gifts-for-coworkers" id="gifts-for-coworkers"><label class="form-check-label" for="gifts-for-coworkers">🎁 Gifts for Coworkers</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="gifts-under-25" id="gifts-under-25"><label class="form-check-label" for="gifts-under-25">💲 Gifts Under $25</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="gifts-under-50" id="gifts-under-50"><label class="form-check-label" for="gifts-under-50">💲 Gifts Under $50</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="stocking-stuffers" id="stocking-stuffers"><label class="form-check-label" for="stocking-stuffers">🎄 Stocking Stuffers</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="white-elephant" id="white-elephant"><label class="form-check-label" for="white-elephant">🎁 White Elephant Gifts</label></div>
 
-<!-- 🌱 Eco & Ethical Filters -->
-<div class="form-check"><input class="form-check-input" type="checkbox" name="plastic-free" id="plastic-free"><label class="form-check-label" for="plastic-free">🌿 Plastic-Free</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" name="upcycled" id="upcycled"><label class="form-check-label" for="upcycled">♻️ Upcycled</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" name="secondhand" id="secondhand"><label class="form-check-label" for="secondhand">♻️ Secondhand</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" name="fair-trade" id="fair-trade"><label class="form-check-label" for="fair-trade">🌍 Fair Trade</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" name="handmade" id="handmade"><label class="form-check-label" for="handmade">🧵 Handmade</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" name="local-producer" id="local-producer"><label class="form-check-label" for="local-producer">🏘️ Locally Made</label></div>
+      <!-- 🌱 Eco & Ethical Filters -->
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="plastic-free" id="plastic-free"><label class="form-check-label" for="plastic-free">🌿 Plastic-Free</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="upcycled" id="upcycled"><label class="form-check-label" for="upcycled">♻️ Upcycled</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="secondhand" id="secondhand"><label class="form-check-label" for="secondhand">♻️ Secondhand</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="fair-trade" id="fair-trade"><label class="form-check-label" for="fair-trade">🌍 Fair Trade</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="handmade" id="handmade"><label class="form-check-label" for="handmade">🧵 Handmade</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="local-producer" id="local-producer"><label class="form-check-label" for="local-producer">🏘️ Locally Made</label></div>
 
       <!-- 🛍️ Lifestyle Filters -->
-<div class="form-check"><input class="form-check-input" type="checkbox" name="minimalist-products" id="minimalist-products"><label class="form-check-label" for="minimalist-products">🧘 Minimalist</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" name="boho-style" id="boho-style"><label class="form-check-label" for="boho-style">🌻 Boho Style</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" name="farmhouse-style" id="farmhouse-style"><label class="form-check-label" for="farmhouse-style">🏡 Farmhouse Decor</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" name="japanese-design" id="japanese-design"><label class="form-check-label" for="japanese-design">🈶 Japanese Minimalist</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" name="scandinavian-style" id="scandinavian-style"><label class="form-check-label" for="scandinavian-style">❄️ Scandinavian Design</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="minimalist-products" id="minimalist-products"><label class="form-check-label" for="minimalist-products">🧘 Minimalist</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="boho-style" id="boho-style"><label class="form-check-label" for="boho-style">🌻 Boho Style</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="farmhouse-style" id="farmhouse-style"><label class="form-check-label" for="farmhouse-style">🏡 Farmhouse Decor</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="japanese-design" id="japanese-design"><label class="form-check-label" for="japanese-design">🈶 Japanese Minimalist</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="scandinavian-style" id="scandinavian-style"><label class="form-check-label" for="scandinavian-style">❄️ Scandinavian Design</label></div>
 
       <!-- 🧘 Wellness Filters -->
-<div class="form-check"><input class="form-check-input" type="checkbox" name="yoga-gear" id="yoga-gear"><label class="form-check-label" for="yoga-gear">🧘 Yoga Gear</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" name="essential-oils" id="essential-oils"><label class="form-check-label" for="essential-oils">🌿 Essential Oils</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" name="aromatherapy" id="aromatherapy"><label class="form-check-label" for="aromatherapy">💨 Aromatherapy</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" name="blue-light-glasses" id="blue-light-glasses"><label class="form-check-label" for="blue-light-glasses">👓 Blue Light Glasses</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="yoga-gear" id="yoga-gear"><label class="form-check-label" for="yoga-gear">🧘 Yoga Gear</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="essential-oils" id="essential-oils"><label class="form-check-label" for="essential-oils">🌿 Essential Oils</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="aromatherapy" id="aromatherapy"><label class="form-check-label" for="aromatherapy">💨 Aromatherapy</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="blue-light-glasses" id="blue-light-glasses"><label class="form-check-label" for="blue-light-glasses">👓 Blue Light Glasses</label></div>
 
       <!-- 🗓️ Occasion Filters -->
-<div class="form-check"><input class="form-check-input" type="checkbox" name="graduation-gifts" id="graduation-gifts"><label class="form-check-label" for="graduation-gifts">🎓 Graduation Gifts</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" name="housewarming-gifts" id="housewarming-gifts"><label class="form-check-label" for="housewarming-gifts">🏠 Housewarming Gifts</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" name="back-to-school" id="back-to-school"><label class="form-check-label" for="back-to-school">📚 Back to School</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" name="new-year-deals" id="new-year-deals"><label class="form-check-label" for="new-year-deals">🎉 New Year Deals</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" name="summer-essentials" id="summer-essentials"><label class="form-check-label" for="summer-essentials">🌞 Summer Essentials</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="graduation-gifts" id="graduation-gifts"><label class="form-check-label" for="graduation-gifts">🎓 Graduation Gifts</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="housewarming-gifts" id="housewarming-gifts"><label class="form-check-label" for="housewarming-gifts">🏠 Housewarming Gifts</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="back-to-school" id="back-to-school"><label class="form-check-label" for="back-to-school">📚 Back to School</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="new-year-deals" id="new-year-deals"><label class="form-check-label" for="new-year-deals">🎉 New Year Deals</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="summer-essentials" id="summer-essentials"><label class="form-check-label" for="summer-essentials">🌞 Summer Essentials</label></div>
+
+    </div>
+  </div>
+</section>
+
 
 
       
