@@ -785,105 +785,21 @@ const pushFilter = (field, param, val) => {
       <div class="form-check"><input class="form-check-input" type="checkbox" name="new-year-deals" id="new-year-deals"><label class="form-check-label" for="new-year-deals">🎉 New Year Deals</label></div>
       <div class="form-check"><input class="form-check-input" type="checkbox" name="summer-essentials" id="summer-essentials"><label class="form-check-label" for="summer-essentials">🌞 Summer Essentials</label></div>
 
-    </div>
-  </div>
-</section>
+      <!-- 🛠️ Additional Filters -->
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="filter-cruelty-free" id="filter-cruelty-free"><label class="form-check-label" for="filter-cruelty-free">Cruelty Free</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="subscribe-save" id="subscribeSave"><label class="form-check-label" for="subscribeSave">Subscribe & Save</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="amazon-choice" id="amazonChoice"><label class="form-check-label" for="amazonChoice">Amazon’s Choice</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="fba-only" id="fbaOnly"><label class="form-check-label" for="fbaOnly">Sold & Shipped by Amazon</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="free-returns" id="freeReturns"><label class="form-check-label" for="freeReturns">Free Returns</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="gift-wrap" id="giftWrap"><label class="form-check-label" for="giftWrap">Gift Wrap Available</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="small-business" id="smallBusiness"><label class="form-check-label" for="smallBusiness">Small Business Products</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="amazon-brands" id="amazonBrands"><label class="form-check-label" for="amazonBrands">Amazon Brands Only</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="low-rating" id="lowRating"><label class="form-check-label" for="lowRating">Low Rating Products (⚠️)</label></div>
 
-
-
-      
-      <!-- somewhere in your filters section -->
-<div class="form-check">
-  <input
-    class="form-check-input"
-    type="checkbox"
-    name="filter-cruelty-free"
-    id="filter-cruelty-free"
-  >
-  <label class="form-check-label" for="filter-cruelty-free">
-    Cruelty Free
-  </label>
-</div>
-
-
-      <!-- Other Available Filters -->
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="subscribe-save" id="subscribeSave" aria-label="Show Subscribe & Save items">
-        <label class="form-check-label" for="subscribeSave">Subscribe & Save</label>
-      </div>
-      <div class="form-check">
-       <input class="form-check-input" type="checkbox" name="amazon-choice" id="amazonChoice" aria-label="Show Amazon’s Choice items">
-        <label class="form-check-label" for="amazonChoice">Amazon’s Choice</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="fba-only" id="fbaOnly" aria-label="Show items sold and shipped by Amazon">
-        <label class="form-check-label" for="fbaOnly">Sold & Shipped by Amazon</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="free-returns" id="freeReturns" aria-label="Show items with Free Returns">
-        <label class="form-check-label" for="freeReturns">Free Returns</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="gift-wrap" id="giftWrap" aria-label="Show items with Gift Wrap available">
-        <label class="form-check-label" for="giftWrap">Gift Wrap Available</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="small-business" id="smallBusiness" aria-label="Show Small Business Products only">
-        <label class="form-check-label" for="smallBusiness">Small Business Products</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="amazon-brands" id="amazonBrands" aria-label="Show Amazon Brand items only">
-        <label class="form-check-label" for="amazonBrands">Amazon Brands Only</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="low-rating" id="lowRating" aria-label="Include Low Rating Products">
-        <label class="form-check-label" for="lowRating">Low Rating Products (⚠️)</label>
-      </div>
-
-      <!-- Coming Soon Filters -->
-      <div class="form-check coming-soon">
-        <input class="form-check-input" type="checkbox" name="ships-fast" id="shipsFast">
-        <label class="form-check-label" for="shipsFast">Ships in 24 Hours <small>(Coming Soon)</small></label>
-      </div>
-      <div class="form-check coming-soon">
-        <input class="form-check-input" type="checkbox" name="back-in-stock" id="backInStock">
-        <label class="form-check-label" for="backInStock">Back in Stock Today <small>(Coming Soon)</small></label>
-      </div>
-      <div class="form-check coming-soon">
-        <input class="form-check-input" type="checkbox" name="made-in-usa" id="madeInUsa">
-        <label class="form-check-label" for="madeInUsa">Made in USA <small>(Coming Soon)</small></label>
-      </div>
-      <div class="form-check coming-soon">
-        <input class="form-check-input" type="checkbox" name="trending-now" id="trendingNow">
-        <label class="form-check-label" for="trendingNow">Trending Right Now <small>(Coming Soon)</small></label>
-      </div>
-      <div class="form-check coming-soon">
-        <input class="form-check-input" type="checkbox" name="new-last-week" id="newLastWeek">
-        <label class="form-check-label" for="newLastWeek">New Arrivals (Last 7 Days) <small>(Coming Soon)</small></label>
-      </div>
-      <div class="form-check coming-soon">
-        <input class="form-check-input" type="checkbox" name="top-category" id="topCategory">
-        <label class="form-check-label" for="topCategory">Top 1% of Category <small>(Coming Soon)</small></label>
-      </div>
-      <div class="form-check coming-soon">
-        <input class="form-check-input" type="checkbox" name="hidden-coupon" id="hiddenCoupon">
-        <label class="form-check-label" for="hiddenCoupon">Hidden Coupons Only <small>(Coming Soon)</small></label>
-      </div>
-      <div class="form-check coming-soon">
-        <input class="form-check-input" type="checkbox" name="giftable" id="giftable">
-        <label class="form-check-label" for="giftable">Highly Giftable Items <small>(Coming Soon)</small></label>
-      </div>
-      <div class="form-check coming-soon">
-        <input class="form-check-input" type="checkbox" name="bundle-match" id="bundleMatch">
-        <label class="form-check-label" for="bundleMatch">Frequently Bought Together <small>(Coming Soon)</small></label>
-      </div>
-      <div class="form-check coming-soon">
-        <input class="form-check-input" type="checkbox" name="low-stock" id="lowStock">
-        <label class="form-check-label" for="lowStock">Low Inventory Left (Urgent) <small>(Coming Soon)</small></label>
-      </div>
- </div> <!-- end of .row -->
-</div> <!-- end of .card -->
+    </div> <!-- end .row -->
+  </div> <!-- end .card -->
 </section> <!-- end of Step 5 section -->
+
 
   <!-- Step 6: Search Amazon -->
 <section class="container text-start mb-5">
