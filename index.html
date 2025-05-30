@@ -737,205 +737,53 @@ const pushFilter = (field, param, val) => {
   <div class="card mb-4 p-3">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
 
-  <h3>
-  🎯 Core Filters
- </h3>
- <div class="form-check">
-  <input class="form-check-input" id="primeOnly" name="prime-only" type="checkbox"/>
-  <label class="form-check-label" for="primeOnly">
-   🤩 Prime Only
-  </label>
- </div>
- <div class="form-check">
-  <input class="form-check-input" id="freeShipping" name="free-shipping" type="checkbox"/>
-  <label class="form-check-label" for="freeShipping">
-   🚚 Free Shipping
-  </label>
- </div>
- <div class="form-check">
-  <input class="form-check-input" id="inStock" name="in-stock" type="checkbox"/>
-  <label class="form-check-label" for="inStock">
-   📦 In Stock
-  </label>
- </div>
- <div class="form-check">
-  <input class="form-check-input" id="lightningDeals" name="lightning-deals" type="checkbox"/>
-  <label class="form-check-label" for="lightningDeals">
-   ⚡ Lightning Deals
-  </label>
- </div>
- <div class="form-check">
-  <input class="form-check-input" id="todaysDeals" name="todays-deals" type="checkbox"/>
-  <label class="form-check-label" for="todaysDeals">
-   🔥 Today's Deals
-  </label>
- </div>
- <div class="form-check">
-  <input class="form-check-input" id="coupons" name="coupons" type="checkbox"/>
-  <label class="form-check-label" for="coupons">
-   🏷️ Coupons
-  </label>
- </div>
- <h3>
-  ♻️ Eco &amp; Ethical
- </h3>
- <div class="form-check">
-  <input class="form-check-input" id="ecoFriendlyToggle" name="eco-friendly" type="checkbox"/>
-  <label class="form-check-label" for="ecoFriendlyToggle">
-   ♻️ Eco-Friendly
-  </label>
- </div>
- <div class="form-check">
-  <input class="form-check-input" id="veganProducts" name="vegan-products" type="checkbox"/>
-  <label class="form-check-label" for="veganProducts">
-   🥗 Vegan
-  </label>
- </div>
- <div class="form-check">
-  <input class="form-check-input" id="organicProducts" name="organic-products" type="checkbox"/>
-  <label class="form-check-label" for="organicProducts">
-   🌿 Organic
-  </label>
- </div>
- <div class="form-check">
-  <input class="form-check-input" id="biodegradablePackaging" name="biodegradable-packaging" type="checkbox"/>
-  <label class="form-check-label" for="biodegradablePackaging">
-   📦 Biodegradable
-  </label>
- </div>
- <div class="form-check">
-  <input class="form-check-input" id="carbonNeutralDelivery" name="carbon-neutral-delivery" type="checkbox"/>
-  <label class="form-check-label" for="carbonNeutralDelivery">
-   🚴 Carbon-Neutral Delivery
-  </label>
- </div>
- <div class="form-check">
-  <input class="form-check-input" id="crueltyFreeToggle" name="cruelty-free" type="checkbox"/>
-  <label class="form-check-label" for="crueltyFreeToggle">
-   🐰 Cruelty-Free
-  </label>
- </div>
- <div class="form-check">
-  <input class="form-check-input" id="lowEmfDevices" name="low-emf-devices" type="checkbox"/>
-  <label class="form-check-label" for="lowEmfDevices">
-   📡 Low EMF
-  </label>
- </div>
- <div class="form-check">
-  <input class="form-check-input" id="allergyFriendly" name="allergy-friendly" type="checkbox"/>
-  <label class="form-check-label" for="allergyFriendly">
-   🤧 Allergy-Friendly
-  </label>
- </div>
- <h3>
-  🎁 Gift Ideas
- </h3>
- <div class="form-check">
-  <input class="form-check-input" id="holidayGiftPicks" name="holiday-gift-picks" type="checkbox"/>
-  <label class="form-check-label" for="holidayGiftPicks">
-   🎁 Holiday Gift Picks
-  </label>
- </div>
- <div class="form-check">
-  <input class="form-check-input" id="birthdayGifts" name="birthday-gifts" type="checkbox"/>
-  <label class="form-check-label" for="birthdayGifts">
-   🎂 Birthday Gifts
-  </label>
- </div>
- <div class="form-check">
-  <input class="form-check-input" id="anniversaryGifts" name="anniversary-gifts" type="checkbox"/>
-  <label class="form-check-label" for="anniversaryGifts">
-   💝 Anniversary Gifts
-  </label>
- </div>
- <div class="form-check">
-  <input class="form-check-input" id="giftsForHer" name="gifts-for-her" type="checkbox"/>
-  <label class="form-check-label" for="giftsForHer">
-   🎀 Gifts for Her
-  </label>
- </div>
- <div class="form-check">
-  <input class="form-check-input" id="giftsForHim" name="gifts-for-him" type="checkbox"/>
-  <label class="form-check-label" for="giftsForHim">
-   🧔 Gifts for Him
-  </label>
- </div>
- <div class="form-check">
-  <input class="form-check-input" id="giftWrap" name="gift-wrap" type="checkbox"/>
-  <label class="form-check-label" for="giftWrap">
-   🎁 Gift Wrap
-  </label>
- </div>
- <h3>
-  🔍 Deal Type &amp; Value
- </h3>
- <div class="form-check">
-  <input class="form-check-input" id="mostReviewed" name="most-reviewed" type="checkbox"/>
-  <label class="form-check-label" for="mostReviewed">
-   ⭐ Most Reviewed
-  </label>
- </div>
- <div class="form-check">
-  <input class="form-check-input" id="valuePerOunce" name="best-value-per-ounce" type="checkbox"/>
-  <label class="form-check-label" for="valuePerOunce">
-   📊 Best Value per Ounce
-  </label>
- </div>
- <h3>
-  🛍️ Ownership &amp; Source
- </h3>
- <h3>
-  📦 Misc
- </h3>
- <div class="form-check">
-  <input class="form-check-input" id="steadyPrice" name="steady-price-no-spike" type="checkbox"/>
-  <label class="form-check-label" for="steadyPrice">
-   📉 Steady Price
-  </label>
- </div>
- <div class="form-check">
-  <input class="form-check-input" id="freeReturns" name="free-returns" type="checkbox"/>
-  <label class="form-check-label" for="freeReturns">
-   🔁 Free Returns
-  </label>
- </div>
- <div class="form-check">
-  <input class="form-check-input" id="subscribeSave" name="subscribe-save" type="checkbox"/>
-  <label class="form-check-label" for="subscribeSave">
-   🔄 Subscribe &amp; Save
-  </label>
- </div>
- <div class="form-check">
-  <input class="form-check-input" id="fbaOnly" name="fba-only" type="checkbox"/>
-  <label class="form-check-label" for="fbaOnly">
-   🏢 Shipped by Amazon
-  </label>
- </div>
- <div class="form-check">
-  <input class="form-check-input" id="amazonBrands" name="amazon-brands" type="checkbox"/>
-  <label class="form-check-label" for="amazonBrands">
-   🛒 Amazon Brands
-  </label>
- </div>
- <div class="form-check">
-  <input class="form-check-input" id="smallBusiness" name="small-business" type="checkbox"/>
-  <label class="form-check-label" for="smallBusiness">
-   🧵 Small Business
-  </label>
- </div>
- <div class="form-check">
-  <input class="form-check-input" id="crowdfundedOrigins" name="crowdfunded-origins" type="checkbox"/>
-  <label class="form-check-label" for="crowdfundedOrigins">
-   🚀 Crowdfunded Origins
-  </label>
- </div>
- <div class="form-check">
-  <input class="form-check-input" id="mindfulnessGear" name="mindfulness-gear" type="checkbox"/>
-  <label class="form-check-label" for="mindfulnessGear">
-   🧘 Mindfulness Gear
-  </label>
- </div>
+      <!-- 🔥 Core Filters -->
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="primeOnly" name="prime-only"><label class="form-check-label" for="primeOnly">🤩 Prime Only</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="freeShipping" name="free-shipping"><label class="form-check-label" for="freeShipping">🚚 Free Shipping</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="inStock" name="in-stock"><label class="form-check-label" for="inStock">📦 In Stock</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="lightningDeals" name="lightning-deals"><label class="form-check-label" for="lightningDeals">⚡ Lightning Deals</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="todaysDeals" name="todays-deals"><label class="form-check-label" for="todaysDeals">🔥 Today's Deals</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="coupons" name="coupons"><label class="form-check-label" for="coupons">🏷️ Coupons</label></div>
+
+      <!-- 🌱 Eco & Ethical -->
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="ecoFriendlyToggle" name="eco-friendly"><label class="form-check-label" for="ecoFriendlyToggle">♻️ Eco-Friendly</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="veganProducts" name="vegan-products"><label class="form-check-label" for="veganProducts">🥦 Vegan</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="organicProducts" name="organic-products"><label class="form-check-label" for="organicProducts">🌿 Organic</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="biodegradablePackaging" name="biodegradable-packaging"><label class="form-check-label" for="biodegradablePackaging">📦 Biodegradable</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="carbonNeutralDelivery" name="carbon-neutral-delivery"><label class="form-check-label" for="carbonNeutralDelivery">🌍 Carbon-Neutral Delivery</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="crueltyFreeToggle" name="filter-cruelty-free"><label class="form-check-label" for="crueltyFreeToggle">🐰 Cruelty-Free</label></div>
+
+      <!-- 🎁 Gift Filters -->
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="giftsForHer" name="gifts-for-her"><label class="form-check-label" for="giftsForHer">🎀 Gifts for Her</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="giftsForHim" name="gifts-for-him"><label class="form-check-label" for="giftsForHim">🧔 Gifts for Him</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="giftsForMom" name="gifts-for-mom"><label class="form-check-label" for="giftsForMom">👩 Gifts for Mom</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="giftsForDad" name="gifts-for-dad"><label class="form-check-label" for="giftsForDad">👨 Gifts for Dad</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="giftsForKids" name="gifts-for-kids"><label class="form-check-label" for="giftsForKids">🧸 Gifts for Kids</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="birthdayGifts" name="birthday-gifts"><label class="form-check-label" for="birthdayGifts">🎂 Birthday Gifts</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="anniversaryGifts" name="anniversary-gifts"><label class="form-check-label" for="anniversaryGifts">💝 Anniversary Gifts</label></div>
+
+      <!-- 💎 Deal Types & Values -->
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="bestValuePerOunce" name="best-value-per-ounce"><label class="form-check-label" for="bestValuePerOunce">📊 Best Value per Ounce</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="steadyPrice" name="steady-price-no-spike"><label class="form-check-label" for="steadyPrice">📉 Steady Price</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="mostReviewed" name="most-reviewed"><label class="form-check-label" for="mostReviewed">⭐ Most Reviewed</label></div>
+
+      <!-- 🧠 Mindfulness & Wellness -->
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="mindfulnessGear" name="meditation-mindfulness-gear"><label class="form-check-label" for="mindfulnessGear">🧘 Mindfulness Gear</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="lowEmfDevices" name="low-emf-devices"><label class="form-check-label" for="lowEmfDevices">📡 Low EMF</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="allergyFriendly" name="allergy-friendly"><label class="form-check-label" for="allergyFriendly">🤧 Allergy-Friendly</label></div>
+
+      <!-- 📦 Ownership & Source -->
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="subscribeSave" name="subscribe-save"><label class="form-check-label" for="subscribeSave">🔁 Subscribe & Save</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="amazonChoice" name="amazon-choice"><label class="form-check-label" for="amazonChoice">🏅 Amazon’s Choice</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="fbaOnly" name="fba-only"><label class="form-check-label" for="fbaOnly">📦 Shipped by Amazon</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="smallBusiness" name="small-business"><label class="form-check-label" for="smallBusiness">🏪 Small Business</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="amazonBrands" name="amazon-brands"><label class="form-check-label" for="amazonBrands">🛒 Amazon Brands</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="crowdfundedOrigins" name="crowdfunded-origins"><label class="form-check-label" for="crowdfundedOrigins">🚀 Crowdfunded Origins</label></div>
+
+    </div>
+  </div>
 </section>
+
 
 
   <!-- Step 6: Search Amazon -->
