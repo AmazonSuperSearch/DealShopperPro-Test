@@ -737,7 +737,7 @@ const pushFilter = (field, param, val) => {
   <div class="card mb-4 p-3">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
 
-      <!-- ✅ Most Popular Filters -->
+      <!-- ⭐ Most Popular Filters -->
       <div class="form-check"><input class="form-check-input" type="checkbox" name="prime-only" id="primeOnly"><label class="form-check-label" for="primeOnly">🤩 Prime Only</label></div>
       <div class="form-check"><input class="form-check-input" type="checkbox" name="seller-fulfilled-prime" id="sellerFulfilledPrime"><label class="form-check-label" for="sellerFulfilledPrime">🚚 Seller-Fulfilled Prime Only</label></div>
       <div class="form-check"><input class="form-check-input" type="checkbox" name="free-shipping" id="freeShipping"><label class="form-check-label" for="freeShipping">Free Shipping</label></div>
@@ -765,6 +765,13 @@ const pushFilter = (field, param, val) => {
       <div class="form-check"><input class="form-check-input" type="checkbox" name="handmade" id="handmade"><label class="form-check-label" for="handmade">🧵 Handmade</label></div>
       <div class="form-check"><input class="form-check-input" type="checkbox" name="local-producer" id="local-producer"><label class="form-check-label" for="local-producer">🏘️ Locally Made</label></div>
 
+      <!-- 👥 Ownership & Diversity Filters -->
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="black-owned" id="black-owned"><label class="form-check-label" for="black-owned">✊ Black-Owned</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="latino-owned" id="latino-owned"><label class="form-check-label" for="latino-owned">🧡 Latino-Owned</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="women-owned" id="women-owned"><label class="form-check-label" for="women-owned">♀️ Women-Owned</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="lgbtq-owned" id="lgbtq-owned"><label class="form-check-label" for="lgbtq-owned">🌈 LGBTQ-Owned</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" name="aapi-owned" id="aapi-owned"><label class="form-check-label" for="aapi-owned">🎎 AAPI-Owned</label></div>
+
       <!-- 🛍️ Lifestyle Filters -->
       <div class="form-check"><input class="form-check-input" type="checkbox" name="minimalist-products" id="minimalist-products"><label class="form-check-label" for="minimalist-products">🧘 Minimalist</label></div>
       <div class="form-check"><input class="form-check-input" type="checkbox" name="boho-style" id="boho-style"><label class="form-check-label" for="boho-style">🌻 Boho Style</label></div>
@@ -772,34 +779,9 @@ const pushFilter = (field, param, val) => {
       <div class="form-check"><input class="form-check-input" type="checkbox" name="japanese-design" id="japanese-design"><label class="form-check-label" for="japanese-design">🈶 Japanese Minimalist</label></div>
       <div class="form-check"><input class="form-check-input" type="checkbox" name="scandinavian-style" id="scandinavian-style"><label class="form-check-label" for="scandinavian-style">❄️ Scandinavian Design</label></div>
 
-      <!-- 🧘 Wellness Filters -->
-      <div class="form-check"><input class="form-check-input" type="checkbox" name="yoga-gear" id="yoga-gear"><label class="form-check-label" for="yoga-gear">🧘 Yoga Gear</label></div>
-      <div class="form-check"><input class="form-check-input" type="checkbox" name="essential-oils" id="essential-oils"><label class="form-check-label" for="essential-oils">🌿 Essential Oils</label></div>
-      <div class="form-check"><input class="form-check-input" type="checkbox" name="aromatherapy" id="aromatherapy"><label class="form-check-label" for="aromatherapy">💨 Aromatherapy</label></div>
-      <div class="form-check"><input class="form-check-input" type="checkbox" name="blue-light-glasses" id="blue-light-glasses"><label class="form-check-label" for="blue-light-glasses">👓 Blue Light Glasses</label></div>
-
-      <!-- 🗓️ Occasion Filters -->
-      <div class="form-check"><input class="form-check-input" type="checkbox" name="graduation-gifts" id="graduation-gifts"><label class="form-check-label" for="graduation-gifts">🎓 Graduation Gifts</label></div>
-      <div class="form-check"><input class="form-check-input" type="checkbox" name="housewarming-gifts" id="housewarming-gifts"><label class="form-check-label" for="housewarming-gifts">🏠 Housewarming Gifts</label></div>
-      <div class="form-check"><input class="form-check-input" type="checkbox" name="back-to-school" id="back-to-school"><label class="form-check-label" for="back-to-school">📚 Back to School</label></div>
-      <div class="form-check"><input class="form-check-input" type="checkbox" name="new-year-deals" id="new-year-deals"><label class="form-check-label" for="new-year-deals">🎉 New Year Deals</label></div>
-      <div class="form-check"><input class="form-check-input" type="checkbox" name="summer-essentials" id="summer-essentials"><label class="form-check-label" for="summer-essentials">🌞 Summer Essentials</label></div>
-
-      <!-- 🛠️ Additional Filters -->
-      <div class="form-check"><input class="form-check-input" type="checkbox" name="filter-cruelty-free" id="filter-cruelty-free"><label class="form-check-label" for="filter-cruelty-free">Cruelty Free</label></div>
-      <div class="form-check"><input class="form-check-input" type="checkbox" name="subscribe-save" id="subscribeSave"><label class="form-check-label" for="subscribeSave">Subscribe & Save</label></div>
-      <div class="form-check"><input class="form-check-input" type="checkbox" name="amazon-choice" id="amazonChoice"><label class="form-check-label" for="amazonChoice">Amazon’s Choice</label></div>
-      <div class="form-check"><input class="form-check-input" type="checkbox" name="fba-only" id="fbaOnly"><label class="form-check-label" for="fbaOnly">Sold & Shipped by Amazon</label></div>
-      <div class="form-check"><input class="form-check-input" type="checkbox" name="free-returns" id="freeReturns"><label class="form-check-label" for="freeReturns">Free Returns</label></div>
-      <div class="form-check"><input class="form-check-input" type="checkbox" name="gift-wrap" id="giftWrap"><label class="form-check-label" for="giftWrap">Gift Wrap Available</label></div>
-      <div class="form-check"><input class="form-check-input" type="checkbox" name="small-business" id="smallBusiness"><label class="form-check-label" for="smallBusiness">Small Business Products</label></div>
-      <div class="form-check"><input class="form-check-input" type="checkbox" name="amazon-brands" id="amazonBrands"><label class="form-check-label" for="amazonBrands">Amazon Brands Only</label></div>
-      <div class="form-check"><input class="form-check-input" type="checkbox" name="low-rating" id="lowRating"><label class="form-check-label" for="lowRating">Low Rating Products (⚠️)</label></div>
-
-    </div> <!-- end .row -->
-  </div> <!-- end .card -->
-</section> <!-- end of Step 5 section -->
-
+    </div>
+  </div>
+</section>
 
   <!-- Step 6: Search Amazon -->
 <section class="container text-start mb-5">
