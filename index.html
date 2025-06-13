@@ -499,8 +499,102 @@
         </div>
       </form>
 
-      <!-- ADVANCED SETTINGS, MEDIA LINKS, ETC (unchanged) -->
-      <!-- ... rest of the page content ... -->
+<!-- STEP 7 -->
+        <div class="container text-start mb-4">
+          <h2>✅ Step 7: Advanced Settings</h2>
+          <p class="text-muted mb-3">Explore advanced filters and tools to refine your search even further.</p>
+          <div class="card border-primary p-3">
+            <!-- Power-User Tools Static Box -->
+            <h3 class="mb-2">Power-User Tools</h3>
+            <div class="card p-3 mb-4">
+              <hr>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" name="enable-boolean" id="enableBoolean" aria-label="Enable Boolean Operators">
+                <label class="form-check-label" for="enableBoolean">Enable Boolean Operators</label>
+              </div>
+              <div class="mb-2">
+                <label class="form-label" for="fieldFilters">Field Filters</label>
+                <input type="text" class="form-control" name="field-filters" id="fieldFilters" placeholder="e.g. field-brand:Sony" aria-label="Field Filters">
+              </div>
+              <div class="mb-4">
+                <label class="form-label" for="directLookup">ASIN / ISBN Direct Lookup</label>
+                <input type="text" class="form-control" name="direct-lookup" id="directLookup" placeholder="Enter ASIN, ISBN or UPC" aria-label="ASIN or ISBN lookup">
+              </div>
+              <div class="coming-soon">
+                <p class="text-muted"><em>More filters coming soon:</em></p>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" disabled aria-label="Discount (%) from 90-Day Avg Price (Coming Soon)">
+                  <label class="form-check-label">Discount (%) from 90-Day Avg Price <small>(Coming Soon)</small></label>
+                </div>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" disabled aria-label="Coupon-Clippable Only (Coming Soon)">
+                  <label class="form-check-label">Coupon-Clippable Only <small>(Coming Soon)</small></label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Deal-Hunter Goodies Static Box -->
+            <h3 class="mb-2">Deal-Hunter Goodies</h3>
+            <div class="card p-3 mb-4">
+              <hr>
+              <div class="mb-3">
+                <label class="form-label" for="priceDrop90">Discount (%) from 90-Day Avg Price</label>
+                <input type="number" class="form-control" name="price-drop" id="priceDrop90" placeholder="e.g. 20" aria-label="Discount from 90-day avg">
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" name="coupon-only" id="couponOnly" aria-label="Coupon-Clippable Only">
+                <label class="form-check-label" for="couponOnly">Coupon-Clippable Only</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" name="warehouse-refurb" id="warehouseRefurb" aria-label="Warehouse / Open-Box">
+                <label class="form-check-label" for="warehouseRefurb">Warehouse / Open-Box</label>
+              </div>
+              <div class="row g-3 mt-3">
+                <div class="col-6 col-md-3">
+                  <label class="form-label" for="discount30">Discount (%) from 30-Day Avg</label>
+                  <input type="number" min="0" class="form-control" name="below-avg-30" id="discount30" placeholder="e.g. 20" aria-label="Discount from 30-day avg">
+                </div>
+                <div class="col-6 col-md-3">
+                  <label class="form-label" for="discount60">Discount (%) from 60-Day Avg</label>
+                  <input type="number" min="0" class="form-control" name="below-avg-60" id="discount60" placeholder="e.g. 15" aria-label="Discount from 60-day avg">
+                </div>
+                <div class="col-6 col-md-3">
+                  <label class="form-label" for="discount90">Discount (%) from 90-Day Avg</label>
+                  <input type="number" min="0" class="form-control" name="below-avg-90" id="discount90" placeholder="e.g. 10" aria-label="Discount from 90-day avg">
+                </div>
+                <div class="col-6 col-md-3">
+                  <label class="form-label" for="volatility7">Max Daily Price Volatility (%)</label>
+                  <input type="number" min="0" class="form-control" name="max-volatility-7" id="volatility7" placeholder="e.g. 5" aria-label="Max daily price volatility">
+                </div>
+              </div>
+              <div class="coming-soon mt-4">
+                <p class="text-muted"><em>More advanced goodies on the way:</em></p>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" disabled aria-label="Price-Drop Alerts">
+                  <label class="form-check-label">Price-Drop Alerts</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Personalization & AI-Driven Static Box -->
+            <h3 class="mb-2">Personalization & AI-Driven</h3>
+            <div class="card p-3 mb-4">
+              <p>We’re cooking up Personalization & AI-Driven—stay tuned!</p>
+            </div>
+
+            <!-- Visual & Voice Interfaces Static Box -->
+            <h3 class="mb-2">Visual & Voice Interfaces</h3>
+            <div class="card p-3 mb-4">
+              <p>We’re cooking up Visual & Voice Interfaces—stay tuned!</p>
+            </div>
+
+            <!-- Niche & Lifestyle Filters Static Box -->
+            <h3 class="mb-2">Niche & Lifestyle Filters</h3>
+            <div class="card p-3 mb-4">
+               <p>We’re cooking up Niche & Lifestyle Filters—stay tuned!</p>
+            </div>
+          </div>
+        </div>
 
       <h4 class="mb-2 text-center">Search Amazon</h4>
       <p class="text-muted mb-3 text-center">Click below to run your current filter settings without scrolling.</p>
