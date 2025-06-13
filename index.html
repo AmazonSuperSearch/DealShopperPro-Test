@@ -272,227 +272,100 @@
 </div>
 
       <!-- AMAZON SEARCH FORM -->
-  <input name="i" type="hidden" value=""/>
-<form id="amazon-search-form">
-<!-- STEP 1 -->
-<div class="container text-start mb-4">
-<h2 class="text-primary fw-bold mb-3" style="font-size: 1.5rem; display: flex; align-items: center; gap: 10px;"><i class="fas fa-check-circle text-success"></i>✅ Step 1: Start Your Advanced Amazon Search</h2>
-<p class="text-muted mb-3">
-            Enter a product name, keyword, category, ASIN, ISBN, or UPC.
-          </p>
-<div class="card p-3 shadow-sm rounded" style="background-color: #fdfdfd; border: 1px solid #ddd;">
-<div class="input-group">
-<button aria-label="Activate voice search" class="btn btn-outline-secondary" id="voiceSearchBtn" type="button">🎤</button>
-<input aria-label="Main search input" autocomplete="off" class="form-control" id="mainSearchInput" name="q" placeholder="e.g. wireless headphones" type="text"/>
-</div>
-</div>
-</div>
-<!-- STEP 2 -->
-<div class="container text-start mb-4">
-<h2 class="text-primary fw-bold mb-3" style="font-size: 1.5rem; display: flex; align-items: center; gap: 10px;"><i class="fas fa-check-circle text-success"></i>✅ Step 2: Select Your Price Range Filters for Amazon</h2>
-<p class="text-muted mb-3">
-            Choose your currency and the minimum and maximum price you’re willing to spend.
-          </p>
-<div class="card p-3 shadow-sm rounded" style="background-color: #fdfdfd; border: 1px solid #ddd;">
-<div class="row g-3 align-items-end">
-<div class="col-12 col-lg-2">
-<label class="form-label fw-semibold" for="currencySelect" style="font-size: 0.95rem; margin-bottom: 4px;">Currency</label>
-<select aria-label="Select currency" class="form-select" id="currencySelect" name="currency">
-<option selected="" value="usd">USD ($)</option>
-<option value="eur">EUR (€)</option>
-<option value="gbp">GBP (£)</option>
-<option value="jpy">JPY (¥)</option>
-<option value="inr">INR (₹)</option>
-</select>
-</div>
-<div class="col-12 col-lg-5">
-<label class="form-label fw-semibold" for="minPrice" style="font-size: 0.95rem; margin-bottom: 4px;">Minimum Price</label>
-<div class="input-group">
-<span class="input-group-text" id="minPriceAddon">$</span>
-<input aria-describedby="minPriceAddon" class="form-control" id="minPrice" name="min-price" placeholder="Min" step="0.01" type="number"/>
-</div>
-</div>
-<div class="col-12 col-lg-5">
-<label class="form-label fw-semibold" for="maxPrice" style="font-size: 0.95rem; margin-bottom: 4px;">Maximum Price</label>
-<div class="input-group">
-<span class="input-group-text" id="maxPriceAddon">$</span>
-<input aria-describedby="maxPriceAddon" class="form-control" id="maxPrice" name="max-price" placeholder="Max" step="0.01" type="number"/>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- STEP 3 -->
-<div class="container text-start mb-4">
-<h2 class="text-primary fw-bold mb-3" style="font-size: 1.5rem; display: flex; align-items: center; gap: 10px;"><i class="fas fa-check-circle text-success"></i>✅ Step 3: Set Your Amazon Rating Filter</h2>
-<p class="text-muted mb-3">Pick a minimum discount, customer rating, and how you want the results sorted.</p>
-<div class="card p-3 shadow-sm rounded" style="background-color: #fdfdfd; border: 1px solid #ddd;">
-<div class="row g-3">
-<div class="col-12 col-lg-4">
-<label class="form-label fw-semibold" for="percentOff" style="font-size: 0.95rem; margin-bottom: 4px;">% Off</label>
-<select aria-label="Select percentage off" class="form-select" id="percentOff" name="percent-off">
-<option value="">Any</option>
-<option value="10">10% or more</option>
-<option value="20">20% or more</option>
-<option value="30">30% or more</option>
-<option value="40">40% or more</option>
-<option value="50">50% or more</option>
-</select>
-</div>
-<div class="col-12 col-lg-4">
-<label class="form-label fw-semibold" for="minStars" style="font-size: 0.95rem; margin-bottom: 4px;">Min Stars</label>
-<select aria-label="Select minimum stars" class="form-select" id="minStars" name="min-stars">
-<option value="">Any</option>
-<option value="4">4 Stars &amp; Up</option>
-<option value="3">3 Stars &amp; Up</option>
-<option value="2">2 Stars &amp; Up</option>
-<option value="1">1 Star &amp; Up</option>
-</select>
-</div>
-<div class="col-12 col-lg-4">
-<label class="form-label fw-semibold" for="sortBy" style="font-size: 0.95rem; margin-bottom: 4px;">Sort By</label>
-<select aria-label="Select sort order" class="form-select" id="sortBy" name="sort-by">
-<option value="">Relevance</option>
-<option value="price-asc-rank">Price: Low to High</option>
-<option value="price-desc-rank">Price: High to Low</option>
-<option value="review-rank">Average Customer Review</option>
-<option value="date-desc-rank">Newest Arrivals</option>
-</select>
-</div>
-</div>
-</div>
-</div>
-<!-- STEP 4 -->
-<div class="container text-start mb-4">
-<h2 class="text-primary fw-bold mb-3" style="font-size: 1.5rem; display: flex; align-items: center; gap: 10px;"><i class="fas fa-check-circle text-success"></i>✅ Step 4: Amazon Brand Filter Option</h2>
-<p class="text-muted mb-3">Select one or more brands below to display results exclusively from those brands.</p>
-<div class="card border-success shadow-sm mb-4 p-3 shadow-sm rounded" style="background-color: #fdfdfd; border: 1px solid #ddd;">
-<div class="mb-2">
-<div class="form-check">
-<input checked="" class="form-check-input" id="brandIncludeMode" name="brand-search-mode" type="radio" value="inclusive"/>
-<label class="form-check-label fw-semibold" for="brandIncludeMode" style="font-size: 0.95rem; margin-bottom: 4px;">
-                  Include Brands
-                </label>
-</div>
-<div class="form-check">
-<input class="form-check-input" id="brandExcludeMode" name="brand-search-mode" type="radio" value="exclusive"/>
-<label class="form-check-label fw-semibold" for="brandExcludeMode" style="font-size: 0.95rem; margin-bottom: 4px;">
-                  Match only these brands
-                </label>
-</div>
-</div>
-<input aria-label="Enter brands" autofocus="" class="form-control tagify--outside" name="brands" placeholder="Enter one or more brands (comma-separated)" type="text"/>
-</div>
-</div>
-<!-- STEP 5 -->
-<div class="container text-start mb-4">
-<h2 class="text-primary fw-bold mb-3" style="font-size: 1.5rem; display: flex; align-items: center; gap: 10px;"><i class="fas fa-check-circle text-success"></i>✅ Step 5: Amazon Coupon Finder, Lightning Deals Filter and much more!</h2>
-<p class="text-muted mb-3">Narrow down your search: choose Prime-only, Lightning Deals, Eco-Friendly, Free Shipping, In-Stock items, and coupons to find the perfect Amazon products.</p>
-<div class="card mb-4 p-3 shadow-sm rounded" style="background-color: #fdfdfd; border: 1px solid #ddd;">
-<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
-<div class="col">
-<div class="form-check">
-<input class="form-check-input" id="primeOnly" name="prime-only" type="checkbox"/>
-<label class="form-check-label fw-semibold" for="primeOnly" style="font-size: 0.95rem; margin-bottom: 4px;">Prime Only</label>
-</div>
-</div>
-<div class="col">
-<div class="form-check">
-<input class="form-check-input" id="lightningDeal" name="lightning-deal" type="checkbox"/>
-<label class="form-check-label fw-semibold" for="lightningDeal" style="font-size: 0.95rem; margin-bottom: 4px;">⚡ Lightning Deals</label>
-</div>
-</div>
-<div class="col">
-<div class="form-check">
-<input class="form-check-input" id="todaysDeal" name="todays-deal" type="checkbox"/>
-<label class="form-check-label fw-semibold" for="todaysDeal" style="font-size: 0.95rem; margin-bottom: 4px;">Today's Deals</label>
-</div>
-</div>
-<div class="col">
-<div class="form-check">
-<input class="form-check-input" id="freeShipping" name="free-shipping" type="checkbox"/>
-<label class="form-check-label fw-semibold" for="freeShipping" style="font-size: 0.95rem; margin-bottom: 4px;">Free Shipping</label>
-</div>
-</div>
-<div class="col">
-<div class="form-check">
-<input class="form-check-input" id="inStock" name="in-stock" type="checkbox"/>
-<label class="form-check-label fw-semibold" for="inStock" style="font-size: 0.95rem; margin-bottom: 4px;">In Stock</label>
-</div>
-</div>
-<div class="col">
-<div class="form-check">
-<input class="form-check-input" id="couponEligible" name="coupon-eligible" type="checkbox"/>
-<label class="form-check-label fw-semibold" for="couponEligible" style="font-size: 0.95rem; margin-bottom: 4px;">🔖 Coupons</label>
-</div>
-</div>
-<div class="col">
-<div class="form-check">
-<input class="form-check-input" id="ecoFriendly" name="modifiers" type="checkbox" value="srrf=EcoFriendly:492146"/>
-<label class="form-check-label fw-semibold" for="ecoFriendly" style="font-size: 0.95rem; margin-bottom: 4px;">♻️ Eco-Friendly</label>
-</div>
-</div>
-<div class="col">
-<div class="form-check">
-<input class="form-check-input" id="biodegradable" name="modifiers" type="checkbox" value="srrf=EcoFriendly:388799"/>
-<label class="form-check-label fw-semibold" for="biodegradable" style="font-size: 0.95rem; margin-bottom: 4px;">Biodegradable</label>
-</div>
-</div>
-<div class="col">
-<div class="form-check">
-<input class="form-check-input" id="vegan" name="modifiers" type="checkbox" value="srrf=EcoFriendly:388797"/>
-<label class="form-check-label fw-semibold" for="vegan" style="font-size: 0.95rem; margin-bottom: 4px;">Vegan</label>
-</div>
-</div>
-<div class="col">
-<div class="form-check">
-<input class="form-check-input" id="organic" name="modifiers" type="checkbox" value="srrf=EcoFriendly:388798"/>
-<label class="form-check-label fw-semibold" for="organic" style="font-size: 0.95rem; margin-bottom: 4px;">Organic</label>
-</div>
-</div>
-<div class="col">
-<div class="form-check">
-<input class="form-check-input" id="carbonNeutral" name="modifiers" type="checkbox" value="srrf=EcoFriendly:952437"/>
-<label class="form-check-label fw-semibold" for="carbonNeutral" style="font-size: 0.95rem; margin-bottom: 4px;">Carbon-Neutral Delivery</label>
-</div>
-</div>
-<div class="col">
-<div class="form-check">
-<input class="form-check-input" id="crueltyFree" name="modifiers" type="checkbox" value="srrf=EcoFriendly:952439"/>
-<label class="form-check-label fw-semibold" for="crueltyFree" style="font-size: 0.95rem; margin-bottom: 4px;">Cruelty-Free</label>
-</div>
-</div>
-<div class="col">
-<div class="form-check">
-<input class="form-check-input" id="lowEMF" name="modifiers" type="checkbox" value="srrf=EcoFriendly:952443"/>
-<label class="form-check-label fw-semibold" for="lowEMF" style="font-size: 0.95rem; margin-bottom: 4px;">Low EMF</label>
-</div>
-</div>
-<div class="col">
-<div class="form-check">
-<input class="form-check-input" id="allergyFriendly" name="modifiers" type="checkbox" value="srrf=EcoFriendly:952441"/>
-<label class="form-check-label fw-semibold" for="allergyFriendly" style="font-size: 0.95rem; margin-bottom: 4px;">Allergy-Friendly</label>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- STEP 6 -->
-<div class="container text-start mb-4">
-<h2 class="text-primary fw-bold mb-3" style="font-size: 1.5rem; display: flex; align-items: center; gap: 10px;"><i class="fas fa-check-circle text-success"></i>✅ Step 6: Begin Your Amazon Search or Continue Below Using Advanced Settings</h2>
-<p class="text-muted mb-3">You’re all set! Click the button below to view your filtered results directly on Amazon.</p>
-<div class="card mb-4 p-3 text-center shadow-sm rounded" style="background-color: #fdfdfd; border: 1px solid #ddd;">
-<button aria-label="Run Advanced Amazon Search" class="btn btn-primary btn-lg w-100 pulse-glow" form="amazon-search-form" id="search-button" type="submit">🔍 Run Advanced Amazon Search</button>
-<p class="text-warning mt-2 text-center" style="font-weight: bold;">⚠️ Too many filters may return no results. Try removing a few for better results.</p>
-</div>
-</div>
-</form>
-<!-- STEP 7 -->
-<div class="container text-start mb-4">
-<h2 class="text-primary fw-bold mb-3" style="font-size: 1.5rem; display: flex; align-items: center; gap: 10px;"><i class="fas fa-check-circle text-success"></i>✅ Step 7: Advanced Settings</h2>
-<p class="text-muted mb-3">Explore advanced filters and tools to refine your search even further.</p>
-<div class="card border-primary p-3 shadow-sm rounded" style="background-color: #fdfdfd; border: 1px solid #ddd;">
-<!-- Power-User Tools Static Box -->
+<!-- START OF AMAZON-COMPLIANT SEARCH GUIDE -->
+<section class="container py-4">
+  <h2 class="fw-bold text-primary mb-4" style="font-size: 1.5rem;"><i class="fas fa-filter me-2 text-success"></i>Advanced Search Filters for Amazon</h2>
+
+  <!-- Step 1 -->
+  <div class="mb-4">
+    <h5 class="fw-bold">✅ Step 1: Enter Your Search</h5>
+    <p>Type a product name, keyword, ASIN, or other identifying info below:</p>
+    <div class="input-group shadow-sm">
+      <span class="input-group-text">🔍</span>
+      <input class="form-control" type="text" placeholder="e.g. wireless headphones" name="q">
+    </div>
+  </div>
+
+  <!-- Step 2 -->
+  <div class="mb-4">
+    <h5 class="fw-bold">✅ Step 2: Choose a Price Range</h5>
+    <p>Filter your results by setting a minimum and maximum price.</p>
+    <div class="row g-2">
+      <div class="col">
+        <label class="form-label">Min Price ($)</label>
+        <input class="form-control" type="number" placeholder="Min" name="min-price">
+      </div>
+      <div class="col">
+        <label class="form-label">Max Price ($)</label>
+        <input class="form-control" type="number" placeholder="Max" name="max-price">
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 3 -->
+  <div class="mb-4">
+    <h5 class="fw-bold">✅ Step 3: Filter by Ratings & Sort</h5>
+    <p>Refine by minimum star rating and sort preferences.</p>
+    <div class="row g-2">
+      <div class="col-md-6">
+        <label class="form-label">Minimum Rating</label>
+        <select class="form-select" name="min-rating">
+          <option value="">Any</option>
+          <option value="4">4 Stars & Up</option>
+          <option value="3">3 Stars & Up</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Sort By</label>
+        <select class="form-select" name="sort">
+          <option value="relevance">Relevance</option>
+          <option value="price-asc-rank">Price: Low to High</option>
+          <option value="price-desc-rank">Price: High to Low</option>
+          <option value="review-rank">Customer Reviews</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 4 -->
+  <div class="mb-4">
+    <h5 class="fw-bold">✅ Step 4: Optional Brand Filter</h5>
+    <p>Only show listings from selected brands (optional):</p>
+    <input class="form-control" type="text" placeholder="e.g. Sony, Bose" name="brands">
+  </div>
+
+  <!-- Step 5 -->
+  <div class="mb-4">
+    <h5 class="fw-bold">✅ Step 5: Add Extra Preferences</h5>
+    <p>Apply optional preferences to tailor your results:</p>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="prime-only" id="primeOnly">
+      <label class="form-check-label" for="primeOnly">Amazon Prime Eligible</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="deals-only" id="dealsOnly">
+      <label class="form-check-label" for="dealsOnly">Show Active Deals</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="eco-friendly" id="ecoFriendly">
+      <label class="form-check-label" for="ecoFriendly">Eco-Conscious Shipping</label>
+    </div>
+  </div>
+
+  <!-- Step 6 -->
+  <div class="mb-4">
+    <h5 class="fw-bold">✅ Step 6: Begin Your Search</h5>
+    <p>Click below to view your results directly on Amazon.</p>
+    <button class="btn btn-primary fw-semibold px-4 py-2" type="submit">🔎 Search Now</button>
+    <p class="text-muted mt-2" style="font-size: 0.9rem;">Note: Too many filters may limit results. Adjust if needed.</p>
+  </div>
+
+  <!-- Optional Step 7 -->
+  <div class="mb-4">
+    <h5 class="fw-bold">✅ Optional: Power User Filters</h5>
+    <p style="font-size: 0.9rem;">Advanced features like Boolean logic and field-based filters are in development. Stay tuned for updates.</p>
+  </div>
+</section>
 <h3 class="mb-2">Power-User Tools</h3>
 <div class="card p-3 mb-4 shadow-sm rounded" style="background-color: #fdfdfd; border: 1px solid #ddd;">
 <hr/>
