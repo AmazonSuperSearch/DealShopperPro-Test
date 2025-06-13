@@ -126,31 +126,7 @@
       }, 'google_translate_element');
     }
   </script>
-<!-- ✨ Shorts video crop (place anywhere after your main CSS; end of <head> is fine) -->
-<style>
-/* --- Shorts video crop --- */
-.shorts-wrapper{
-  position:relative;
-  width:100%;
-  max-width:360px;      /* desktop width */
-  aspect-ratio:9/16;
-  overflow:hidden;
-  border-radius:.75rem;
-  box-shadow:0 4px 12px rgba(0,0,0,.08);
-}
-.shorts-wrapper iframe{
-  position:absolute;
-  top:-38%;
-  left:-40%;
-  width:180%;
-  height:180%;
-  border:0;
-}
-/* Full width on phones */
-@media (max-width:576px){
-  .shorts-wrapper{max-width:100%;}
-}
-</style>
+
   <!-- 2) Load Google’s Translate library -->
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
 </head>
@@ -238,17 +214,19 @@
 </div>
 </div>
 <div class="col-md-6 text-center">
-  <!-- HERO RIGHT-COLUMN -->
-<div class="shorts-wrapper mx-auto">
-  <iframe
-    src="https://www.youtube-nocookie.com/embed/cx4PvPP3C0I
-         ?autoplay=1&mute=1&loop=1&playlist=cx4PvPP3C0I
-         &playsinline=1&controls=0&modestbranding=1&rel=0"
-    title="Deal Shopper Pro demo"
-    allow="autoplay; encrypted-media"
-    allowfullscreen>
-  </iframe>
+  <!-- Video Demo Section -->
+  <div class="ratio ratio-16x9">
+    <iframe 
+      allow="autoplay; encrypted-media" 
+      allowfullscreen 
+      src="https://www.youtube.com/embed/cx4PvPP3C0I?rel=0&autoplay=1&mute=1&loop=1&playlist=cx4PvPP3C0I" 
+      title="Deal Shopper Pro Demo">
+    </iframe>
+  </div>
 </div>
+</div>
+</div>
+</header>
 
 
 
