@@ -227,22 +227,38 @@
 
 
 
-      <!-- PRIVACY BANNER MOVED BELOW -->
-      <section class="privacy-banner" role="note" aria-labelledby="privacy-heading">
-        <div class="privacy-banner__graphic">
-          <svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24" class="privacy-banner__graphic-svg" aria-hidden="true">
-            <path d="M12 2L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-3zm-1 9h2v2h-2zm0-4h2v2h-2z"/>
-          </svg>
-        </div>
-        <div class="privacy-banner__body">
-          <h2 id="privacy-heading" class="privacy-banner__heading">Your Privacy Matters</h2>
-          <p class="privacy-banner__body">
-            We do <strong>not</strong> collect, store, or track any personal information—ever. There is no login,
-            no signup, and no tracking cookies on this site. All searches are processed client-side and sent
-            directly to Amazon through a secure redirect.
-          </p>
-        </div>
-      </section>
+    <section class="privacy-banner" role="note" aria-labelledby="privacy-heading" style="
+  background-color: #FFF8E1;
+  border: 1px solid #FFECB3;
+  border-radius: 12px;
+  padding: 1.5rem 1.5rem 1.25rem;
+  margin: 2rem auto;
+  max-width: 850px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+">
+  <div class="privacy-banner__graphic" style="flex-shrink: 0;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="height: 32px; width: 32px; fill: #FFB300;" aria-hidden="true">
+      <path d="M12 2L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-3zm-1 9h2v2h-2zm0-4h2v2h-2z"/>
+    </svg>
+  </div>
+  <div class="privacy-banner__body" style="flex-grow: 1;">
+    <h2 id="privacy-heading" class="privacy-banner__heading" style="
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #5D4037;
+      margin-bottom: 0.5rem;
+    ">Your Privacy Matters</h2>
+    <p style="margin: 0; font-size: 0.95rem; color: #333;">
+      We do <strong>not</strong> collect, store, or track any personal information—ever.
+      There is no login, no signup, and no tracking cookies on this site.
+      All searches are processed <strong>client-side</strong> and securely redirected to Amazon.
+    </p>
+  </div>
+</section>
+
 
       <!-- INTRODUCTION TEXT -->
       <div style="text-align: center; margin: 2rem auto; max-width: 600px;">
