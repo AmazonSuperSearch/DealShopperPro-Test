@@ -361,96 +361,67 @@
   </div>
 
   <!-- Optional Step 7 -->
-  <div class="mb-4">
-    <h5 class="fw-bold">✅ Optional: Power User Filters</h5>
-    <p style="font-size: 0.9rem;">Advanced features like Boolean logic and field-based filters are in development. Stay tuned for updates.</p>
+ <div class="mb-4">
+  <h5 class="fw-bold">🔧 Optional: Advanced Search Preferences</h5>
+  <p style="font-size: 0.9rem;">These optional settings help refine how you structure your search inputs. Experimental and customization tools are in development—stay tuned!</p>
+</div>
+
+<h3 class="mb-2">Advanced Input Options</h3>
+<div class="card p-3 mb-4 shadow-sm rounded" style="background-color: #fdfdfd; border: 1px solid #ddd;">
+  <hr/>
+  <div class="form-check mb-2">
+    <input aria-label="Enable Advanced Search Syntax" class="form-check-input" id="enableBoolean" name="enable-boolean" type="checkbox"/>
+    <label class="form-check-label fw-semibold" for="enableBoolean" style="font-size: 0.95rem;">Use Advanced Search Syntax</label>
   </div>
-</section>
-<h3 class="mb-2">Power-User Tools</h3>
+  <div class="mb-2">
+    <label class="form-label fw-semibold" for="fieldFilters" style="font-size: 0.95rem;">Structured Search Fields (Beta)</label>
+    <input aria-label="Structured Search Input" class="form-control" id="fieldFilters" name="field-filters" placeholder="e.g. brand:Sony" type="text"/>
+  </div>
+  <div class="mb-4">
+    <label class="form-label fw-semibold" for="directLookup" style="font-size: 0.95rem;">Direct Product Identifier</label>
+    <input aria-label="Search by product code" class="form-control" id="directLookup" name="direct-lookup" placeholder="ASIN, ISBN or UPC" type="text"/>
+  </div>
+</div>
+
+<h3 class="mb-2">Experimental Search Insights</h3>
 <div class="card p-3 mb-4 shadow-sm rounded" style="background-color: #fdfdfd; border: 1px solid #ddd;">
-<hr/>
-<div class="form-check mb-2">
-<input aria-label="Enable Boolean Operators" class="form-check-input" id="enableBoolean" name="enable-boolean" type="checkbox"/>
-<label class="form-check-label fw-semibold" for="enableBoolean" style="font-size: 0.95rem; margin-bottom: 4px;">Enable Boolean Operators</label>
+  <p class="text-muted mb-2"><em>Early concepts we're testing for enhanced personalization and search refinement:</em></p>
+
+  <div class="form-check mb-2">
+    <input class="form-check-input" disabled type="checkbox"/>
+    <label class="form-check-label fw-semibold" style="font-size: 0.95rem;">Historical Price Comparison (Coming Soon)</label>
+  </div>
+
+  <div class="form-check mb-2">
+    <input class="form-check-input" disabled type="checkbox"/>
+    <label class="form-check-label fw-semibold" style="font-size: 0.95rem;">Coupon Visibility Toggle (Coming Soon)</label>
+  </div>
+
+  <div class="form-check mb-2">
+    <input class="form-check-input" disabled type="checkbox"/>
+    <label class="form-check-label fw-semibold" style="font-size: 0.95rem;">Refurbished Items Explorer (Coming Soon)</label>
+  </div>
+
+  <div class="row g-3 mt-3">
+    <div class="col-md-6">
+      <label class="form-label fw-semibold" style="font-size: 0.95rem;">Custom Variation Tracker (Prototype)</label>
+      <input class="form-control" placeholder="e.g. size:large" type="text" disabled/>
+    </div>
+    <div class="col-md-6">
+      <label class="form-label fw-semibold" style="font-size: 0.95rem;">Price Fluctuation Range (Coming Soon)</label>
+      <input class="form-control" placeholder="e.g. +/- 5%" type="text" disabled/>
+    </div>
+  </div>
 </div>
-<div class="mb-2">
-<label class="form-label fw-semibold" for="fieldFilters" style="font-size: 0.95rem; margin-bottom: 4px;">Field Filters</label>
-<input aria-label="Field Filters" class="form-control" id="fieldFilters" name="field-filters" placeholder="e.g. field-brand:Sony" type="text"/>
-</div>
-<div class="mb-4">
-<label class="form-label fw-semibold" for="directLookup" style="font-size: 0.95rem; margin-bottom: 4px;">ASIN / ISBN Direct Lookup</label>
-<input aria-label="ASIN or ISBN lookup" class="form-control" id="directLookup" name="direct-lookup" placeholder="Enter ASIN, ISBN or UPC" type="text"/>
-</div>
-<div class="coming-soon">
-<p class="text-muted"><em>More filters coming soon:</em></p>
-<div class="form-check mb-2">
-<input aria-label="Discount (%) from 90-Day Avg Price (Coming Soon)" class="form-check-input" disabled="" type="checkbox"/>
-<label class="form-check-label fw-semibold" style="font-size: 0.95rem; margin-bottom: 4px;">Discount (%) from 90-Day Avg Price <small>(Coming Soon)</small></label>
-</div>
-<div class="form-check mb-2">
-<input aria-label="Coupon-Clippable Only (Coming Soon)" class="form-check-input" disabled="" type="checkbox"/>
-<label class="form-check-label fw-semibold" style="font-size: 0.95rem; margin-bottom: 4px;">Coupon-Clippable Only <small>(Coming Soon)</small></label>
-</div>
-</div>
-</div>
-<!-- Deal-Hunter Goodies Static Box -->
-<h3 class="mb-2">Deal-Hunter Goodies</h3>
+
+<h3 class="mb-2">Coming Enhancements</h3>
 <div class="card p-3 mb-4 shadow-sm rounded" style="background-color: #fdfdfd; border: 1px solid #ddd;">
-<hr/>
-<div class="mb-3">
-<label class="form-label fw-semibold" for="priceDrop90" style="font-size: 0.95rem; margin-bottom: 4px;">Discount (%) from 90-Day Avg Price</label>
-<input aria-label="Discount from 90-day avg" class="form-control" id="priceDrop90" name="price-drop" placeholder="e.g. 20" type="number"/>
-</div>
-<div class="form-check mb-2">
-<input aria-label="Coupon-Clippable Only" class="form-check-input" id="couponOnly" name="coupon-only" type="checkbox"/>
-<label class="form-check-label fw-semibold" for="couponOnly" style="font-size: 0.95rem; margin-bottom: 4px;">Coupon-Clippable Only</label>
-</div>
-<div class="form-check mb-2">
-<input aria-label="Warehouse / Open-Box" class="form-check-input" id="warehouseRefurb" name="warehouse-refurb" type="checkbox"/>
-<label class="form-check-label fw-semibold" for="warehouseRefurb" style="font-size: 0.95rem; margin-bottom: 4px;">Warehouse / Open-Box</label>
-</div>
-<div class="row g-3 mt-3">
-<div class="col-6 col-md-3">
-<label class="form-label fw-semibold" for="discount30" style="font-size: 0.95rem; margin-bottom: 4px;">Discount (%) from 30-Day Avg</label>
-<input aria-label="Discount from 30-day avg" class="form-control" id="discount30" min="0" name="below-avg-30" placeholder="e.g. 20" type="number"/>
-</div>
-<div class="col-6 col-md-3">
-<label class="form-label fw-semibold" for="discount60" style="font-size: 0.95rem; margin-bottom: 4px;">Discount (%) from 60-Day Avg</label>
-<input aria-label="Discount from 60-day avg" class="form-control" id="discount60" min="0" name="below-avg-60" placeholder="e.g. 15" type="number"/>
-</div>
-<div class="col-6 col-md-3">
-<label class="form-label fw-semibold" for="discount90" style="font-size: 0.95rem; margin-bottom: 4px;">Discount (%) from 90-Day Avg</label>
-<input aria-label="Discount from 90-day avg" class="form-control" id="discount90" min="0" name="below-avg-90" placeholder="e.g. 10" type="number"/>
-</div>
-<div class="col-6 col-md-3">
-<label class="form-label fw-semibold" for="volatility7" style="font-size: 0.95rem; margin-bottom: 4px;">Max Daily Price Volatility (%)</label>
-<input aria-label="Max daily price volatility" class="form-control" id="volatility7" min="0" name="max-volatility-7" placeholder="e.g. 5" type="number"/>
-</div>
-</div>
-<div class="coming-soon mt-4">
-<p class="text-muted"><em>More advanced goodies on the way:</em></p>
-<div class="form-check mb-2">
-<input aria-label="Price-Drop Alerts" class="form-check-input" disabled="" type="checkbox"/>
-<label class="form-check-label fw-semibold" style="font-size: 0.95rem; margin-bottom: 4px;">Price-Drop Alerts</label>
-</div>
-</div>
-</div>
-<!-- Personalization & AI-Driven Static Box -->
-<h3 class="mb-2">Personalization &amp; AI-Driven</h3>
-<div class="card p-3 mb-4 shadow-sm rounded" style="background-color: #fdfdfd; border: 1px solid #ddd;">
-<p>We’re cooking up Personalization &amp; AI-Driven—stay tuned!</p>
-</div>
-<!-- Visual & Voice Interfaces Static Box -->
-<h3 class="mb-2">Visual &amp; Voice Interfaces</h3>
-<div class="card p-3 mb-4 shadow-sm rounded" style="background-color: #fdfdfd; border: 1px solid #ddd;">
-<p>We’re cooking up Visual &amp; Voice Interfaces—stay tuned!</p>
-</div>
-<!-- Niche & Lifestyle Filters Static Box -->
-<h3 class="mb-2">Niche &amp; Lifestyle Filters</h3>
-<div class="card p-3 mb-4 shadow-sm rounded" style="background-color: #fdfdfd; border: 1px solid #ddd;">
-<p>We’re cooking up Niche &amp; Lifestyle Filters—stay tuned!</p>
-</div>
-</div>
+  <ul style="padding-left: 1.2rem;">
+    <li>🔍 Personalized Suggestions (In Progress)</li>
+    <li>🎤 Voice-Driven Search Interface (Coming Soon)</li>
+    <li>👓 Visual Filtering Tools (Coming Soon)</li>
+    <li>🌱 Lifestyle-Based Preferences (Coming Soon)</li>
+  </ul>
 </div>
 
 
