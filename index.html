@@ -283,89 +283,119 @@
 <section class="container py-4">
   <h2 class="fw-bold text-primary mb-4" style="font-size: 1.5rem;"><i class="fas fa-filter me-2 text-success"></i>Advanced Search Filters for Amazon</h2>
 
-  <!-- Step 1 -->
-  <div class="mb-4">
-    <h5 class="fw-bold">✅ Step 1: Enter Your Search</h5>
-    <p>Type a product name, keyword, ASIN, or other identifying info below:</p>
-    <div class="input-group shadow-sm">
-      <span class="input-group-text">🔍</span>
-      <input class="form-control" type="text" placeholder="e.g. wireless headphones" name="q">
-    </div>
-  </div>
-
-  <!-- Step 2 -->
-  <div class="mb-4">
-    <h5 class="fw-bold">✅ Step 2: Choose a Price Range</h5>
-    <p>Filter your results by setting a minimum and maximum price.</p>
-    <div class="row g-2">
-      <div class="col">
-        <label class="form-label">Min Price ($)</label>
-        <input class="form-control" type="number" placeholder="Min" name="min-price">
-      </div>
-      <div class="col">
-        <label class="form-label">Max Price ($)</label>
-        <input class="form-control" type="number" placeholder="Max" name="max-price">
+  
+  <!-- === STEP 1 ===================================================== -->
+  <div class="card lift mb-4">
+    <div class="card-body">
+      <h5 class="fw-bold mb-1">1&nbsp;&mdash; What are you hunting for?</h5>
+      <p class="text-muted small">Enter a product, keyword or ASIN.</p>
+      <div class="input-group shadow-sm">
+        <span class="input-group-text"><i class="bi bi-search"></i></span>
+        <input class="form-control" name="q" placeholder="e.g. wireless headphones" required>
       </div>
     </div>
   </div>
 
-  <!-- Step 3 -->
-  <div class="mb-4">
-    <h5 class="fw-bold">✅ Step 3: Filter by Ratings & Sort</h5>
-    <p>Refine by minimum star rating and sort preferences.</p>
-    <div class="row g-2">
-      <div class="col-md-6">
-        <label class="form-label">Minimum Rating</label>
-        <select class="form-select" name="min-rating">
-          <option value="">Any</option>
-          <option value="4">4 Stars & Up</option>
-          <option value="3">3 Stars & Up</option>
-        </select>
-      </div>
-      <div class="col-md-6">
-        <label class="form-label">Sort By</label>
-        <select class="form-select" name="sort">
-          <option value="relevance">Relevance</option>
-          <option value="price-asc-rank">Price: Low to High</option>
-          <option value="price-desc-rank">Price: High to Low</option>
-          <option value="review-rank">Customer Reviews</option>
-        </select>
+  <!-- === STEP 2 ===================================================== -->
+  <div class="card lift mb-4">
+    <div class="card-body">
+      <h5 class="fw-bold mb-1">2&nbsp;&mdash; Set your budget</h5>
+      <p class="text-muted small">Slide or type the min / max price.</p>
+      <div class="row g-2">
+        <div class="col">
+          <label class="form-label small">Min&nbsp;($)</label>
+          <input type="number" name="min-price" class="form-control" placeholder="0">
+        </div>
+        <div class="col">
+          <label class="form-label small">Max&nbsp;($)</label>
+          <input type="number" name="max-price" class="form-control" placeholder="500">
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Step 4 -->
-  <div class="mb-4">
-    <h5 class="fw-bold">✅ Step 4: Optional Brand Filter</h5>
-    <p>Only show listings from selected brands (optional):</p>
-    <input class="form-control" type="text" placeholder="e.g. Sony, Bose" name="brands">
+  <!-- === STEP 3 ===================================================== -->
+  <div class="card lift mb-4">
+    <div class="card-body">
+      <h5 class="fw-bold mb-1">3&nbsp;&mdash; Ratings &amp; sorting</h5>
+      <div class="row g-2">
+        <div class="col-md-6">
+          <label class="form-label small">Minimum rating</label>
+          <select class="form-select" name="min-rating">
+            <option value="">Any</option>
+            <option value="4">4★ &amp; up</option>
+            <option value="3">3★ &amp; up</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label small">Sort by</label>
+          <select class="form-select" name="sort" data-bs-toggle="tooltip"
+                  data-bs-title="‘Price: Low to High’ is great for bargain hunters">
+            <option value="relevance">Relevance</option>
+            <option value="price-asc-rank">Price: Low→High</option>
+            <option value="price-desc-rank">Price: High→Low</option>
+            <option value="review-rank">Customer reviews</option>
+          </select>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- Step 5 -->
-  <div class="mb-4">
-    <h5 class="fw-bold">✅ Step 5: Add Extra Preferences</h5>
-    <p>Apply optional preferences to tailor your results:</p>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="prime-only" id="primeOnly">
-      <label class="form-check-label" for="primeOnly">Amazon Prime Eligible</label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="deals-only" id="dealsOnly">
-      <label class="form-check-label" for="dealsOnly">Show Active Deals</label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="eco-friendly" id="ecoFriendly">
-      <label class="form-check-label" for="ecoFriendly">Eco-Conscious Shipping</label>
+  <!-- === STEP 4 ===================================================== -->
+  <div class="card lift mb-4">
+    <div class="card-body">
+      <h5 class="fw-bold mb-1">4&nbsp;&mdash; Brand filter <small>(optional)</small></h5>
+      <input class="form-control" name="brands"
+             placeholder="e.g. Sony, Bose">
+      <small class="text-muted">Tip: separate multiple brands with commas.</small>
     </div>
   </div>
 
-  <!-- Step 6 -->
-  <div class="mb-4">
-    <h5 class="fw-bold">✅ Step 6: Begin Your Search</h5>
-    <p>Click below to view your results directly on Amazon.</p>
-    <button class="btn btn-primary fw-semibold px-4 py-2" type="submit">🔎 Search Now</button>
-    <p class="text-muted mt-2" style="font-size: 0.9rem;">Note: Too many filters may limit results. Adjust if needed.</p>
+  <!-- === STEP 5 ===================================================== -->
+  <div class="card lift mb-4">
+    <div class="card-body">
+      <h5 class="fw-bold mb-1">5&nbsp;&mdash; Extra preferences</h5>
+      <div class="form-check mb-1">
+        <input class="form-check-input" type="checkbox" id="primeOnly"
+               name="prime-only">
+        <label class="form-check-label" for="primeOnly">
+          Prime-eligible only
+        </label>
+      </div>
+      <div class="form-check mb-1">
+        <input class="form-check-input" type="checkbox" id="dealsOnly"
+               name="deals-only">
+        <label class="form-check-label" for="dealsOnly">
+          Show active deals
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="ecoFriendly"
+               name="eco-friendly">
+        <label class="form-check-label" for="ecoFriendly">
+          Eco-conscious shipping 🌱
+        </label>
+      </div>
+    </div>
   </div>
+
+  <!-- === STEP 6 ===================================================== -->
+  <div class="text-center mb-4">
+    <button class="btn btn-primary px-4 py-2 fw-semibold" type="submit">
+      <i class="bi bi-search"></i>&nbsp;Search&nbsp;Now
+    </button>
+    <button class="btn btn-link text-danger ms-3" type="reset">
+      <i class="bi bi-x-circle"></i>&nbsp;Reset&nbsp;all
+    </button>
+    <div class="form-check form-switch d-inline-block ms-3">
+      <input class="form-check-input" type="checkbox" id="darkToggle">
+      <label class="form-check-label small" for="darkToggle">Dark&nbsp;mode</label>
+    </div>
+    <p class="small text-muted mt-2">
+      Too many filters can limit results—try widening the search if you hit a dead end.
+    </p>
+  </div>
+</section>
 
   <!-- Optional Step 7 -->
  <div class="mb-4">
