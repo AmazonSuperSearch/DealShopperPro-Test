@@ -1,459 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Inline critical CSS for hero & privacy banner -->
-  <style>
-    /* Hero */
-    .banner-inner { display: flex; align-items: center; justify-content: center; min-height: 60vh; }
-    .banner-inner .site-title { font-weight: 800; font-size: 2rem; text-align: center; }
-    .banner-inner .lead { font-size: 1rem; color: #000; text-shadow: none; text-align: center; }
-    /* Privacy Banner Inline */
-    .privacy-banner { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.5rem; padding: 0.75rem 1rem; background-color: #FEF7EC; border: 2px solid #F0E0C8; border-radius: 0.75rem; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); }
-    .privacy-banner__body { font-size: 0.94rem; line-height: 1.5; color: #444; }
-  </style>
-  <!-- Preconnect & Font Optimization -->
-  <!-- DESKTOP-ONLY CRITICAL CSS -->
-  <style>
-    @media (min-width: 992px) {
-      /* Desktop hero background */
-      .banner-inner {
-        background-image: url('/images/hero-desktop.webp');
-        background-size: cover;
-        background-position: center;
-      }
-      /* Desktop nav FCP */
-      nav.navbar { display: flex; align-items: center; justify-content: space-between; }
-      .navbar-brand { font-size: 1.75rem; }
-      .site-search { width: 350px; }
-    }
-  </style>
-  <!-- DESKTOP-ONLY PRELOADS -->
-  <link rel="preload" as="image" href="/images/hero-desktop.webp" media="(min-width:992px)">
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/inter-800.woff2" media="(min-width:992px)">
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/poppins-500.woff2" media="(min-width:992px)">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index, follow">
+<title>How to Find Lightning Deals on Amazon | Deal Shopper Pro</title>
+<meta name="description" content="Learn how to find Amazon Lightning Deals in 3 easy steps: search keywords, apply filters & view the best limited‑time offers. No login required—start saving now!">
 
-  <!-- Preload and Async CSS -->
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<!-- Canonical & hreflang -->
+<link rel="canonical" href="https://www.dealshopperpro.com/lightning-deals.html">
+<link rel="alternate" hreflang="en-us" href="https://www.dealshopperpro.com/lightning-deals.html">
+<link rel="alternate" hreflang="x-default" href="https://www.dealshopperpro.com/lightning-deals.html">
 
-  <!-- Preload self-hosted fonts -->
-  <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/fonts/poppins.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://www.dealshopperpro.com/lightning-deals.html">
+<meta property="og:title" content="How to Find Lightning Deals on Amazon | Deal Shopper Pro">
+<meta property="og:description" content="Learn how to find Amazon Lightning Deals fast with advanced filters for price, rating & discount.">
+<meta property="og:image" content="https://www.dealshopperpro.com/images/howto-lightning-deals.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="628">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Find Lightning Deals on Amazon | Deal Shopper Pro">
+<meta name="twitter:description" content="Find Amazon Lightning Deals in seconds—filter by price, rating & discount with Deal Shopper Pro.">
+<meta name="twitter:image" content="https://www.dealshopperpro.com/images/howto-lightning-deals.png">
 
-  <!-- Defer JavaScript -->
-  <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.min.js" defer></script>
+<!-- Last modified -->
+<meta property="article:modified_time" content="2025-06-30T00:00:00+00:00">
+<meta property="article:published_time" content="2025-06-29T00:00:00+00:00">
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Favicons -->
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+<link href="/favicon-48x48.png" rel="icon" sizes="48x48" type="image/png">
+<link href="/favicon-64x64.png" rel="icon" sizes="64x64" type="image/png">
+<link href="/favicon-192x192.png" rel="icon" sizes="192x192" type="image/png">
+<link href="/favicon-512x512.png" rel="icon" sizes="512x512" type="image/png">
+<link href="/favicon-180x180.png" rel="apple-touch-icon" sizes="180x180">
+<link href="/site.webmanifest" rel="manifest">
 
-  <!-- Preconnects -->
-  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<!-- Preconnect -->
+<link rel="preconnect" href="https://www.amazon.com" crossorigin>
+<link rel="preconnect" href="https://www.youtube-nocookie.com" crossorigin>
 
-
-
-
-  <title>Advanced Amazon Search Engine with Coupons and In-Stock Filter | Deal Shopper Pro</title>
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="/favicon.png" sizes="48x48">
-  <link rel="manifest" href="/site.webmanifest">
-
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Advanced Amazon search engine with coupons, in-stock filters, Prime-only deals, and lightning discounts—no signup required.">
-  <meta name="robots" content="index, follow">
-
-  <!-- Self-referential canonical -->
-  <link rel="canonical" href="https://www.dealshopperpro.com/">
-
-  <!-- Open Graph / Social -->
-  <meta property="og:title" content=" | Price, Rating, Brand & Coupon Filters">
-  <meta property="og:description" content="Search Amazon by price, rating, Prime, brand, coupons & lightning deals. 100% free—no signup needed.">
-  <meta property="og:url" content="https://www.dealshopperpro.com/">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://www.dealshopperpro.com/thumbnail.png">
-  <meta property="og:image:alt" content="Screenshot of Amazon deal search interface">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content=": Filter by Price, Rating & Coupons">
-  <meta name="twitter:description" content="Find Amazon deals fast with filters for price, rating, Prime, coupons & lightning deals. 100% free.">
-  <meta name="twitter:image" content="https://www.dealshopperpro.com/thumbnail.png">
-
-  <!-- JSON-LD Structured Data: SoftwareApplication and SiteNavigationElement -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-   "name": "Deal Shopper Pro"
-    "url": "https://www.dealshopperpro.com/",
-    "applicationCategory": "WebApplication",
-    "operatingSystem": "All",
-    "description": "Filter Amazon by price, rating, brand, coupons & Lightning Deals—free  no signup."
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "url": "https://www.dealshopperpro.com/",
-    "name": "Deal Shopper Pro",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://www.dealshopperpro.com/?q=usb+charger",
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
+<!-- CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"></noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
+
 <body>
-  <!-- NAVBAR (omitted for brevity, assume unchanged) -->
-  <!-- ... existing navigation bar code ... -->
-
-  <main id="main">
-    <div class="main-content">
-
-      <!-- SKIP LINK -->
-      <a href="#main" class="visually-hidden-focusable">Skip to main content</a>
-
-      <!-- HERO BANNER -->
-     
-<header class="banner-inner text-center text-md-start py-5" style="background-size: cover; background-position: center; color: white; text-shadow: 0 0 8px rgba(0,0,0,0.6);">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-md-6">
-        <p class="h5 fw-bold mb-2" style="
-  background-color: #FFF3E0;
-  color: #E65100;
-  padding: 10px 18px;
-  border-radius: 12px;
-  font-size: 1.05rem;
-  font-weight: 700;
-  box-shadow: none;
-  display: inline-block;
-">
-          ⚡ New AI-Powered Deal Engine Gaining Traction Among Smart Shoppers
-        </p>
-        <h1 class="site-title hero-heading mb-3" style="background: linear-gradient(to right, #FF8F00, #FFC107); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 5px rgba(255,255,255,0.3); font-weight: 800;">Find Hidden Amazon Deals<br/>with Advanced Filters</h1>
-        <p class="lead mb-4" style="color: #333; font-weight: 600; font-size: 1.15rem;">Instantly uncover in-stock Lightning Deals, apply custom price, rating, brand &amp; coupon filters, and discover eco-friendly products — <strong>no signup required</strong>.</p>
-        <div class="input-group mb-3 shadow" style="background-color: #f9f9f9; border: 2px solid #ccc; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.08);">
-          <span class="input-group-text">🔍</span>
-          <input aria-label="Search Amazon" class="form-control" placeholder="Search Amazon..." type="text"/>
-        </div>
-        <div class="mb-4">
-          <span class="me-2" style="color: #333; font-weight: 600; font-size: 0.95rem; margin-right: 0.5rem;">Suggested:</span>
-          <a class="badge filter-pill text-white text-decoration-none" href="#" style="background-color: #0073b1; transition: all 0.3s ease; font-size: 0.875rem;">wireless headphones under $50</a>
-          <a class="badge filter-pill text-white text-decoration-none" href="#" style="background-color: #0073b1; transition: all 0.3s ease; font-size: 0.875rem;">Prime-only deals</a>
-          <a class="badge filter-pill text-white text-decoration-none" href="#" style="background-color: #0073b1; transition: all 0.3s ease; font-size: 0.875rem;">4+ star appliances</a>
-        </div>
-        <p class="fst-italic mb-4" style="color: #FF6F00; font-style: italic; font-weight: 600; font-size: 1rem; padding: 6px 10px; border-radius: 6px; display: inline-block;">
-          🛒 Just searched: <strong>"wireless headphones under $50"</strong>
-        </p>
-        <a class="btn btn-primary btn-lg me-3 mb-3" href="#amazon-search-form" 
-          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'" 
-          onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 4px 10px rgba(25,118,210,0.3)'" 
-          style="background: linear-gradient(to right, #1976D2, #2196F3); color: white; border: none; font-weight: 600; transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;">
-          Start Searching Now
-        </a>
-       <span class="d-block d-sm-inline-block fw-semibold mb-3" style="color: #000;">
-         <span style="
-  display: inline-block;
-  background-color: #E3F2FD;
-  color: #0D47A1;
-  font-weight: 600;
-  font-size: 0.95rem;
-  padding: 4px 10px;
-  border-radius: 20px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-">
-  🔓 No login required
-</span>
-        </span>
-        <div class="mt-4 text-start text-md-start">
-          <i class="fas fa-shield-alt fa-2x me-3" title="Norton Secured" style="color: #333;"></i>
-          <i class="fas fa-robot fa-2x me-3" title="Built with AI" style="color: #333;"></i>
-          <i class="fas fa-lock fa-2x me-3" title="SSL Secure" style="color: #333;"></i>
-          <i class="fab fa-cloudflare fa-2x me-3" title="Protected by Cloudflare" style="color: #333;"></i>
-          <i class="fas fa-search-dollar fa-2x me-3" title="Affiliate Supported" style="color: #333;"></i>
-          <span class="fw-semibold align-middle" style="
-  color: #2E2E2E;
-  font-size: 0.95rem;
-  background: linear-gradient(to right, #F5F5F5, #FAFAFA);
-  padding: 4px 12px;
-  border-left: 4px solid #00BFFF;
-  border-radius: 6px;
-  font-style: italic;
-  display: inline-block;
-">
-  🤖 Built with help from <strong style="color:#00BFFF;">ChatGPT</strong> — 100% Free & Secure
-</span>
-</div>
-</div>
-<div class="col-md-6 text-center">
-  <!-- Video Demo Section -->
-  <div class="ratio ratio-16x9">
-    <iframe 
-      allow="autoplay; encrypted-media" 
-      allowfullscreen 
-      src="https://www.youtube.com/embed/cx4PvPP3C0I?rel=0&autoplay=1&mute=1&loop=1&playlist=cx4PvPP3C0I" 
-      title="Deal Shopper Pro Demo">
-    </iframe>
+<!-- ✅ Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3" aria-label="Site navigation">
+ <div class="container">
+  <a class="navbar-brand fw-bold text-warning d-flex align-items-center" href="/" style="font-size:1.5rem;">
+   <i class="bi bi-lightning-charge-fill me-2" aria-hidden="true"></i>Deal Shopper Pro
+  </a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+  <div id="navbarNav" class="collapse navbar-collapse">
+   <ul class="navbar-nav ms-auto">
+    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+    <li class="nav-item"><a class="nav-link" href="/how-it-works.html">How It Works</a></li>
+    <li class="nav-item"><a class="nav-link active" href="/lightning-deals.html">Lightning Deals</a></li>
+    <li class="nav-item"><a class="nav-link" href="/prime-only-deals.html">Prime‑Only Deals</a></li>
+    <li class="nav-item"><a class="nav-link" href="/best-deals-today.html">Best Deals Today</a></li>
+    <li class="nav-item"><a class="nav-link" href="/help.html">Help</a></li>
+    <li class="nav-item"><a class="nav-link" href="/media.html">Media</a></li>
+     <li class="nav-item"><a class="nav-link" href="/sitemap.html">Sitemap</a></li>
+    <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
+   </ul>
   </div>
-</div>
-</div>
-</div>
-</header>
+ </div>
+</nav>
 
 
+<main class="container my-5" style="max-width:800px">
+ <nav aria-label="Breadcrumb" class="mb-3">
+  <ol class="breadcrumb mb-3">
+   <li class="breadcrumb-item"><a href="/">Home</a></li>
+   <li class="breadcrumb-item active" aria-current="page">Lightning Deals</li>
+  </ol>
+ </nav>
 
+ <h1 class="mb-3">How to Find Lightning Deals on Amazon</h1>
+ <p class="lead mb-3">Find Amazon Lightning Deals fast—filter by price, rating & discount.</p>
 
+ <h2 class="h5 mt-4 mb-3" id="find-lightning-deals">3 Ways to Find Lightning Deals</h2>
+ <ol class="mb-4" style="line-height:1.6;font-size:1rem">
+  <li><a href="#option1"><strong>View All Lightning Deals</strong></a></li>
+  <li><a href="#option2"><strong>Quick Lightning Deals Search</strong></a></li>
+  <li><a href="#option3"><strong>Detailed Step‑by‑Step Guide</strong></a></li>
+ </ol>
 
+ <div class="ratio ratio-16x9 my-4" role="region" aria-labelledby="videoTitle">
+  <h2 id="videoTitle" class="visually-hidden">Lightning Deals Filter Demo</h2>
+  <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/wpj1l1XUunw" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border:none" title="How to Filter Lightning Deals on Amazon in 30 Seconds"></iframe>
+ </div>
 
-
-    <section class="privacy-banner" role="note" aria-labelledby="privacy-heading" style="
-  background-color: #FFF8E1;
-  border: 1px solid #FFECB3;
-  border-radius: 12px;
-  padding: 1.5rem 1.5rem 1.25rem;
-  margin: 2rem auto;
-  max-width: 850px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-">
-  <div class="privacy-banner__graphic" style="flex-shrink: 0;">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="height: 32px; width: 32px; fill: #FFB300;" aria-hidden="true">
-      <path d="M12 2L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-3zm-1 9h2v2h-2zm0-4h2v2h-2z"/>
-    </svg>
+ <section id="option1">
+  <h3 class="mt-4 mb-3">Option 1: View All Lightning Deals</h3>
+  <div class="card mb-4">
+   <div class="card-body text-center">
+    <a class="btn btn-outline-secondary" href="https://www.amazon.com/gp/goldbox?dealType=lightningDeals&amp;tag=dealshopperpr-20&amp;ref_=nav_topnav_deals" target="_blank" rel="sponsored noopener noreferrer">
+     <i class="bi bi-star-fill" aria-hidden="true"></i> View All Lightning Deals
+    </a>
+   </div>
   </div>
-  <div class="privacy-banner__body" style="flex-grow: 1;">
-    <h2 id="privacy-heading" class="privacy-banner__heading" style="
-      font-weight: 700;
-      font-size: 1.25rem;
-      color: #5D4037;
-      margin-bottom: 0.5rem;
-    ">Your Privacy Matters</h2>
-    <p style="margin: 0; font-size: 0.95rem; color: #333;">
-      We do <strong>not</strong> collect, store, or track any personal information—ever.
-      There is no login, no signup, and no tracking cookies on this site.
-      All searches are processed <strong>client-side</strong> and securely redirected to Amazon.
-    </p>
+ </section>
+
+ <section id="option2">
+  <h3 class="mb-3">Option 2: Fast Lightning Deals Search</h3>
+  <div class="card mb-4">
+   <div class="card-body text-center">
+    <form id="lightning-search-form" class="row g-2 justify-content-center align-items-end">
+     <div class="col-sm-6"><input class="form-control" id="q-lightning" name="q" placeholder="Search term (e.g. headphones)" required type="text" aria-label="Search term"></div>
+     <div class="col-sm-3"><input class="form-control" id="low-lightning" name="low-price" placeholder="Min" type="number" aria-label="Minimum price"></div>
+     <div class="col-sm-3"><input class="form-control" id="high-lightning" name="high-price" placeholder="Max" type="number" aria-label="Maximum price"></div>
+     <div class="col-12 text-center"><button class="btn btn-primary" type="submit">Search Lightning Deals</button></div>
+    </form>
+   </div>
+  </div>
+ </section>
+
+ <section id="option3">
+  <h2 class="mb-3">Option 3: Advanced Lightning Deals Search — Detailed Step-by-Step Guide</h2>
+
+  <div class="card mb-5 mx-auto" style="max-width:800px">
+    <div class="card-body" style="font-size:1rem;line-height:1.6">
+      <strong id="option3-step1">Step 1:</strong> Enter a product name<br>
+      <img src="enter-amazon-search-keyword.png"
+           class="img-fluid my-2 zoom-trigger"
+           alt="Enter product keyword"
+           width="800" height="450" loading="lazy">
+
+      <strong id="option3-step2">Step 2 – 4:</strong> Apply filters<br>
+      <img src="apply-amazon-filters-price-rating.png"
+           class="img-fluid my-2 zoom-trigger"
+           alt="Apply a minimum and maximum price range"
+           width="800" height="450" loading="lazy">
+     <img src="refine-by-rating-discount-sort-order.png"
+           class="img-fluid my-2 zoom-trigger"
+           alt="Filter results by % off, minimum rating and sort order."
+           width="800" height="450" loading="lazy">
+     <img src="filter-amazon-deals-by-brand-name.png"
+           class="img-fluid my-2 zoom-trigger"
+           alt="Filter results by specific brands only"
+           width="800" height="450" loading="lazy">
+
+      <strong id="option3-step3">Step 5:</strong> Check the <em>Lightning Deals</em> box<br>
+      <img src="check-lightning-deals-box.png"
+           class="img-fluid my-2 zoom-trigger"
+           alt="Check the Lightning Deals box"
+           width="800" height="450" loading="lazy">
+
+      <strong id="option3-step4">Step 6:</strong> Click <em>View Filtered Results</em><br>
+      <img src="click-view-filtered-results-button.png"
+           class="img-fluid my-2 zoom-trigger"
+           alt="View your filtered results on Amazon"
+           width="800" height="450" loading="lazy">
+    </div>
+  </div>
+  <div class="text-center my-4">
+    <a href="/#amazon-search-form"
+       class="btn btn-primary btn-lg shadow-sm"
+       style="font-weight:600;border:none;"
+       aria-label="Try the advanced Lightning-Deals search on Deal Shopper Pro">
+      Try the Advanced Lightning-Deals Search 🔍
+    </a>
   </div>
 </section>
+ <section id="faq">
+  <h2 class="mb-3">Frequently Asked Questions</h2>
+  <h4 id="faq-lightning">How do I find Lightning Deals on Amazon?</h4><p class="mb-3">Use our quick search or advanced filters to surface active Lightning Deals instantly.</p>
+  <h4 id="faq-discount">Can I filter by discount percentage?</h4><p class="mb-3">Yes—set your minimum discount to view only items above that threshold.</p>
+  <h4 id="faq-no-deals">What if no Lightning Deals are active?</h4><p class="mb-3">Amazon may default to regular deals; refresh later or broaden your search parameters.</p>
+ </section>
 
-
-      <!-- INTRODUCTION TEXT -->
-     <div style="text-align: center; margin: 2rem auto; max-width: 600px;">
-  <p class="hero-subtitle" style="font-size: 1.1rem;">
-    <span style="font-size: 1.5rem;" aria-hidden="true">👋</span>
-    <strong>Goodbye endless scrolling—find exactly what you need in 5 steps.</strong>
-  </p>
-  <p>
-    <strong class="hero-cta text-pulse">Start With Step 1 Below</strong>
-  </p>
+<div class="text-center my-4">
+<h2 class="h5">📲 Share with Friends</h2>
+<p class="text-muted">Send this to someone who needs smarter Amazon filters:</p>
+<div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
+<!-- WhatsApp -->
+<a class="btn btn-success" href="https://wa.me/?text=https://www.dealshopperpro.com" target="_blank">WhatsApp</a>
+<!-- Messenger -->
+<a class="btn btn-primary" href="fb-messenger://share?link=https://www.dealshopperpro.com" target="_blank">Messenger</a>
+<!-- SMS -->
+<a class="btn btn-secondary" href="sms:?body=Check%20out%20this%20free%20Amazon%20deal%20filter:%20https://www.dealshopperpro.com" target="_blank">Text Message</a>
+<!-- Twitter -->
+<a class="btn btn-info" href="https://twitter.com/intent/tweet?text=Smarter%20Amazon%20shopping%20starts%20here:%20https://www.dealshopperpro.com" target="_blank">Twitter / X</a>
+<!-- Facebook -->
+<a class="btn btn-primary" href="https://www.facebook.com/sharer/sharer.php?u=https://www.dealshopperpro.com" target="_blank">Facebook</a>
+<!-- Copy Link -->
+<button class="btn btn-dark" data-link="https://www.dealshopperpro.com" id="copyLinkBtn">Copy Page Link</button>
 </div>
-
-      <!-- AMAZON SEARCH FORM -->
-<!-- START OF AMAZON-COMPLIANT SEARCH GUIDE -->
-<section class="container py-4">
-  <h2 class="fw-bold text-primary mb-4" style="font-size: 1.5rem;"><i class="fas fa-filter me-2 text-success"></i>Advanced Search Filters for Amazon</h2>
-
-  <!-- Step 1 -->
-  <div class="mb-4">
-    <h5 class="fw-bold">✅ Step 1: Enter Your Search</h5>
-    <p>Type a product name, keyword, ASIN, or other identifying info below:</p>
-    <div class="input-group shadow-sm">
-      <span class="input-group-text">🔍</span>
-      <input class="form-control" type="text" placeholder="e.g. wireless headphones" name="q">
-    </div>
-  </div>
-
-  <!-- Step 2 -->
-  <div class="mb-4">
-    <h5 class="fw-bold">✅ Step 2: Choose a Price Range</h5>
-    <p>Filter your results by setting a minimum and maximum price.</p>
-    <div class="row g-2">
-      <div class="col">
-        <label class="form-label">Min Price ($)</label>
-        <input class="form-control" type="number" placeholder="Min" name="min-price">
-      </div>
-      <div class="col">
-        <label class="form-label">Max Price ($)</label>
-        <input class="form-control" type="number" placeholder="Max" name="max-price">
-      </div>
-    </div>
-  </div>
-
-  <!-- Step 3 -->
-  <div class="mb-4">
-    <h5 class="fw-bold">✅ Step 3: Filter by Ratings & Sort</h5>
-    <p>Refine by minimum star rating and sort preferences.</p>
-    <div class="row g-2">
-      <div class="col-md-6">
-        <label class="form-label">Minimum Rating</label>
-        <select class="form-select" name="min-rating">
-          <option value="">Any</option>
-          <option value="4">4 Stars & Up</option>
-          <option value="3">3 Stars & Up</option>
-        </select>
-      </div>
-      <div class="col-md-6">
-        <label class="form-label">Sort By</label>
-        <select class="form-select" name="sort">
-          <option value="relevance">Relevance</option>
-          <option value="price-asc-rank">Price: Low to High</option>
-          <option value="price-desc-rank">Price: High to Low</option>
-          <option value="review-rank">Customer Reviews</option>
-        </select>
-      </div>
-    </div>
-  </div>
-
-  <!-- Step 4 -->
-  <div class="mb-4">
-    <h5 class="fw-bold">✅ Step 4: Optional Brand Filter</h5>
-    <p>Only show listings from selected brands (optional):</p>
-    <input class="form-control" type="text" placeholder="e.g. Sony, Bose" name="brands">
-  </div>
-
-  <!-- Step 5 -->
-  <div class="mb-4">
-    <h5 class="fw-bold">✅ Step 5: Add Extra Preferences</h5>
-    <p>Apply optional preferences to tailor your results:</p>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="prime-only" id="primeOnly">
-      <label class="form-check-label" for="primeOnly">Amazon Prime Eligible</label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="deals-only" id="dealsOnly">
-      <label class="form-check-label" for="dealsOnly">Show Active Deals</label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="eco-friendly" id="ecoFriendly">
-      <label class="form-check-label" for="ecoFriendly">Eco-Conscious Shipping</label>
-    </div>
-  </div>
-
-  <!-- Step 6 -->
-  <div class="mb-4">
-    <h5 class="fw-bold">✅ Step 6: Begin Your Search</h5>
-    <p>Click below to view your results directly on Amazon.</p>
-    <button class="btn btn-primary fw-semibold px-4 py-2" type="submit">🔎 Search Now</button>
-    <p class="text-muted mt-2" style="font-size: 0.9rem;">Note: Too many filters may limit results. Adjust if needed.</p>
-  </div>
-
-  <!-- Optional Step 7 -->
- <div class="mb-4">
-  <h5 class="fw-bold">🔧 Optional: Advanced Search Preferences</h5>
-  <p style="font-size: 0.9rem;">These optional settings help refine how you structure your search inputs. Experimental and customization tools are in development—stay tuned!</p>
 </div>
-
-<h3 class="mb-2">Advanced Input Options</h3>
-<div class="card p-3 mb-4 shadow-sm rounded" style="background-color: #fdfdfd; border: 1px solid #ddd;">
-  <hr/>
-  <div class="form-check mb-2">
-    <input aria-label="Enable Advanced Search Syntax" class="form-check-input" id="enableBoolean" name="enable-boolean" type="checkbox"/>
-    <label class="form-check-label fw-semibold" for="enableBoolean" style="font-size: 0.95rem;">Use Advanced Search Syntax</label>
-  </div>
-  <div class="mb-2">
-    <label class="form-label fw-semibold" for="fieldFilters" style="font-size: 0.95rem;">Structured Search Fields (Beta)</label>
-    <input aria-label="Structured Search Input" class="form-control" id="fieldFilters" name="field-filters" placeholder="e.g. brand:Sony" type="text"/>
-  </div>
-  <div class="mb-4">
-    <label class="form-label fw-semibold" for="directLookup" style="font-size: 0.95rem;">Direct Product Identifier</label>
-    <input aria-label="Search by product code" class="form-control" id="directLookup" name="direct-lookup" placeholder="ASIN, ISBN or UPC" type="text"/>
-  </div>
-</div>
-
-<h3 class="mb-2">Experimental Search Insights</h3>
-<div class="card p-3 mb-4 shadow-sm rounded" style="background-color: #fdfdfd; border: 1px solid #ddd;">
-  <p class="text-muted mb-2"><em>Early concepts we're testing for enhanced personalization and search refinement:</em></p>
-
-  <div class="form-check mb-2">
-    <input class="form-check-input" disabled type="checkbox"/>
-    <label class="form-check-label fw-semibold" style="font-size: 0.95rem;">Historical Price Comparison (Coming Soon)</label>
-  </div>
-
-  <div class="form-check mb-2">
-    <input class="form-check-input" disabled type="checkbox"/>
-    <label class="form-check-label fw-semibold" style="font-size: 0.95rem;">Coupon Visibility Toggle (Coming Soon)</label>
-  </div>
-
-  <div class="form-check mb-2">
-    <input class="form-check-input" disabled type="checkbox"/>
-    <label class="form-check-label fw-semibold" style="font-size: 0.95rem;">Refurbished Items Explorer (Coming Soon)</label>
-  </div>
-
-  <div class="row g-3 mt-3">
-    <div class="col-md-6">
-      <label class="form-label fw-semibold" style="font-size: 0.95rem;">Custom Variation Tracker (Prototype)</label>
-      <input class="form-control" placeholder="e.g. size:large" type="text" disabled/>
-    </div>
-    <div class="col-md-6">
-      <label class="form-label fw-semibold" style="font-size: 0.95rem;">Price Fluctuation Range (Coming Soon)</label>
-      <input class="form-control" placeholder="e.g. +/- 5%" type="text" disabled/>
-    </div>
-  </div>
-</div>
-
-<h3 class="mb-2">Coming Enhancements</h3>
-<div class="card p-3 mb-4 shadow-sm rounded" style="background-color: #fdfdfd; border: 1px solid #ddd;">
-  <ul style="padding-left: 1.2rem;">
-    <li>🔍 Personalized Suggestions (In Progress)</li>
-    <li>🎤 Voice-Driven Search Interface (Coming Soon)</li>
-    <li>👓 Visual Filtering Tools (Coming Soon)</li>
-    <li>🌱 Lifestyle-Based Preferences (Coming Soon)</li>
-  </ul>
-</div>
-
-
-      <h4 class="mb-2 text-center">Search Amazon</h4>
-      <p class="text-muted mb-3 text-center">Click below to run your current filter settings without scrolling.</p>
-      <div class="d-grid gap-2 col-6 mx-auto mb-3">
-        <button id="quick-search" type="button" class="btn btn-warning btn-lg" onclick="window.scrollTo(0, 0);" aria-label="Quick Search Amazon (no scroll)">
-          🔍 Search Amazon
-        </button>
-        <p class="text-warning mt-3 fw-bold">Too many filters may return no results.</p>
-      </div>
-
-      <h5 class="text-center mt-5">🛡️ Your Privacy & Next Steps</h5>
-      <p class="text-muted text-center">
-        We never collect or store personal data—period. There’s no login, no tracking cookies, and no sign-ups. All searches run client-side and redirect securely to Amazon.
-      </p>
-      <p class="text-center">
-        Want to learn more? Visit our <a href="help.html#about-amazon-super-search" class="fw-semibold">Help page</a> for step-by-step tutorials, or check out our <a href="media.html" class="fw-semibold">Media page</a> for video demos and user testimonials.
-      </p>
-
-      <h5 class="text-center mt-4">🚀 Share With Friends</h5>
-      <p class="text-center text-muted">Know someone who loves Amazon deals? Let them in on the secret.</p>
-      <div class="d-flex justify-content-center gap-3 flex-wrap mb-4">
-        <a class="btn btn-light border" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.dealshopperpro.com%2F" target="_blank" rel="noopener" aria-label="Share on Facebook">Share on Facebook</a>
-        <a class="btn btn-light border" href="https://twitter.com/intent/tweet?text=Find%20better%20Amazon%20deals%20with%20this%20tool:&url=https%3A%2F%2Fwww.dealshopperpro.com%2F" target="_blank" rel="noopener" aria-label="Share on Twitter">Share on Twitter</a>
-        <a class="btn btn-light border" href="mailto:?subject=Amazon%20Super%20Search&body=Find%20better%20Amazon%20deals%20with%20this%20tool:%20https%3A%2F%2Fwww.dealshopperpro.com%2F" aria-label="Share via Email">Share via Email</a>
-        <a class="btn btn-light border" href="sms://?&body=Find%20better%20Amazon%20deals%20with%20this%20tool:%20https%3A%2F%2Fwww.dealshopperpro.com%2F" aria-label="Share via Text">Share via Text</a>
-        <button class="btn btn-light border copy-link-btn" type="button" data-url="https://www.dealshopperpro.com/" aria-label="Copy page link">📋 Copy Page Link</button>
-      </div>
-
-      <p class="text-center text-muted small" style="max-width: 600px; margin: 0 auto;">
-        <em>Disclaimer:</em> Deal Shopper Pro is an independent tool and is <strong>not affiliated with Amazon.com, Inc.</strong> or its subsidiaries.<br>
-        As an Amazon Associate, we earn from qualifying purchases — this supports our free service.
-      </p>
-      <p class="text-center text-muted small">
-        Discover top Amazon deals with advanced filters for Lightning Deals, Prime-eligible items, in-stock products, and hidden coupons.
-      </p>
-    </div>
   </main>
-
- <!-- ——————————— SITE-WIDE FOOTER ——————————— -->
-
 <footer>
   <div class="footer-container" style="text-align: center; padding: 2rem; font-size: 0.9rem; color: #555;">
     <p><strong>Disclaimer:</strong> Deal Shopper Pro is an independent tool and is not affiliated with Amazon.com, Inc. or its subsidiaries.<br>
-    As an Amazon Associate, we earn from qualifying purchases — this supports our free service.</p>
+    As an Amazon Associate, we earn from qualifying purchases — this supports our free service.<br>
+    <small>Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates.</small></p>
 
     <p>Discover top Amazon deals with advanced filters for Lightning Deals, Prime-eligible items, in-stock products, and hidden coupons.</p>
 
@@ -483,21 +230,20 @@
     </script>
   </div>
 </footer>
-<!-- === BOOTSTRAP JS BUNDLE === -->
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"
-  integrity="sha512-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyz4dIi2d8zs0UgnPmO5XY+tO5iqY5Nkg1kg9pmw=="
-  crossorigin="anonymous"
-  defer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+
+<script>
+document.getElementById('lightning-search-form')?.addEventListener('submit', function(e){
+ e.preventDefault();
+ const q=this.q.value.trim(), low=this['low-price'].value, high=this['high-price'].value;
+ if(!q){alert('Enter a search term.');return;}
+ let url='https://www.amazon.com/s?i=lightning-deals&k='+encodeURIComponent(q)+'&eligibleLightningDeals=1';
+ if(low)  url+='&low-price='+encodeURIComponent(low);
+ if(high) url+='&high-price='+encodeURIComponent(high);
+ url+='&ref_=nav_topnav_deals&tag=dealshopperpr-20';
+ window.open(url,'_blank','noopener');
+});
 </script>
-
-<!-- Main search logic (external) -->
-<script src="search-logic.js" defer></script>
-
-<!-- Voice‐search handler -->
-<script>…</script>
-
-<!-- Click sound playback on interactions -->
-<script>…</script>
 </body>
 </html>
